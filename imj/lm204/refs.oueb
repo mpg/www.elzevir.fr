@@ -1,0 +1,65 @@
+/lm204/refs
+
+<!-- BEGIN meta -->
+title:	LM204 -- références
+descr:	Documents de référence pour le LM204
+keyw:	LM204, latex, références
+h1:	Références
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Documents de références pour le cours. Les trois principaux auxquel il est fait
+référence dans la [progression][] sont signalés par une étiquette entre
+crochets.
+
+[progression]: prog.html
+
+## Livres
+
+Les deux livres recommandés, proches du programme du cours, sont :
+
+- **[LPI]** _LaTeX pour l'impatient_, C. Chevalier et W. Appel, éditions H&K
+  ([amazon][amlpi])
+- **[B&C]** _LaTeX, cours et exercices_, D. Bitouzé et J.-C. Charpentier,
+  éditions Pearson ([amazon][amdb])
+
+En complément pour approfondir ou pour plus tard, vous pouvez consulter :
+
+- _LaTeX Companion_, F. Mittelbach et M. Goossens, Pearson ([amazon][amlc2])
+
+[amlpi]: http://www.amazon.fr/LaTeX-pour-limpatient-C%C3%A9line-Chevalier/dp/2351410424
+[amdb]: http://www.amazon.fr/Latex-Synth%C3%A8se-Exercices-corrig%C3%A9s-1C%C3%A9d%C3%A9rom/dp/2744071870
+[amlc2]: http://www.amazon.fr/Latex-Companion-1DVD-Frank-Mittelbach/dp/274407182X
+
+## Introductions en ligne
+
+- **[TCQ]** _[Tout ce que vous avez toujours voulu savoir sur LaTeX][enise]_ par
+  V. Lozano. Aussi disponible imprimé ([amazon][amenise]).
+- _[Une courte (?) introduction à LaTeX][flshort]_ par T. Oetiker, trad.
+  M. Herrb. La [version originale][lshort] (anglaise) est plus à jour.
+
+[enise]: http://lozzone.free.fr/index.php?vlunch=latex
+[amenise]: http://www.amazon.fr/Toujours-Voulu-Savoir-Jamais-Demander/dp/2352091497
+[flshort]: http://mirror.ctan.org/info/lshort/french/lshort-fr.pdf
+[lshort]: http://mirror.ctan.org/info/lshort/english/lshort.pdf
+
+## Foires aux questions
+
+Deux FAQ francophones sont disponibles : [une ancienne][grappa] au format html
+et une [moins ancienne][ffeo] en pdf. 
+
+La [FAQ anglophone][faquk] reste la plus à jour (utiliser la case google pour
+vos recherches). Elle est accompagnée d'un [guide visuel][visualfaq] bien
+pratique.
+
+[grappa]: http://www.grappa.univ-lille3.fr/FAQ-LaTeX/
+[ffeo]: http://faqfctt.fr.eu.org/
+[faquk]: http://www.tex.ac.uk/faq
+[visualfaq]: http://mirror.ctan.org/info/visualFAQ/visualFAQ.pdf
+
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

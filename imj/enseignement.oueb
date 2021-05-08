@@ -1,0 +1,107 @@
+/enseignement
+
+<!-- BEGIN meta -->
+title:	Enseignement -- mpg
+descr:	Page enseignement de Manuel Pégourié-Gonnard
+keyw:	mathématiques, enseignement, monitorat, latex
+h1:	Enseignement
+<!-- END meta -->
+
+<!-- BEGIN content -->
+## 2012-2013
+
+Professeur au lycée polyvalent [Jean-Jacques Rousseau Sarcelles][jjr] :
+classes de seconde, première S et première STMG.
+
+Vacataire à l'[ESIEA][] : cours-TD d'analyse réelle en une variable (étude
+locale, intégration) et TD-TP « conception et analyse d'algorithmes ;
+programmation en C ».
+
+[jjr]: http://www.lyc-rousseau-sarcelles.ac-versailles.fr/
+[ESIEA]: http://www.esiea.fr/
+
+## 2011—2012, ATER à l'[université d'Évry Val d'Essonne][evry]
+
+Cours magistraux et travaux dirigés des deux modules d'algèbre en troisième
+année de licence de mathématiques : [M54 « algèbre et
+arithmétique 2 »][m54] au premier semestre , [M63 « algèbre et
+géométrie »][m63] au second.
+
+[evry]: http://www.univ-evry.fr/fr/
+[m54]: m54/
+[m63]: m63/
+
+## 2010—2011, ATER à l'[ENSIIE][]
+
+À l'ENSIEE : travaux dirigés du module MOM « optimisation mathématique » en
+première année d'école, cours d'Alain Faye. En complément de service, à
+l'université d'Évry, travaux dirigés d'algèbres en L2 et L3.
+
+[ENSIIE]: http://www.ensiie.fr/
+
+## 2009—2010, ATER à l'[université d'Évry][evry]
+
+[bayad]: http://www.maths.univ-evry.fr/pages_perso/bayad/
+
+Travaux dirigés des modules [M33 « théorie des groupes et arithmétique »][M33]
+et [M44 « algèbre linéaire et applications »][M44] (Licence 2) ; [M54 «
+arithmétique et algèbre commutative »][M54] et [M66 « algèbre bilinéaire et
+géométries »][M66] (Licence 3), sur des cours magistraux d'[Abdelajim
+Bayad][bayad].
+
+[m33]: m33/
+[m54]: m54/09-10/
+[m44]: m44/
+[m66]: m63/09-10/
+
+## 2008—2009, ATER à l'[UPMC][]
+
+Module [LM204 « apprentissage et pratique de LaTeX »][lm204], deuxième année de
+la licence math-info.  Responsable des cours-TP des deux groupes,
+télé-enseignement et rédaction d'un [polycopié de cours][poly].
+
+[lm204]: lm204/
+[poly]: lm204/files/cours.pdf
+[UPMC]: http://www.upmc.fr/
+
+## 2005—2008, moniteur à l'[UPMC][]
+
+[lm110]: lm110/
+[lm220]: lm220/
+[lm223]: lm223/
+
+**2007—2008** :
+Module [LM110 « fonctions »][lm110], première année de la licence math. Un
+groupe et demi de TD avec [Nicolas Billerey][] ; amphis de [Sami Mustapha][] et
+[Antoine Rauzy][].
+
+[Nicolas Billerey]: http://math.univ-bpclermont.fr/~billerey/
+[Sami Mustapha]: http://www.math.jussieu.fr/~sam/
+[Antoine Rauzy]: http://www.math.jussieu.fr/~rauzy/
+
+**2006—2007** :
+Module [LM220 « arithmétique »][lm220], deuxième année de la licence math. Un
+groupe et demi de TD avec [Nicolas Billerey][] ; amphi d'[Alain Kraus][].
+
+[Alain Kraus]: http://www.math.jussieu.fr/~kraus/
+
+**2005—2006** :
+Module [LM223 « formes quadratique »][lm223], deuxième année de la licence
+math-info. Un groupe et demi de TD avec [Nicolas Billerey][] ; amphi de [Jan
+Nekovář][].
+
+[Jan Nekovář]: http://www.math.jussieu.fr/~nekovar/
+
+## 2007—2009, formateur au CIES Jussieu
+
+[Formations LaTeX][] pour doctorants de différentes disciplines scientifiques,
+en séries de 4 à 9h.  Niveaux « débutant rapide » et « avancé  ».
+
+
+[Formations LaTeX]: latex/cies.html
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

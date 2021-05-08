@@ -1,0 +1,62 @@
+/resp
+
+<!-- BEGIN meta -->
+title:	Responsabilites -- mpg
+descr:	Page responsabilités de Manuel Pégourié-Gonnard
+keyw:	responsabilités, bdd, texlive, ludi
+h1:	Responsabilités
+<!-- END meta -->
+
+<!-- BEGIN content -->
+## Logiciel libre et vie associative
+
+**Membre de l'équipe [TeX Live][]** depuis avril 2008. Développement et
+maintenance de l'infrastructure et d'outils utilisateurs, en particulier
+[texdoc][].
+
+**Développeur (La)TeX** : auteur ou mainteneur de quelques [paquets sur le
+CTAN][ctan]. Domaine d'intérêt actuel : [LuaLaTeX] (profiter de [LuaTeX] depuis
+LaTeX).
+
+**Membre du CA et sysadmin** de [GUTenberg][gut], le groupe francophone
+d'utilisateurs de (La)TeX.
+
+[TeX Live]: http://tug.org/texlive/
+[texdoc]: http://tug.org/texdoc/
+[ctan]: http://ctan.org/author/gonnard
+[LuaLaTeX]: http://tug.org/mailman/listinfo/lualatex-dev/
+[LuaTeX]: http://luatex.org/
+[gut]: http://www.gutenberg.eu.org/
+
+## Anciennement — milieu universitaire
+
+**Bureau des doctorants de l'IMJ** : de l'été 2007 à l'été 2009, responsable
+informatique, avec [Benjamin Collas][collas]. Gestion des ressources, aide
+utilisateurs, maintien des [pages web][thesards] et du [répertoire des
+thèses][theses], lien avec l'équipe et la commission informatiques.
+
+**Responsable du module** [LM204 LaTeX][lm204], l'année de sa création.
+Cours-TP des deux groupes d'étudiants, télé-enseignement, rédaction d'un
+polycopié de cours.
+
+[collas]: http://collas.perso.math.cnrs.fr/
+[thesards]: http://www.institut.math.jussieu.fr/thesards/site/
+[theses]: http://www.institut.math.jussieu.fr/theses/
+[lm204]: lm204/
+
+## Anciennement — vie associative
+
+**Webmaster et membre du CA** de la [LUDI-IDF][], année 2008-2009.  Entièrement
+refait le [site public][LUDI-IDF] en liaison avec l'interface de gestion
+interne. En charge des relations avec les universités Paris 6 et
+Paris 7. Ayant quitté le CA, je continue néanmoins d'aider les webmaster,
+principalement en administrant le [serveur de développement][ludiweb].
+
+[LUDI-IDF]: http://www.ludi-idf.com/
+[ludiweb]: https://ludiweb.elzevir.fr/
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

@@ -1,0 +1,191 @@
+\documentclass[11pt, twoside]{article}
+
+% Copyright 2006 Nicolas Billerey et Manuel Pégourié-Gonnard
+% ce source est sous licence GNU/FDL (http://www.gnu.org/licenses/fdl.txt)
+% la licence vous autorise à utiliser et/ou distribuer des version modifiées ou non
+% à condition de conserver la même licence pour les versions modifiées.
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc} \usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{amssymb, amsmath, amsthm} \usepackage[mathscr]{eucal}
+
+\usepackage[a4paper]{geometry}
+
+\newcommand{\pmm}[1]{\ \text{#1}}
+\newcommand{\std}[1]{\mathbf{#1}} \newcommand{\N}{\std{N}} \newcommand{\Z}{\std{Z}}
+\newcommand{\Q}{\std{Q}} \newcommand{\R}{\std{R}} \newcommand{\C}{\std{C}} \newcommand{\F}{\std{F}}
+\newcommand{\I}[1][]{\std{I}_{#1}} \newcommand{\ind}[1]{\std{1}_{#1}}
+\renewcommand{\ge}{\geqslant} \renewcommand{\le}{\leqslant}
+\newcommand{\eps}{\varepsilon} \newcommand{\truc}{\,\cdot\,}
+\newcommand*{\modulo}[1]{\text{ mod }#1}
+\newcommand{\gm}{^\times}
+
+
+\def\pgcd{\textrm{pgcd}}
+\def\nota{\noindent{\it Notation. }}
+\def\rmq{\noindent{\it Remarque. }}
+
+
+\newcommand{\indic}[1]{(\emph{Indication} : #1.)}
+
+\newcounter{question}[section]
+\renewcommand{\thequestion}{\thesection.\arabic{question}}
+\newcommand{\question}{%
+ \refstepcounter{question}%
+ \medskip\noindent\textbf{\thequestion}\quad}
+\newcounter{subquestion}[question]
+\renewcommand{\thesubquestion}{\thequestion.\arabic{subquestion}}
+\newcommand{\subquestion}{%
+ \refstepcounter{subquestion}%
+ \medskip\noindent\textbf{\thesubquestion}\quad}
+
+\newenvironment{blabla}
+ {\smallskip\medskip\begingroup\sffamily\slshape}
+ {\endgroup\medskip} 
+
+\title{{\large \textsc{Université Pierre et Marie Curie} 2006--2007}}
+\author{LM220 Maths-Info groupes 1, 2 et 5}
+\date{Devoir maison \no2}
+
+\begin{document}
+\maketitle
+
+\begin{blabla}
+L'objectif du devoir est d'énoncer et de démontrer deux critères d'irréductibilité dans $\Q\left[X\right]$  pour les polynômes de $\Z\left[X\right]$.
+\end{blabla}
+
+		\section{Lemme de Gauss}
+		
+
+\nota Soit $P=a_0+\cdots+a_nX^n$ un polynôme non nul de $\Z\left[X\right]$. On définit le \emph{contenu} de $P$, noté $c(P)$, par
+\begin{equation*}
+ c(P)=\pgcd(a_0,\dots,a_n).
+\end{equation*}
+ Le polynôme $P$ est dit \emph{primitif} si $c(P)=1$. 
+
+\begin{blabla}
+Si $P=a_0+\cdots+a_nX^n$ et $Q=b_0+\cdots+b_mX^m$ sont deux polynômes non nuls de $\Z\left[X\right]$, on se propose de montrer que 
+\begin{equation}\label{eq:lemmedeGauss}
+ c(PQ)=c(P)c(Q).\tag{$\star$} 
+\end{equation}
+\end{blabla}
+
+\question Posons $PQ=\sum_{k\ge 0}c_kX^k$. Exprimer chaque $c_k$ en fonction des coefficients $(a_i)$ et $(b_j)$ de $P$ et $Q$.
+
+\question On suppose, \emph{dans cette question}, les polynômes $P$ et $Q$ primitifs~: ${c(P)=c(Q)=1}$. On souhaite montrer que $c(PQ)=1$. On raisonne par l'absurde en supposant qu'il existe un nombre premier $p$  divisant $c(PQ)$.
+
+\subquestion Montrer qu'il existe $i_0$ et $j_0$ deux entiers $\ge 0$ tels que 
+\begin{equation*}
+\begin{array}{ll}
+ \textrm{pour tout }i<i_0,\textrm{ on a }p\lvert a_i,&  \textrm{ mais }p\not\lvert a_{i_0}, \\
+ \textrm{pour tout }j<j_0,\textrm{ on a }p\lvert b_j,&  \textrm{ mais }p\not\lvert b_{j_0}. \\
+\end{array} 
+\end{equation*}
+\subquestion En remarquant que $p$ divise $c_{i_0+j_0}$, déduire une contradiction \indic{ on montre que $p$ divise $a_{i_0}b_{j_0}$}.
+
+\subquestion En déduire que, si $P$ et $Q$ sont primitifs, alors $c(PQ)=1=c(P)c(Q)$.
+
+\question Montrer qu'il existe $\widetilde{P}$ et $\widetilde{Q}$ deux polynômes primitifs tels que 
+\begin{equation*}
+ P=c(P)\widetilde{P}\quad\textrm{et}\quad Q=c(Q)\widetilde{Q}.
+\end{equation*}
+\question En déduire la relation (\ref{eq:lemmedeGauss}) (lemme de Gauss).
+
+
+		\section{Irréductibilité dans $\Z\left[X\right]$ et $\Q\left[X\right]$}
+\begin{blabla}
+ Soit $P$ un polynôme de $\Z\left[X\right]$. On se propose de démontrer que $P$ est le produit de deux polynômes non constants de $\Z\left[X\right]$ si et seulement si $P$ est le produit de deux polynômes non constants de $\Q\left[X\right]$.
+\end{blabla}
+
+On suppose pour cela que 
+\begin{equation*}
+ P=QR\quad\textrm{avec } Q\textrm{ et }R\textrm{ deux polynômes de }\Q\left[X\right]\textrm{ non constants}.
+\end{equation*}
+\question Soit $m$ le ppcm des dénominateurs des coefficients de $Q$ écrits sous forme de fractions irréductibles.
+
+\subquestion Montrer que $mQ\in\Z\left[X\right]$.
+
+\subquestion Dites pourquoi le polynôme 
+\begin{equation*}
+ \widetilde{Q}=\frac{m}{c(mQ)}Q
+\end{equation*}
+est un polynôme primitif de $\Z\left[X\right]$.
+
+\subquestion Montrer que $m$ et $c(mQ)$ sont premiers entre eux.
+
+\question On écrit de même 
+\begin{equation*}
+ R=\frac{c(m'R)}{m'}\widetilde{R},\quad\textrm{avec }\widetilde{R}\textrm{ primitif}.
+\end{equation*}
+Les entiers $m'$ et $c(m'R)$ sont premiers entre eux.
+Démontrer la relation suivante
+\begin{equation*}
+ mm'c(P)=c(mQ)c(m'R).
+\end{equation*}
+\question En déduire que $\frac{mQ}{m'}$ et $\frac{m'R}{m}$ sont dans $\Z\left[X\right]$.
+
+\question Conclure à l'équivalence annoncée.
+
+\begin{blabla}
+ Dans les parties \ref{s:eisen} et \ref{s:reduc}, $P=a_0+\cdots+a_nX^n$ désigne un polynôme non constant de $\Z\left[X\right]$ et $p$ un nombre premier. Si $a\in\Z$, on note $\overline{a}$ sa réduction modulo $p$. De même, si $A\in\Z\left[X\right]$, on note $\overline{A}$ le polynôme de $\F_p\left[X\right]$ déduit de $A$ par réduction modulo $p$ de ses coefficients. 
+\end{blabla}
+
+		\section{Critère d'Eisenstein}\label{s:eisen}
+On suppose ici que les trois conditions suivantes sont satisfaites~:
+\begin{enumerate}
+ \item on a $p\not\lvert a_n$,
+\item pour tout $0\le i\le n-1$, on a $p\lvert a_i$,
+\item  on a $p^2\not\lvert a_0$.
+\end{enumerate}
+On va montrer que, sous ces hypothèses, le polynôme $P$ est irréductible dans $\Q\left[X\right]$. On raisonne par l'absurde en supposant que 
+\begin{equation*}
+ P=QR\quad\textrm{avec } Q\textrm{ et }R\textrm{ deux polynômes de }\Q\left[X\right]\textrm{ non constants}.
+\end{equation*}
+\question\label{quest:QetRdansZ} Dites pourquoi on peut supposer $Q$ et $R$ à coefficients entiers.
+
+\question On suppose désormais que tel est le cas et on écrit
+\begin{eqnarray*}
+ Q=b_0+\cdots+b_qX^q,&\quad\textrm{avec }b_i\in\Z, \\
+ R=c_0+\cdots+c_rX^r,&\quad\textrm{avec }c_i\in\Z. 
+\end{eqnarray*}
+Montrer que, dans $\F_p\left[X\right]$, on a l'égalité
+\begin{equation*}
+ \overline{a_n}X^n=(\overline{b_0}+\cdots+\overline{b_q}X^q)(\overline{c_0}+\cdots+\overline{c_r}X^r).
+\end{equation*}
+
+\question En déduire que $\overline{b_i}=\overline{0}$ pour $i<q$ et $\overline{c_j}=\overline{0}$ pour $j<r$.
+
+\question Conclure à une contradiction.
+
+\question Montrer, avec le critère précédent, que le polynôme $P=3X^4+15X^2+10$ est irréductible dans $\Q\left[X\right]$.
+
+
+		\section{Réduction modulo $p$}\label{s:reduc}
+
+On suppose dans cette partie que $p$ ne divise pas $a_n$ et que le polynôme 
+\begin{equation*}
+ \overline{P}=\overline{a_0}+\cdots+\overline{a_n}X^n
+\end{equation*}
+est irréductible dans $\F_p\left[X\right]$. 
+
+On va montrer que sous ces hypothèses, le polynôme $P$ est irréductible dans $\Q\left[X\right]$. On raisonne encore par l'absurde. On écrit alors, comme à la question \ref{quest:QetRdansZ}~:
+\begin{equation*}
+ P=QR\quad\textrm{avec } Q\textrm{ et }R\textrm{ deux polynômes non constants de }\Z\left[X\right].
+\end{equation*}
+\question Montrer que $\deg(\overline{Q})=\deg(Q)$ et $\deg(\overline{R})=\deg(R)$.
+
+\question En déduire que $\deg(\overline{Q})=0$ ou $\deg(\overline{R})=0$ et conclure à l'irréductibilité de $P$ dans $\Q\left[X\right]$.
+
+\question Application. Montrer que le polynôme 
+\begin{equation*}
+ P=X^3+462X^2+2433X-67691
+\end{equation*}
+est irréductible dans $\Q\left[X\right]$.
+
+\medskip
+
+\rmq La condition ci-dessus est suffisante mais n'est pas nécessaire. On a vu en exercice que le polynôme $P=X^4+1$ est irréductible dans $\Q\left[X\right]$, mais on peut montrer qu'il est réductible dans $\F_p\left[X\right]$ pour tout nombre premier $p$.
+
+\end{document}
+

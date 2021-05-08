@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" lang="fr-FR" xml:lang="fr" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+ <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+ <link href="../style.css" title="style" rel="stylesheet" type="text/css" />
+ <meta name="author" content="Manuel Pégourié-Gonnard" />
+ <meta http-equiv="content-Language" content="fr" />
+ <title>Bien démarrer en LaTeX -- mpg</title>
+ <meta name="description" content="Comment bien démarrer en LaTeX" />
+ <meta name="keywords" content="latex, tex, débutant, démarrer" />
+</head>
+<body>
+ <div id="page">
+  <div id="header">
+   <div id="t-site">
+    <a href="../">Manuel Pégourié-Gonnard</a>
+   </div>
+   <div id="st-site">
+    <b>Doctorant</b> — <a href="http://www.institut.math.jussieu.fr/">Institut
+    de mathématiques de Jussieu</a><br />
+    <b>Site archivé</b> courant 2013...
+   </div>
+   <hr class="clear" />
+   <ul id="navone">
+    <li><a href="../recherche.html">Recherche</a></li>
+    <li><a href="../enseignement.html">Enseignement</a></li>
+    <li id="navonecur"><a href="./">LaTeX</a></li>
+    <li><a href="../resp.html">Responsabilités</a></li>
+    <li><a href="../vrac.html">En vrac</a></li>
+   </ul>
+  </div>
+  <p id="navtwo">Vous êtes ici : <a href="../">Accueil</a> &gt; <a href=
+  "./">LaTeX</a> &gt; <span id="navtwocur">Bien démarrer</span></p>
+  <div id="content">
+   <h1>Bien démarrer</h1>
+   <h2 id="logicielsutiles">Logiciels utiles</h2>
+   <p>Pour travailler en LaTeX, il vous faut deux éléments&nbsp;: une
+   distribution TeX, et un éditeur de texte orienté LaTeX.</p>
+   <h3 id="distribution">Distribution</h3>
+   <ul>
+    <li>Pour windows&nbsp;: choisissez <a href=
+    "http://www.miktex.org/">MiKTeX</a> ou <a href=
+    "http://tug.org/texlive/">TeX Live</a>. Si vous choisissez MiKTeX,
+    installez aussi <a href="http://pages.cs.wisc.edu/~ghost/">GhostScript</a>
+    (mais vous n'avez pas besoin de GhostView).</li>
+    <li>Pour Mac OS X, installez <a href="http://tug.org/mactex/">MacTeX</a>,
+    et éventuellement les <a href=
+    "http://tug.org/mactex/mactextras.html">MacTeXtras</a>.</li>
+    <li>Pour Linux, installez <a href="http://tug.org/texlive/">TeX Live</a>,
+    soit la <a href="http://tug.org/texlive/acquire.html">version nature</a>
+    soit celle de votre distribution Linux. Si plusieurs paquets sont
+    disponibles, installez au moins ceux dont le nom contient <em>latex</em> ou
+    <em>recommended</em> (ou installez-les tous).</li>
+   </ul>
+   <h3 id="diteur">Éditeur</h3>
+   <ul>
+    <li>Pour windows&nbsp;: <a href=
+    "http://code.google.com/p/texworks/downloads/list">TeXworks</a> (inclus
+    dans TeX Live), <a href="http://www.toolscenter.org/">TeXnicCenter</a>,
+    <a href="http://www.xm1math.net/texmaker/index_fr.html">TeXmaker</a> ou
+    <a href="http://www.latexeditor.org/">LeD</a> (pas libre) voire <a href=
+    "http://www.winedt.com/">WinEDT</a> (shareware).</li>
+    <li>Pour Mac OS X&nbsp;: <a href=
+    "http://code.google.com/p/texworks/downloads/list">TeXworks</a>, TeXshop
+    (tous deux dans MacTeX), iTeXmac, TeXmaker ou Aquamacs (tous trois dans
+    MacTeXtras) ou TextMate (shareware).</li>
+    <li>Pour Linux&nbsp;: TeXworks, Kile ou TeXmaker.</li>
+   </ul>
+   <h2 id="sourceminimal">Source minimal</h2>
+   <p>LaTeX ayant été conçu par un Américain à l'époque où on ne parlait pas
+   beaucoup d'internationalisation, quelques ajustements sont nécessaires pour
+   taper un texte en français. Un source minimal pour le français ressemble
+   à&nbsp;:</p>
+   <pre><code>   \documentclass[a4paper]{article} % papier A4
+   \usepackage[utf8]{inputenc}      % accents dans le source
+   \usepackage[T1]{fontenc}         % accents dans le pdf
+   \usepackage{textcomp}            % symboles complémentaires (euro)
+   \usepackage[frenchb]{babel}      % titres en français
+   \begin{document}
+   Bonjour, monde accentué ! Ça va ?
+   \end{document}
+</code></pre>
+   <p>Selon votre éditeur de texte et la façon dont il est réglé, il vous
+   faudra changer <code>utf8</code> en <code>latin1</code> ou
+   <code>applemac</code> à la ligne 2. À l'inverse, vous pouvez (sauf avec
+   certains éditeurs sous windows) régler votre éditeur sur <code>utf8</code>
+   via son menu <em>outils</em> ou <em>préférences</em>.</p>
+   <h2 id="rfrencesutiles">Références utiles</h2>
+   <h3 id="livres">Livres</h3>
+   <p>Les deux meilleurs livres en français pour apprendre LaTeX sont
+   actuellement&nbsp;:</p>
+   <ul>
+    <li><em>LaTeX pour l'impatient</em>, C.&nbsp;Chevalier et W.&nbsp;Appel,
+    éditions H&amp;K (<a href=
+    "http://www.amazon.fr/LaTeX-pour-limpatient-C%C3%A9line-Chevalier/dp/2351410424">amazon</a>)</li>
+    <li><em>LaTeX, cours et exercices</em>, D.&nbsp;Bitouzé et
+    J.-C.&nbsp;Charpentier, éditions Pearson (<a href=
+    "http://www.amazon.fr/Latex-Synth%C3%A8se-Exercices-corrig%C3%A9s-1C%C3%A9d%C3%A9rom/dp/2744071870">amazon</a>)</li>
+   </ul>
+   <p>Deux références classiques mais un peu vieillies sont les livres de
+   B.&nbsp;Desgraupes et C.&nbsp;Rolland. Une fois assimilés les livres
+   ci-dessus, le livre de référence est le</p>
+   <ul>
+    <li><em>LaTeX Companion</em>, F.&nbsp;Mittelbach et M.&nbsp;Goossens,
+    Pearson (<a href=
+    "http://www.amazon.fr/Latex-Companion-1DVD-Frank-Mittelbach/dp/274407182X">amazon</a>)</li>
+   </ul>
+   <h3 id="documentsenligne">Documents en ligne</h3>
+   <ul>
+    <li><em><a href=
+    "http://www.hivernal.org/static/computing/doc/lshort-fr.fr.html">Une courte
+    (?) introduction à LaTeX</a></em> par T.&nbsp;Oetiker, trad. S.&nbsp;Colin
+    et votre serviteur.</li>
+    <li>Mon <a href="../lm204/files/cours.pdf">polycopié de cours</a> de
+    licence 2 sur LaTeX, et ses <a href="../lm204/files/">fichiers
+    d'accompagnment</a>.</li>
+    <li>Les supports de <a href="http://pgoutet.free.fr/latex/index.html">cours
+    et exercices</a> de Philippe Goutet pour le même cours l'année suivante
+    (plus complets, avec une présentation de TikZ notamment).</li>
+   </ul>
+   <h3 id="foiresauxquestions">Foires aux questions</h3>
+   <p>Deux FAQ francophones sont disponibles&nbsp;: <a href=
+   "http://www.grappa.univ-lille3.fr/FAQ-LaTeX/">une ancienne</a> au format
+   html et une <a href="http://faqfctt.fr.eu.org/">moins ancienne</a> en
+   pdf.</p>
+   <p>La <a href="http://www.tex.ac.uk/faq">FAQ anglophone</a> reste la plus à
+   jour (utiliser la case google pour vos recherches). Elle est accompagnée
+   d'un <a href="http://mirror.ctan.org/info/visualFAQ/visualFAQ.pdf">guide
+   visuel</a> bien pratique.</p>
+   <h2 id="aidehumaineenligne">Aide humaine en ligne</h2>
+   <p>Plusieurs moyens existent pour obtenir de l'aide en ligne sur LaTeX. Les
+   plus recommandés en français sont&nbsp;:</p>
+   <ul>
+    <li>le groupe usenet fr.comp.text.tex, accessible avec un <a href=
+    "http://fr.wikipedia.org/wiki/Lecteur_de_nouvelles">lecteur de
+    nouvelles</a> ou <em>via</em> <a href=
+    "http://groups.google.com/forum/?fromgroups#!forum/fr.comp.text.tex">Google
+    Groups</a> ;</li>
+    <li>la liste de diffusion de <a href=
+    "http://www.gutenberg.eu.org/">GUTenberg</a>, par mail après <a href=
+    "http://gutenberg.eu.org/listes">abonnement</a> ;</li>
+    <li>les sections LaTeX du forum web <a href=
+    "http://forum.mathematex.net/latex-f6/">Mathematex</a>.</li>
+   </ul>
+   <p>En anglais, les principaux lieux pour obtenir de l'aide sont :</p>
+   <ul>
+    <li>le groupe usenet <a href=
+    "http://groups.google.com/forum/?fromgroups#!forum/comp.text.tex">comp.text.tex</a>
+    ;</li>
+    <li>la mailing-list <a href=
+    "http://tug.org/mailman/listinfo/texhax">texhax</a> ;</li>
+    <li>le site <a href="http://tex.stackexchange.com/">TeX du réseau
+    StackExchange</a>.</li>
+   </ul>
+   <h3 id="groupesdutilisateurs">Groupes d'utilisateurs</h3>
+   <p>Si vous devenez un utilisateur régulier de LaTeX, vous pouvez vouloir
+   rejoindre un groupe d'utilisateur pour bénéficier des avantages (DVDs de la
+   collection TeX, publications) mais aussi soutenir le développement de
+   TeX.</p>
+   <ul>
+    <li>Groupe francophone d'utilisateurs&nbsp;: <a href=
+    "http://www.gutenberg.eu.org/">GUTenberg</a>.</li>
+    <li>Groupe international&nbsp;: <a href="http://tug.org/">le TUG</a>.</li>
+   </ul>
+  </div><!-- content -->
+  <div id="sidebar">
+   <h3>Plan : Accueil</h3>
+   <ul>
+    <li><a href="../recherche.html">Recherche</a></li>
+    <li>
+     <a href="../enseignement.html">Enseignement</a>
+     <ul>
+      <li><a href="../m63/">Algèbre (bi)linéaire L3</a></li>
+      <li><a href="../m54/">Algèbre L3</a></li>
+      <li><a href="../m44/">Algèbre linéaire L2</a></li>
+      <li><a href="../m33/">Algèbre L2</a></li>
+      <li><a href="../lm204/">LaTeX L2</a></li>
+      <li><a href="../lm110/">Fonctions L1</a></li>
+      <li><a href="../lm220/">Arithmétique L2</a></li>
+      <li><a href="../lm223/">Formes quadratiques L2</a></li>
+     </ul>
+    </li>
+    <li>
+     <a href="./">LaTeX</a>
+     <ul>
+      <li id="navbarcur">Bien démarrer</li>
+      <li><a href="tips.html">Trucs et astuces</a></li>
+      <li><a href="cies.html">Formations au CIES</a></li>
+      <li><a href="contrib.html">Contributions</a></li>
+      <li><a href="docs/">Documents</a></li>
+      <li><a href="src/">Sources</a></li>
+     </ul>
+    </li>
+    <li><a href="../resp.html">Responsabilités</a></li>
+    <li><a href="../vrac.html">En vrac</a></li>
+   </ul>
+   <h3>À propos</h3>
+   <ul>
+    <li><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>
+    <a href="http://validator.w3.org/check?uri=referer">valide</a>&nbsp;;
+    <abbr title="Cascading Style Sheets">CSS</abbr> <a href=
+    "http://jigsaw.w3.org/css-validator/check/referer">valide</a>.</li>
+    <li class="sep">Dernière édition : 2013-10-03.</li>
+    <li class="sep">Site archivé en 2013.</li>
+    <li class="sep">Auteur : <a class="adresse" href=
+    "m&#x0061;ilto:mpg&#x0040;elzevir.fr">mpg&#x0040;elzevir.fr</a>.</li>
+   </ul>
+  </div><!--sidebar-->
+  <div id="footer"></div>
+ </div><!--page-->
+</body>
+</html>

@@ -1,0 +1,38 @@
+/m44/
+
+<!-- BEGIN meta -->
+title:	M44 2009-2010
+descr:	Page du module M44 : algèbre linéaire
+keyw:	M44, algèbre linéaire, licence, université d'Évry
+h1:	M44 : algèbre linéaire
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Cette page est consacrée au module M44 de la licence math et informatique de
+l'[université d'Évry Val d'Essone][evry], dont le cours magistral est donné par
+[Abdelmajid Bayad][bayad] et dont j'assure les TD au second semestre
+2009-2010.
+
+[evry]: http://www.univ-evry.fr/fr/
+[bayad]: http://www.maths.univ-evry.fr/pages_perso/bayad/
+
+## Matériel utilisé en TD
+
+Voici les feuilles d'exercices utilisées en TD, préparées par Abdelmajid Bayad.
+
+[f1]: f1.pdf
+[f2]: f2.pdf
+[f3]: f3.pdf
+[f4]: f4.pdf
+[f5]: f5.pdf
+
+- [Feuille 1][f1] : Espaces vectoriels.
+- [Feuille 2][f2] : Applications linéaires.
+- [Feuille 3][f3] : Réduction des endomorphismes.
+
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

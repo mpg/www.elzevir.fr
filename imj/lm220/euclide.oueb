@@ -1,0 +1,75 @@
+/lm220/euclide
+
+<!-- BEGIN meta -->
+title:	LM220 - Algorithme d'Euclide
+descr:	Sur l'algorithme d'Euclide
+keyw:	LM220, arithmétique, algorithme d'Euclide, Bézout, langage C
+h1:	Euclide : le plus viel algorithme du monde ?
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Plus vieil algorithme du monde, peut-être pas, mais certainement le plus vieil
+algorithme qui soit encore d'actualité. On utilise surtout la
+[version étendue][bezet]
+, c'est-à-dire fournissant également une 
+[relation de Bézout][idbez],
+qui est l'objet vraiment intéressant. Le programme <a href="C-files/euclide.c"
+class="file">euclide.c</a> présente une version complète de cet algorithme,
+telle que présentée à la section I.5 du cours, et culmine avec la résolution des
+[équations diophantiennes][dio] linéaires <var>ax + by = c</var>.
+
+[bezet]: http://fr.wikipedia.org/wiki/Algorithme_d%27Euclide_%C3%A9tendu
+[idbez]: http://fr.wikipedia.org/wiki/Identit%C3%A9_de_Bezout
+[dio]: http://fr.wikipedia.org/wiki/%C3%89quation_diophantienne
+
+Il n'y a rien de compliqué dans le code ; assurez-vous que vous comprenez bien
+la fonction <code>euclide_complet()</code>, c'est elle qui fait tout le travail.
+Au passage, vérifiez que vous êtes capables d'énoncer correctement la méthode de
+résolution de <var>ax + by = c</var>, en comparant avec <code>resoudre()</code>.
+
+<h3>Un peu complexité</h3>
+
+Une des raisons qui justifient que l'<a
+href="http://fr.wikipedia.org/wiki/Algorithme_d%27Euclide">algorithme
+d'Euclide</a> soit encore d'actualité est sa faible [complexité][comp], qui est
+en fait presque optimale. Étendons-nous un peu sur les lignes 5 à 8 du code.
+
+[comp]: http://fr.wikipedia.org/wiki/Complexit%C3%A9_algorithmique
+
+On dit que la complexité de l'algorithme d'<a
+href="http://fr.wikipedia.org/wiki/Euclide">Euclide</a> est linéaire, car le
+nombre d'itérations (c'est-à-dire, à peu de choses près, le nombre d'opérations)
+nécessaires pour calculer <var>PGCD(a, b)</var> est de l'ordre de
+<var>log(n)</var>, où <var>n = max(a, b)</var>. En effet, <var>log(n)</var>
+représente la taille de l'entrée (en nombre de bits, par exemple).
+
+On peut être plus précis et montrer que le nombre d'itérations est au plus :
+
+<img class="centered" src="euclide1.png" alt="une équation" style="width: 278px; height: 42px;" />
+<p>
+Pour comprendre la présence du « <a
+href="http://fr.wikipedia.org/wiki/Nombre_d%27or">nombre d'or</a> » dans cette formule, on peut remarquer que le pire cas pour cet algorithme survient quand on on calcule le <var>PGCD</var> de deux termes consécutifs de la <a href="http://fr.wikipedia.org/wiki/Suite_de_Fibonacci">suite de Fibonacci</a>. Or on sait que le « nombre d'or » est relié à cette suite, par exemple par le fait qu'il est la limite du rapport de deux termes consécutifs.
+</p><p>
+<strong>Exercice :</strong> Montrer par récurrence que, pour <var>n > 2</var>, le nombre d'itérations dans l'algorithme d'Euclide pour le calcul de <var>PGCD(F<sub>n+1</sub>, F<sub>n</sub>)</var> est exactement <var>n-1</var>. Comprendre pourquoi c'est le pire cas, et montrer au passage que le <var>PGCD</var> en question vaut <var>1</var>.
+</p>
+
+<h3>Divisions euclidiennes</h3>
+
+<p>
+La discussion précédente fournit une transition idéale vers les lignes 10 à 19 du code. La fonction <code>div_centre()</code> est une version « à reste centré » de la division euclidienne. Celle-ci provoque, au plus, et en moyenne, moins d'itérations dans l'algorithme d'Euclide que la version usuelle non centrée. La raison en est simple : à chaque itération, la valeur absolue du reste décroît plus rapidement, et arrive donc plus tôt à zéro.
+</p><p>
+<strong>Exercice :</strong> Jouer avec <span class="file">euclide.c</span>, en remplaçant la division usuelle par sa version centrée, et comparer le nombre d'itérations. Tester en particulier le cas de la suite de Fibonacci, en profiter pour vérifier expérimentalement le résultat de l'exercice précédent.
+</p><p>
+En fait, cette méthode ne représente pas l'optimisation ultime : elle conserve la nécessité d'effectuer une division euclidienne complète à chaque itération, ce qui peut être coûteux sur les grands nombres. Des variantes existent (algorithme de Lehmer, PGCD binaire), qui contournent cette étape. Nous ne parlerons pas ici de ces méthodes, voir les références pour plus de détails.
+</p>
+
+<h3>Références</h3>
+
+<p>
+En plus des liens Wikipédia dispersés dans la page (de qualité inégale, mais souvent valable), et pour aller (beaucoup) plus loin, on peut consulter le volume deux (<span lang="en-US" xml:lang="en" class="en">Seminumerical Algorithms</span>) de la « bible » de l'informatique : <span lang="en-US" xml:lang="en" class="en">The Art of Computer Programming</span>, de Donald E. Knuth.
+</p>
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

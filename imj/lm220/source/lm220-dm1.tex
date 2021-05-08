@@ -1,0 +1,150 @@
+\documentclass[11pt, twoside]{article}
+
+% Copyright 2006 Nicolas Billerey et Manuel Pégourié-Gonnard
+% ce source est sous licence GNU/FDL (http://www.gnu.org/licenses/fdl.txt)
+% la licence vous autorise à utiliser et/ou distribuer des version modifiées ou non
+% à condition de conserver la même licence pour les versions modifiées.
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc} \usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{amssymb, amsmath, amsthm} \usepackage[mathscr]{eucal}
+
+\usepackage[a4paper]{geometry}
+
+\newcommand{\pmm}[1]{\ \text{#1}}
+\newcommand{\std}[1]{\mathbf{#1}} \newcommand{\N}{\std{N}} \newcommand{\Z}{\std{Z}}
+\newcommand{\Q}{\std{Q}} \newcommand{\R}{\std{R}} \newcommand{\C}{\std{C}}
+\newcommand{\I}[1][]{\std{I}_{#1}} \newcommand{\ind}[1]{\std{1}_{#1}}
+\renewcommand{\ge}{\geqslant} \renewcommand{\le}{\leqslant}
+\newcommand{\eps}{\varepsilon} \newcommand{\truc}{\,\cdot\,}
+\newcommand*{\modulo}[1]{\text{ mod }#1}
+\newcommand{\gm}{^\times}
+
+\newcommand{\indic}[1]{(\emph{Indication} : #1.)}
+
+\newcounter{question}[section]
+\renewcommand{\thequestion}{\thesection.\arabic{question}}
+\newcommand{\question}{%
+ \refstepcounter{question}%
+ \medskip\noindent\textbf{\thequestion}\quad}
+\newenvironment{blabla}
+ {\smallskip\medskip\begingroup\sffamily\slshape}
+ {\endgroup\medskip} 
+
+\title{{\large \textsc{Université Pierre et Marie Curie} 2006--2007}}
+\author{LM220 Maths-Info groupes 1, 2 et 5}
+\date{Devoir maison 1}
+
+\begin{document}
+\maketitle
+
+\begin{blabla}
+L'objectif du devoir est de caractériser les entiers $n \ge 2$ pour lesquels le groupe $(\Z/n\Z)\gm$ est cyclique. On admet le fait que, pour $p$ premier, $(\Z/p\Z)\gm$ est cyclique. En effet, on sait que $\Z/p\Z$ est un corps, et il sera démontré plus loin dans le cours (corollaire 6 p. 97) que le groupe multiplicatif d'un corps fini est cyclique.
+\end{blabla}
+
+		\section{Préliminaires}
+		
+\begin{blabla}
+Soit $n \ge 2$ un entier. On considère sa décomposition en facteurs premiers $n = p_1^{\alpha_1} \cdots p_r^{\alpha_r}$, où les $p_i$ sont des premiers distincts et les $\alpha_i$ des entiers non nuls. 
+\end{blabla}
+
+\question
+Montrer par récurrence sur $r$ que l'on a un isomorphisme de groupes :
+\[
+ (\Z/n\Z)\gm \approx \prod_{i=1}^{r} (\Z/p_i^{\alpha_i}\Z)\gm \pmm.
+\]
+\indic{utiliser le théorème chinois}
+
+\begin{blabla}
+On va donc dans les deux sections suivantes étudier chaque facteur du membre de droite, c'est-à-dire les groupes de la forme $(\Z/p^\alpha\Z)\gm$, en distinguant les cas $p=2$ et $p$ impair. Avant de commencer cette étude, on établit un résultat utile de théorie des groupes.
+\end{blabla}
+
+\question \label{OrdresPremiers}
+Soit $G$ un groupe abélien, noté multiplicativement. On considère deux éléments $x$ et $y$, d'ordres respectifs $a$ et $b$. Montrer que si $a$ et $b$ sont premiers entre eux, leur produit $xy$ est d'ordre $ab$. \indic{si $(xy)^d$ = 1, montrer que $a$ et $b$ divisent $d$ en élevant cette égalité à la puissance $b$ ou $a$}
+
+
+		\section{Le cas $p \neq 2$}
+
+\begin{blabla}
+On suppose dans toute cette section que $p$ est un nombre premier impair, et $\alpha$ un entier supérieur ou égal à $2$. On va montrer que $(\Z/p^\alpha\Z)\gm$ est cyclique.
+\end{blabla}
+
+\question
+Calculer l'ordre de $(\Z/p^\alpha\Z)\gm$. Justifier par ailleurs que $(1+p) \in (\Z/p^\alpha\Z)\gm$.
+
+\question
+Montrer que, si $i$ est un entier compris entre $1$ et $p-1$, alors $p$ divise le coefficient binomial $C^i_p$. En déduire que si $i \ge 2$, alors $p^3$ divise $C^i_p p^i$.
+
+\question \label{Init}
+Montrer qu'il existe un entier $u \in \N^*$ tel que $(1+p)^p = 1 + p^2(1 + up)$.
+
+\question \label{Rec}
+En déduire par récurrence que pour tout entier $k \ge 1$, il existe un entier $\lambda$ (dépendant de $k$), premier à $p$, tel que $(1+p)^{p^k} = 1 + \lambda p^{k+1}$. \indic{si $(1+p)^{p^k} = 1 + \lambda p^{k+1}$, on pourra montrer qu'il existe $u \in \N^*$ tel que $(1+p)^{p^{k+1}} = 1 + p^{k+2} (\lambda + up)$}
+
+\question \label{UnPlusP}
+Déduire de la question précédente que $(1+p)^{p^{\alpha-1}} \equiv 1 \modulo{p^\alpha}$ et que $(1+p)^{p^{\alpha-2}} \not\equiv 1 \modulo{p^\alpha}$. En déduire que $1+p$ est d'ordre $p^{\alpha-1}$ dans  $(\Z/p^\alpha\Z)\gm$. 
+
+\question
+On considère à présent l'application 
+\begin{align*}
+\pi :  (\Z/p^\alpha\Z)\gm &\longrightarrow  (\Z/p\Z)\gm \\
+x \modulo{p^\alpha} &\longmapsto x \modulo{p} 
+\end{align*}
+dont on admet qu'elle est bien définie et constitue un morphisme de groupes surjectif. Montrer qu'il existe $x \in  (\Z/p^\alpha\Z)\gm$ tel que $\pi(x)$ soit d'ordre $p-1$.
+
+\question
+Montrer qu'alors l'ordre de $x$ est multiple de $p-1$ et qu'il existe un entier $k$ tel que $y = x^k$ soit d'ordre exactement $p-1$.
+
+\question
+En utilisant le résultat des questions \ref{UnPlusP} et \ref{OrdresPremiers}, calculer l'ordre de $y(1+p)$ et conclure.
+
+
+		\section{Le cas $p=2$}
+		
+\begin{blabla}
+L'objectif de cette section est de montrer que $(\Z/2^\alpha\Z)\gm$ est cyclique si et seulement si $\alpha = 1$ ou $\alpha = 2$.
+\end{blabla}
+
+\question
+Expliciter $(\Z/2\Z)\gm$ et $(\Z/4\Z)\gm$ et vérifier qu'ils sont cycliques.
+
+\begin{blabla}
+On supposera pour la suite de la section que $\alpha \ge 3$.
+\end{blabla}
+
+\question \label{Cardinal}
+Calculer l'ordre de $(\Z/2^\alpha\Z)\gm$. 
+
+\question \label{PuissancesDeux}
+En s'inspirant des questions \ref{Init} et \ref{Rec}, montrer que pour tout $k \in \N^*$, il existe un entier impair $\lambda$ (dépendant de $k$) tel que $5^{2^k} = 1 + \lambda 2^{k+2}$. \indic{$5 = 1+4$}
+
+\question
+En déduire comme à la question \ref{UnPlusP} que $5$ est d'ordre $2^{\alpha-2}$ dans $(\Z/2^\alpha\Z)\gm$.
+
+\question \label{AppF}
+On note $\mu_2$ le groupe multiplicatif à deux éléments $\{1, -1\}$. On rappelle que le produit $\mu_2 \times \Z/2^{\alpha-2}\Z$ est un groupe dont la loi est donnée par $(\eps, a) \cdot (\eps', a') = (\eps\eps', a + a')$. On considère l'application 
+\begin{align*}
+ f : \mu_2 \times \Z/2^{\alpha-2}\Z &\longrightarrow (\Z/2^\alpha\Z)\gm \\
+ (\eps, a) &\longmapsto \eps\cdot 5^a
+\end{align*}
+Montrer que $f$ est un morphisme de groupes.
+
+\question
+Soit $a \in \Z/2^{\alpha-2}\Z$. Montrer que dans $(\Z/2^\alpha\Z)\gm$ on a $5^a = 1$ si et seulement si $a=0$ dans $\Z/2^{\alpha-2}\Z$. Montrer par ailleurs que pour tout $a \in \Z$, on a $5^a \neq -1$ dans $\Z/2^\alpha\Z$. \indic{on pourra au choix réduire $5^a$ modulo $4$ ou utiliser le résultat de \ref{PuissancesDeux}}
+
+\question
+En déduire que l'application $f$ de la question \ref{AppF} est injective, en vérifiant que $\ker f = \{(1, 0)\}$. Prouver alors que $f$ est un isomorphisme en utilisant la question \ref{Cardinal}.
+
+\question
+Montrer que tous les éléments de $(\Z/2^\alpha\Z)\gm$ sont d'ordre divisant $2^{\alpha-2}$ et conclure.
+
+\section{Conclusion}
+
+\question
+Soient $a$ et $b$ deux entiers non nuls. Montrer que si $a$ et $b$ ne sont pas premiers entre eux, alors $\Z/a\Z \times \Z/b\Z$ n'est pas cyclique.
+
+\question
+Déduire des questions précédentes que le groupe $(\Z/n\Z)\gm$ est cyclique si et seulement si $n$ vaut $2$ ou $4$ ou est de la forme $p^\alpha$ ou $2p^\alpha$, avec $p$ premier et $\alpha$ entier non nul.
+
+\end{document}

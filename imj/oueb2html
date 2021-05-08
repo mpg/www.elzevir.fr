@@ -1,0 +1,623 @@
+#!/usr/bin/env perl
+
+# Écrit en 2008 par Manuel Pégourié-Gonnard ; placé sous WTFPL v2.
+
+# Convertit de mon format privé "oueb" vers l'html...
+#
+# Pas de description formelle du format (blocs de différents formats
+# dont du markdown-plus)... sauf les exemples et le code ci-dessous :-)
+# Pareil pour l'usage de ce script...
+#
+# La gestion des erreurs est plutôt aléatoire, mais c'est pour usage perso...
+
+use warnings 'FATAL' => 'all';
+use utf8;
+use open qw(:std utf8);
+
+use Text::MultiMarkdown 'markdown';
+use HTML::Tidy;
+use File::Spec;
+
+sub abs_to_rel {
+    my ($file, $base) = @_;
+    my $res = File::Spec->abs2rel("/dummy$file", "/dummy$base");
+    if ($file =~ /\/$/) { $res = "$res/" }
+    return $res;
+}
+
+sub cat_file {
+    my ($dir, $file) = @_;
+    my $res = $dir ? File::Spec->catfile($dir, $file) : $file;
+    $res =~ s/^\.\/(.)/$1/;
+    return $res;
+}
+
+#
+# constantes et variables globales
+# --------------------------------
+#
+
+my $exit_status = 0; # 1 si tidy trouve des trucs louches dans une page
+
+my ($mkd, $html); # convertisseur, vérificateur
+my $map_file = "plan"; # fichier contenant le plan
+
+my $files_sep = "----------"; # séparateur dans la liste des fichiers
+
+# délimiteurs de blocs
+my $begin_block = qr/^<!-- BEGIN ([-a-z]*) -->\s*$/;
+my $end_block = qr/^<!-- END ([-a-z]*) -->\s*$/;
+
+# étiquettes meta et type de blocs connus
+# (pas mal harcodé dans parse_whole_file et check_and_expand aussi)
+my $known_types = qr/^(meta|meta-en|content|content-en|files)$/;
+my $known_tags = qr/^(title|descr|keyw|h1):\s*/;
+
+# htaccess pour les répertoires listés
+my $htaccess = <<END;
+HeaderName head.html
+ReadmeName foot.html
+END
+
+# morceaux d'html
+#
+my $html_dtd = <<END;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+END
+my $html_open_fr = <<END;
+<html dir="ltr" lang="fr-FR" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+END
+my $html_open_en = <<END;
+<html dir="ltr" lang="en-GB" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+END
+my $html_head_begin = <<END;
+ <head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <link href="STYLE" title="style" rel="stylesheet" type="text/css" />
+  <meta name="author" content="Manuel Pégourié-Gonnard" />
+END
+my $html_lang_fr = <<END;
+  <meta http-equiv="content-Language" content="fr" />
+END
+my $html_lang_en = <<END;
+  <meta http-equiv="content-Language" content="en" />
+END
+my $html_head_to_navone = <<END;
+ </head>
+ <body>
+  <div id="page">
+   <div id="header">
+    <div id="t-site"><a href="ROOT">Manuel Pégourié-Gonnard</a></div>
+    <div id="st-site">
+     <b>Doctorant</b> &mdash; <a
+     href="http://www.institut.math.jussieu.fr/">Institut de mathématiques de
+     Jussieu</a><br />
+     <b>Site archivé</b> courant 2013...
+    </div>
+    <hr class="clear" />
+    <ul id="navone">
+END
+my $html_end = <<END;
+    <h3>À propos</h3>
+    <ul>
+     <li><abbr title="eXtensible HyperText Markup Language">XHTML</abbr> <a
+      href="http://validator.w3.org/check?uri=referer">valide</a> ;
+     <abbr title="Cascading Style Sheets">CSS</abbr> <a
+      href="http://jigsaw.w3.org/css-validator/check/referer">valide</a>.</li>
+     <li class="sep">Dernière édition : AAAA-MM-JJ.</li>
+     <li class="sep">Site archivé en 2013.</li>
+     <li class="sep">Auteur : <a class="adresse"
+      href="m&#x0061;ilto:mpg&#x0040;elzevir.fr"
+      >mpg&#x0040;elzevir.fr</a>.</li>
+    </ul>
+   </div> <!--sidebar-->
+   <div id="footer"></div>
+  </div> <!--page-->
+ </body>
+</html>
+END
+
+#
+# routines pour la lecture du .oueb
+# ---------------------------------
+#
+
+# Choper un bloc BEGIN truc ... END truc et renvoyer :
+# - en cas de succès, le type (truc) et le texte du bloc ;
+# - la chaîne 'end' si le fichier est fini ;
+# - sinon, le chaîne 'error' et le message d'erreur.
+#
+sub get_next_block {
+    my ($src_fh) = @_;
+    my $line;
+    my $block = "";
+
+    # warn "Tentative d'acquisition d'un nouveau bloc après la ligne $.";
+
+    # sauter les lignes vides
+    while (defined ($line = <$src_fh>) and ($line =~ /^\s*$/)) {}
+
+    # le fichier est-il fini ?
+    return 'end' unless defined $line;
+
+    # warn "On n'a pas atteint le fin du fichier.";
+
+    # si la prochaine ligne ne ressemble pas à un début de bloc, c'est mal
+    return ('error', "Un début de bloc était attendu en ligne $., "
+    . "au lieu de :\n$line")
+    unless ((my $type_begin) = ($line =~ /$begin_block/));
+
+    # sinon, on cherche la fin
+    my $line_begin = $.;
+    $block .= "$line" until ((($line = <$src_fh>) =~ /$end_block/)
+        or not defined($line));
+    my $type_end = ($1 or "<fin de fichier>");
+
+    # si le type ne correspond pas, c'est mal (inc. fin de fichier)
+    return ('error', "END $type_end rencontré  en ligne $.,\n"
+    . "suite à un BEGIN $type_begin en ligne $line_begin.\n")
+    unless ($type_end eq $type_begin);
+
+    # si on est arrivés jusque là, tout va bien
+    return ($type_begin, $block);
+}
+
+# Traiter un bloc de type meta et renvoyer le hachage produit
+#
+sub parse_meta_block {
+    my ($block) = @_;
+    my %infos;
+
+    # les lignes commençant <tab> sont une continuation
+    $block =~ s/\s*\n\t\s*/ /g;
+
+    # traitement effectif des lignes
+    for my $line (split /\s*\n/, $block) {
+    my ($tag, $text) = ($line =~ /$known_tags(.*)$/o);
+
+    # on est emmerdés si on a pas identifié de tag
+    unless ($tag) {
+        warn "Rien compris à la ligne \"meta\" suivante :\n$line\n";
+        next;
+    }
+
+    # sinon, tout va bien
+    $infos{$tag} = $text;
+    }
+
+    return %infos;
+}
+
+# Traiter un bloc de type files et renvoyer :
+# la liste produite, avec "fichier", "nom", "$files_sep", "fichier", "nom"...
+# Attention, les champs sont séparés par des vraies tabulations
+#
+sub parse_files_block {
+    my ($block) = @_;
+    my @files;
+
+    for my $line (split /\n/, $block) {
+    # une ligne vie indique une séparation
+    if ($line =~ /^\s*$/) {
+        push (@files, $files_sep);
+        next;
+    }
+    # sinon, on lit et on pousse le résultat
+    my ($file, $name) = ($line =~ /^(.*?)\t+(.*)$/);
+    push (@files, $file, $name);
+    }
+
+    return @files;
+}
+
+# Traiter tout un fichier.
+#
+# Argument : le nom du fichier.
+# Retourne :
+# - en temps normal, un hachage avec pour clés :
+#   id, file :      chaînes avec l'identifiant (resp. le nom) du fichier ;
+#   meta(-en) : hachage avec les données meta ;
+#   content(-en) :  le contenu (chaîne) ;
+#   files(-en) :    liste des fichiers.
+# - si ça se passe mal, un hachage avec pour clé 'error' et valeur le message.
+#
+sub parse_whole_file {
+    my ($file) = @_;
+    my %result;
+
+    # un champ facile : le nom du fichier
+    $result{'file'} = $file;
+
+    open my $src_fh, '<', $file or die "Pas moyen de lire $file :\n$!\n";
+
+    # la première ligne doit être le nom de fichier, commençant par /
+    my $first_line = <$src_fh>;
+    ($result{'id'}) = ($first_line =~ m#^(/.*)#);
+    return ('error',
+    "La première ligne doit être l'id du fichier, pas\n$first_line\n")
+    unless $result{'id'};
+
+    # maintenant il ne doit plus y avoir que des blocs valides
+    while (1) {
+    my ($type, $block) = get_next_block($src_fh);
+    # erreurs et fin de fichier
+    return %result if ($type eq 'end');
+    return ('error', $block) if ($type eq 'error');
+    # bloc normal : traiter suivant son type
+    warn "Bloc $type redondant écrasant le précédant.\n" if $result{$type};
+    if ($type =~ /^meta(-en)?$/) {
+        my $en = ($1 or "");
+        my %meta = parse_meta_block ($block);
+        $result{"$_$en"} = $meta{$_} for keys %meta;
+    } elsif (($type eq "content") or ($type eq "content-en")) {
+        $result{$type} = $block;
+    } elsif ($type eq "files") {
+        @{$result{$type}} = parse_files_block ($block);
+    } else {
+        return ('error',
+        "Les blocs de type $type ne sont pas reconnus.\n");
+    }
+    }
+
+    close $src_fh;
+    return %result;
+}
+
+# Un peu de validation (enfin, plus tard) et post-traitement des résultats
+# ajoute un champ 'date' (scalaire) à %data
+#
+sub check_and_expand {
+    my %data = @_;
+    my $id = $data{'id'} or die "Pas d'id???\n";
+
+    # la date de git ou la date ocurante
+    my $git_cmd = 'git log -1 --pretty=format:%ci -- ' . $data{'file'};
+    chomp(my $git = `$git_cmd`);
+    if ($git =~ /^(\d{4}-\d{2}-\d{2}) /) {
+        $data{'date'} = $1;
+    } else {
+        warn "Pas de date git pour $data{file}.\n";
+        chomp($data{'date'} = `date -I`);
+    }
+
+    # répertoire de la page
+    my ($dummy, $dir, $file) = File::Spec->splitpath($id);
+    $data{'root'} = abs_to_rel('/', $dir);
+    $dir =~ s/\/$//;
+    $data{'dir'} = $dir;
+
+    # informations de navigation
+    my %pages = get_navigation_info();
+    defined ($pages{$id}{'name'})
+    or $data{'error'} = "Page $id introuvable dans le plan.\n";
+
+    return %data;
+}
+
+#
+# gestion du plan du site
+# -----------------------
+#
+
+{ # on définit une fermeture pour y mémoriser le plan
+my %map;
+
+# Lire le plan et construire les infos pour chaque page
+#
+sub get_navigation_info {
+    # si on a déjà calculé le plan, on le renvoie de suite
+    return %map if defined ($map{'/'});
+
+    open my $map_fh, $map_file
+        or die "Pas moyen d'ouvrir le plan ($map_file) :\n$!\n";
+
+    my @parents;
+    while (<$map_fh>) {
+    # analyse de la ligne et utilisation nom et id
+    my ($indent, $name, $id) = /^( *)\[(.*)]: (\/.*)$/;
+    $map{$id}{'name'} = $name;
+
+    # mise à jour de la pile de parents
+    ((my $l = length($indent)) <= ($#parents + 1))
+        or die "Le plan est invalide : saut de niveau illégal, l. $.\n";
+    pop (@parents) while ($l <= $#parents);
+
+    # mon livret de famille et celui de mon père
+    $map{$id}{'parents'} = [@parents];
+    my $father = $parents[-1];
+    push (@{$map{$father}{'sons'}}, $id) if $father;
+
+    # pour la prochaine itération
+    push @parents, $id;
+    }
+
+    close $map_fh;
+    return %map;
+}
+
+# trouver la section courante en fonction de la page courante
+sub current_section {
+    my %page = @_;
+
+    my %pages = get_navigation_info();
+    my @parents = @{$pages{$page{'id'}}{'parents'}};
+    my $curr_sect;
+    if ($#parents == -1) {
+    $curr_sect = 'none';
+    } elsif ($#parents == 0) {
+    $curr_sect = $page{'id'};
+    } else {
+    $curr_sect = $pages{$page{'id'}}{'parents'}[1];
+    }
+
+    return $curr_sect;
+}
+
+} # fin de la fermeture
+
+#
+# routines pour produire la sortie
+# --------------------------------
+#
+
+# constuire la ligne "vous êtes ici" (#navtwo) d'une page
+#
+sub navtwo {
+    my %page = @_;
+    my $out = "<p id=\"navtwo\">Vous êtes ici :\n";
+
+    my $id = $page{'id'};
+    my %pages = get_navigation_info();
+
+    for my $parent (@{$pages{$id}{'parents'}}) {
+    my $parent_rel = abs_to_rel($parent, $page{dir});
+    $parent_rel .= '.html' unless $parent_rel =~ '/$';
+    %p_data = %{$pages{$parent}};
+    $out .= "<a href=\"$parent_rel\">$p_data{'name'}</a> &gt;\n";
+    }
+    return $out . "<span id=\"navtwocur\">$pages{$id}{'name'}</span></p>\n";
+}
+
+# liste navone (liste des sections)
+#
+sub navone {
+    my %page = @_;
+    my $out = "";
+
+    my %pages = get_navigation_info();
+    my $curr_sect = current_section (%page);
+
+    for my $section (@{$pages{'/'}{'sons'}}) {
+    my $section_rel = abs_to_rel($section, $page{dir});
+    $section_rel .= '.html' unless $section_rel =~ '/$';
+    $out .=
+    (($section eq $curr_sect) ? "<li id=\"navonecur\">" : "<li>") .
+    (($section eq $page{'id'}) ? "" : "<a href=\"$section_rel\">") .
+    "$pages{$section}{'name'}" .
+    (($section eq $page{'id'}) ? "" : "</a>") .
+    "</li>";
+    }
+    return $out . "</ul>\n</div>\n\n";
+}
+
+
+# h1
+#
+sub h1 {
+    my %page = @_;
+
+    return "\n<div id=\"content\">\n\n<h1>$page{'h1'}</h1>\n\n";
+}
+
+# partie variable du head
+#
+sub html_head_var {
+    my %page = @_;
+
+    return "<title>$page{'title'}</title>\n"
+    . "<meta name=\"description\" content=\"$page{'descr'}\" />\n"
+    . "<meta name=\"keywords\" content=\"$page{'keyw'}\" />\n";
+}
+
+# tout ce qui précède le contenu, d'un coup d'un seul
+#
+sub pre_h1 {
+    my %page = @_;
+
+    my $out = "$html_dtd$html_open_fr$html_head_begin$html_lang_fr";
+    my $style = cat_file($page{root}, 'style.css');
+    $out =~ s/STYLE/$style/;
+    $out .= html_head_var (%page);
+    $out .= $html_head_to_navone;
+    $out =~ s/ROOT/$page{root}/g;
+    $out .= navone (%page);
+    $out .= navtwo (%page);
+    return $out;
+}
+
+# la liste des fichiers à télécharger
+#
+sub html_files {
+    my %page = @_;
+    my $out;
+
+    my @list = @{$page{'files'}};
+    return "" unless ($#list >= 0);
+
+    my $sep = 0;
+    $out .= "\n<h3>À télécharger</h3>\n<ul>\n";
+    while (my $file = shift @list) {
+    $file = shift @list if ($sep = ($file eq $files_sep));
+    my $name = shift @list;
+    $out .= "<li" . ($sep ? " class=\"sep\">" : ">") .
+    "<a href=\"$file\">$name</a></li>\n";
+    }
+    return $out . "</ul>\n";
+}
+
+# le plan de navigation
+#
+sub html_navbar {
+    my %page = @_;
+    my $out;
+
+    my $id = $page{'id'};
+    my %pages = get_navigation_info();
+
+    # la section courante a-t-elle des petit-enfants ?
+    my $curr_sect = current_section (%page);
+    my $is_grand_parent = 0;
+    for my $son (@{$pages{$curr_sect}{'sons'}}) {
+    unless ($#{$pages{$son}{'sons'}} < 0) {
+        $is_grand_parent = 1;
+        last;
+    }
+    }
+
+    # quelle est la racine du plan de navigation ?
+    my $map_root = ($is_grand_parent ? $curr_sect : '/');
+    $out .= "<h3>Plan : $pages{$map_root}{'name'}</h3>\n<ul>\n";
+
+    # plan développé sur deux niveaux depuis sa racine
+    for my $place (@{$pages{$map_root}{'sons'}}) {
+    my $place_rel = abs_to_rel($place, $page{dir});
+    $place_rel .= '.html' unless $place_rel =~ '/$';
+    $out .=  ($place eq $id)
+    ? "<li><span id=\"navbarcur\">$pages{$id}{'name'}</span>\n"
+    : "<li><a href=\"$place_rel\">$pages{$place}{'name'}</a>\n";
+    unless ($#{$pages{$place}{'sons'}} < 0) {
+        $out .= "<ul>\n";
+        for (@{$pages{$place}{'sons'}}) {
+        my $sub_rel = abs_to_rel($_, $page{dir});
+        $sub_rel .= '.html' unless $sub_rel =~ '/$';
+        $out .= ($_ eq $id)
+        ? "<li id=\"navbarcur\">$pages{$_}{'name'}</li>\n"
+        : "<li><a href=\"$sub_rel\">$pages{$_}{'name'}</a></li>\n";
+        }
+        $out .= "</ul>\n";
+    }
+    $out .= "</li>\n"
+    }
+
+    return $out . "</ul>\n";
+}
+
+# tout ce qui vient après le contenu
+#
+sub post_content {
+    my %page = @_;
+
+    my $out = "\n</div> <!-- content -->\n\n<div id=\"sidebar\">\n";
+    $out .= html_navbar(%page);
+    $out .= html_files(%page);
+    my $end = "\n$html_end";
+    $end =~ s#AAAA-MM-JJ#$page{'date'}#;
+    return $out . $end;
+}
+
+# toute une page
+#
+sub oueb2html {
+    my ($file) = @_;
+
+    # lecture des données
+    my %page = parse_whole_file ($file);
+    if ($page{'error'}) { warn $page{'error'}; return }
+    %page = check_and_expand (%page);
+    if ($page{'error'}) { warn $page{'error'}; return }
+
+    # création de l'html
+    my $html = pre_h1 (%page);
+    $html .= h1 (%page);
+    $html .= $mkd->markdown ($page{'content'});
+    $html .= post_content (%page);
+
+    # nettoyage de l'html
+    my $clean_html = $tidy->clean($html);
+    my @messages = grep { ! /^ - Info: / } $tidy->messages;
+    #my @messages =  $tidy->messages;
+    $tidy->clear_messages();
+    for my $message ( @messages ) {
+        $exit_status = 1;
+        print "$message\n";
+    }
+
+    # protection de base des adresses email (?)
+    $clean_html =~ s/mailto/m&#x0061;ilto/g;
+    $clean_html =~ s/@/&#x0040;/g;
+
+    # fichier brut pour contrôle des erreurs pre-tidy
+    if (@messages or 1) {
+        (my $bad_file = $file) =~ s/\.oueb$/.pretidy.html/;
+        open $dst_fh, '>', $bad_file
+            or die "Pas moyen d'écrire $bad_file :\n$!\n";
+        print $dst_fh $html;
+        close $dst_fh;
+    }
+
+    # fichier de résultat
+    unless ($file =~ /\bhead\.oueb$/) {
+    (my $good_file = $file) =~ s/\.oueb$/.html/;
+    open my $dst_fh, '>', $good_file
+        or die "Pas moyen d'écrire $good_file :\n$!\n";
+    print $dst_fh $clean_html;
+    close $dst_fh;
+    } else {
+    # générer deux fichiers, séparés pas le tag SPLIT
+    (my $head_file = $file) =~ s/\.oueb$/.html/;
+    (my $foot_file = $file) =~ s/head\.oueb$/foot.html/;
+    open my $head_fh, '>', $head_file
+        or die "Pas moyen d'écrire $head_file :\n$!\n";
+    open my $foot_fh, '>', $foot_file
+        or die "Pas moyen d'écrire $foot_file :\n$!\n";
+    select $head_fh;
+    for my $line (split(/\n/, $clean_html)) {
+        print $line, "\n";
+        select $foot_fh if ($line =~ /<!-- SPLIT -->/);
+    }
+    select STDOUT;
+    close $head_fh;
+    close $foot_fh;
+    # et un .htacess approprié
+    (my $hta_file = $file) =~ s/head\.oueb$/.htaccess/;
+    open my $hta_fh, '>', $hta_file
+        or die "Pas moyen d'écrire $hta_file :\n$!\n";
+    print $hta_fh "$htaccess";
+    close $hta_fh;
+    }
+}
+
+#
+# Code principal
+# --------------
+#
+
+# initialisations
+#
+$mkd = Text::MultiMarkdown->new(
+    tab_width => 1,
+    markdown_in_html_blocks => 1,
+    heading_ids => 1,
+    img_ids => 1,
+    disable_bibliography => 1,
+    disable_tables => 1,
+);
+
+$tidy = HTML::Tidy->new( {
+    output_xhtml => 1,
+    tidy_mark => 0,
+    char_encoding => 'utf8',
+    indent_spaces => 1,
+    indent => 'auto',
+    wrap => 80,
+    } );
+
+# traiter les arguments
+#
+for my $arg (@ARGV) {
+    oueb2html ($arg);
+}
+exit($exit_status);
+
+__END__

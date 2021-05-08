@@ -1,0 +1,159 @@
+/latex/begin
+
+<!-- BEGIN meta -->
+title:  Bien démarrer en LaTeX -- mpg
+descr:  Comment bien démarrer en LaTeX
+keyw:   latex, tex, débutant, démarrer
+h1:     Bien démarrer
+<!-- END meta -->
+
+<!-- BEGIN content -->
+## Logiciels utiles
+
+Pour travailler en LaTeX, il vous faut deux éléments : une distribution TeX, et
+un éditeur de texte orienté LaTeX.
+
+### Distribution
+
+- Pour windows : choisissez [MiKTeX][] ou [TeX Live][]. Si vous choisissez
+  MiKTeX, installez aussi [GhostScript][] (mais vous n'avez pas besoin de
+  GhostView).
+- Pour Mac OS X, installez [MacTeX][], et éventuellement les [MacTeXtras][].
+- Pour Linux, installez [TeX Live][], soit la [version nature][tldist] soit
+  celle de votre distribution Linux. Si plusieurs paquets sont disponibles,
+  installez au moins ceux dont le nom contient _latex_ ou _recommended_ (ou
+  installez-les tous).
+
+[MiKTeX]:       http://www.miktex.org/
+[TeX Live]:     http://tug.org/texlive/
+[GhostScript]:  http://pages.cs.wisc.edu/~ghost/
+[MacTeX]:       http://tug.org/mactex/
+[MacTeXtras]:   http://tug.org/mactex/mactextras.html
+[tldist]:       http://tug.org/texlive/acquire.html
+
+### Éditeur
+
+- Pour windows : [TeXworks][] (inclus dans TeX Live), [TeXnicCenter][],
+  [TeXmaker][] ou [LeD][] (pas libre) voire [WinEDT][] (shareware).
+- Pour Mac OS X : [TeXworks][], TeXshop (tous deux dans MacTeX), iTeXmac,
+  TeXmaker ou Aquamacs (tous trois dans MacTeXtras) ou TextMate (shareware).
+- Pour Linux : TeXworks, Kile ou TeXmaker.
+
+[TeXworks]:     http://code.google.com/p/texworks/downloads/list
+[TeXnicCenter]: http://www.toolscenter.org/
+[TeXmaker]:     http://www.xm1math.net/texmaker/index_fr.html
+[LeD]:          http://www.latexeditor.org/
+[WinEDT]:       http://www.winedt.com/
+
+## Source minimal
+
+LaTeX ayant été conçu par un Américain à l'époque où on ne parlait pas beaucoup
+d'internationalisation, quelques ajustements sont nécessaires pour taper un
+texte en français. Un source minimal pour le français ressemble à :
+
+    \documentclass[a4paper]{article} % papier A4
+    \usepackage[utf8]{inputenc}      % accents dans le source
+    \usepackage[T1]{fontenc}         % accents dans le pdf
+    \usepackage{textcomp}            % symboles complémentaires (euro)
+    \usepackage[frenchb]{babel}      % titres en français
+    \begin{document}
+    Bonjour, monde accentué ! Ça va ?
+    \end{document}
+
+Selon votre éditeur de texte et la façon dont il est réglé, il vous faudra
+changer `utf8` en `latin1` ou `applemac` à la ligne 2. À l'inverse, vous pouvez
+(sauf avec certains éditeurs sous windows) régler votre éditeur sur `utf8` via
+son menu _outils_ ou _préférences_.
+
+## Références utiles
+
+### Livres
+
+Les deux meilleurs livres en français pour apprendre LaTeX sont actuellement :
+
+- _LaTeX pour l'impatient_, C. Chevalier et W. Appel, éditions H&K
+  ([amazon][amlpi])
+- _LaTeX, cours et exercices_, D. Bitouzé et J.-C. Charpentier, éditions Pearson
+  ([amazon][amdb])
+
+Deux références classiques mais un peu vieillies sont les livres de
+B. Desgraupes et C. Rolland. Une fois assimilés les livres ci-dessus, le livre
+de référence est le
+
+- _LaTeX Companion_, F. Mittelbach et M. Goossens, Pearson ([amazon][amlc2])
+
+[amlpi]: http://www.amazon.fr/LaTeX-pour-limpatient-C%C3%A9line-Chevalier/dp/2351410424
+[amdb]: http://www.amazon.fr/Latex-Synth%C3%A8se-Exercices-corrig%C3%A9s-1C%C3%A9d%C3%A9rom/dp/2744071870
+[amlc2]: http://www.amazon.fr/Latex-Companion-1DVD-Frank-Mittelbach/dp/274407182X
+
+### Documents en ligne
+
+- _[Une courte (?) introduction à LaTeX][flshort]_ par T. Oetiker, trad.
+  S. Colin et votre serviteur.
+- Mon [polycopié de cours][poly] de licence 2 sur LaTeX, et ses [fichiers
+  d'accompagnment][files].
+- Les supports de [cours et exercices][phg] de Philippe Goutet pour le même
+  cours l'année suivante (plus complets, avec une présentation de TikZ
+notamment).
+
+[flshort]: http://www.hivernal.org/static/computing/doc/lshort-fr.fr.html
+[poly]: ../lm204/files/cours.pdf
+[files]: ../lm204/files/
+[phg]: http://pgoutet.free.fr/latex/index.html
+
+### Foires aux questions
+
+Deux FAQ francophones sont disponibles : [une ancienne][grappa] au format html
+et une [moins ancienne][ffeo] en pdf. 
+
+La [FAQ anglophone][faquk] reste la plus à jour (utiliser la case google pour
+vos recherches). Elle est accompagnée d'un [guide visuel][visualfaq] bien
+pratique.
+
+[grappa]: http://www.grappa.univ-lille3.fr/FAQ-LaTeX/
+[ffeo]: http://faqfctt.fr.eu.org/
+[faquk]: http://www.tex.ac.uk/faq
+[visualfaq]: http://mirror.ctan.org/info/visualFAQ/visualFAQ.pdf
+
+## Aide humaine en ligne
+
+Plusieurs moyens existent pour obtenir de l'aide en ligne sur LaTeX. Les plus
+recommandés en français sont :
+
+- le groupe usenet fr.comp.text.tex, accessible avec un [lecteur de
+  nouvelles][newsreader] ou _via_ [Google Groups][gg] ;
+- la liste de diffusion de [GUTenberg][], par mail après [abonnement][gut] ;
+- les sections LaTeX du forum web [Mathematex][].
+
+[newsreader]: http://fr.wikipedia.org/wiki/Lecteur_de_nouvelles
+[GUTenberg]: http://www.gutenberg.eu.org/
+[gut]: http://gutenberg.eu.org/listes
+[gg]: http://groups.google.com/forum/?fromgroups#!forum/fr.comp.text.tex
+[Mathematex]: http://forum.mathematex.net/latex-f6/
+
+En anglais, les principaux lieux pour obtenir de l'aide sont :
+
+- le groupe usenet [comp.text.tex][ctt] ;
+- la mailing-list [texhax][] ;
+- le site [TeX du réseau StackExchange][tse].
+
+[ctt]: http://groups.google.com/forum/?fromgroups#!forum/comp.text.tex
+[texhax]: http://tug.org/mailman/listinfo/texhax
+[tse]: http://tex.stackexchange.com/
+
+### Groupes d'utilisateurs
+
+Si vous devenez un utilisateur régulier de LaTeX, vous pouvez vouloir rejoindre
+un groupe d'utilisateur pour bénéficier des avantages (DVDs de la collection
+TeX, publications) mais aussi soutenir le développement de TeX.
+
+- Groupe francophone d'utilisateurs : [GUTenberg][].
+- Groupe international : [le TUG][].
+
+[le TUG]: http://tug.org/
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

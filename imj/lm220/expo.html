@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" lang="fr-FR" xml:lang="fr" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+ <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+ <link href="../style.css" title="style" rel="stylesheet" type="text/css" />
+ <meta name="author" content="Manuel Pégourié-Gonnard" />
+ <meta http-equiv="content-Language" content="fr" />
+ <title>LM220 - Exponentiation rapide</title>
+ <meta name="description" content="Sur l'exponentiation rapide" />
+ <meta name="keywords" content=
+ "LM220, arithmétique, exponentiation rapide, langage C" />
+</head>
+<body>
+ <div id="page">
+  <div id="header">
+   <div id="t-site">
+    <a href="../">Manuel Pégourié-Gonnard</a>
+   </div>
+   <div id="st-site">
+    <b>Doctorant</b> — <a href="http://www.institut.math.jussieu.fr/">Institut
+    de mathématiques de Jussieu</a><br />
+    <b>Site archivé</b> courant 2013...
+   </div>
+   <hr class="clear" />
+   <ul id="navone">
+    <li><a href="../recherche.html">Recherche</a></li>
+    <li id="navonecur"><a href="../enseignement.html">Enseignement</a></li>
+    <li><a href="../latex/">LaTeX</a></li>
+    <li><a href="../resp.html">Responsabilités</a></li>
+    <li><a href="../vrac.html">En vrac</a></li>
+   </ul>
+  </div>
+  <p id="navtwo">Vous êtes ici : <a href="../">Accueil</a> &gt; <a href=
+  "../enseignement.html">Enseignement</a> &gt; <a href="./">Arithmétique L2</a>
+  &gt; <span id="navtwocur">Exp. rapide</span></p>
+  <div id="content">
+   <h1>Exponentiation rapide</h1>
+   <p>Un exemple simple d'exponentiation rapide, basé sur le développement en
+   base deux&nbsp;: <a href="C-files/expo.c" class="file">expo.c</a>. Le
+   principe mathématique en est exposé paragraphe I.8.1 du cours. Remarquer
+   dans le code comment on travaille directement sur les bits de l'exposant,
+   celui-ci étant naturellement représenté en base 2 en mémoire. N'hésitez pas
+   à dérouler la fonction à la main pour vous convaincre qu'elle traduit bien,
+   de façon itérative, la formule du cours.</p>
+   <p>Vous êtes invités à mesurer le temps de calcul pour des valeurs de plus
+   en plus grandes de l'exposant (jusqu'à <var>2<sup>32</sup></var>...) pour
+   constater qu'il est linéaire en la taille (nombre de bits) de l'exposant. À
+   l'inverse, le temps de calcul de la méthode naïve est exponentiel, et vous
+   serez rapidement obligés de l'abandonner pour pouvoir augmenter
+   l'exposant.</p>
+   <p>Pas grand-chose à ajouter sur ce programme assez court. Comme d'habitude,
+   la méthode présentée est une des plus simples et des algorithmes plus
+   performants sont présentés dans le volume&nbsp;2 de <span lang="en-US"
+   xml:lang="en" class="en">The Art of Computer Programming</span> de
+   Knuth.</p>
+  </div><!-- content -->
+  <div id="sidebar">
+   <h3>Plan : Enseignement</h3>
+   <ul>
+    <li>
+     <a href="../m63/">Algèbre (bi)linéaire L3</a>
+     <ul>
+      <li><a href="../m63/09-10/">2009-2010</a></li>
+     </ul>
+    </li>
+    <li>
+     <a href="../m54/">Algèbre L3</a>
+     <ul>
+      <li><a href="../m54/09-10/">2009-2010</a></li>
+     </ul>
+    </li>
+    <li><a href="../m44/">Algèbre linéaire L2</a></li>
+    <li><a href="../m33/">Algèbre L2</a></li>
+    <li>
+     <a href="../lm204/">LaTeX L2</a>
+     <ul>
+      <li><a href="../lm204/files/">Tous les fichiers</a></li>
+      <li><a href="../lm204/prog.html">Progression</a></li>
+      <li><a href="../lm204/refs.html">Références</a></li>
+     </ul>
+    </li>
+    <li>
+     <a href="../lm110/">Fonctions L1</a>
+     <ul>
+      <li><a href="../lm110/mime124.html">MIME124</a></li>
+      <li><a href="../lm110/mime163.html">MIME163</a></li>
+     </ul>
+    </li>
+    <li>
+     <a href="./">Arithmétique L2</a>
+     <ul>
+      <li><a href="euclide.html">Euclide</a></li>
+      <li id="navbarcur">Exp. rapide</li>
+      <li><a href="congruences.html">Congruences</a></li>
+      <li><a href="rsa.html">RSA</a></li>
+     </ul>
+    </li>
+    <li><a href="../lm223/">Formes quadratiques L2</a></li>
+   </ul>
+   <h3>À propos</h3>
+   <ul>
+    <li><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>
+    <a href="http://validator.w3.org/check?uri=referer">valide</a>&nbsp;;
+    <abbr title="Cascading Style Sheets">CSS</abbr> <a href=
+    "http://jigsaw.w3.org/css-validator/check/referer">valide</a>.</li>
+    <li class="sep">Dernière édition : 2009-12-31.</li>
+    <li class="sep">Site archivé en 2013.</li>
+    <li class="sep">Auteur : <a class="adresse" href=
+    "m&#x0061;ilto:mpg&#x0040;elzevir.fr">mpg&#x0040;elzevir.fr</a>.</li>
+   </ul>
+  </div><!--sidebar-->
+  <div id="footer"></div>
+ </div><!--page-->
+</body>
+</html>

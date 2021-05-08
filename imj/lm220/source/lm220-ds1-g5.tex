@@ -1,0 +1,69 @@
+\documentclass[11pt, twoside]{article}
+
+% Copyright 2006 Nicolas Billerey et Manuel Pégourié-Gonnard
+% ce source est sous licence GNU/FDL (http://www.gnu.org/licenses/fdl.txt)
+% la licence vous autorise à utiliser et/ou distribuer des version modifiées ou non
+% à condition de conserver la même licence pour les versions modifiées.
+
+\usepackage[latin1]{inputenc}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc} \usepackage{lmodern}
+
+\usepackage{amssymb, amsmath, amsthm} \usepackage[mathscr]{eucal}
+
+\usepackage[a4paper]{geometry}
+
+\newcommand{\pmm}[1]{\ \text{#1}}
+\newcommand{\std}[1]{\mathbf{#1}} \newcommand{\N}{\std{N}} \newcommand{\Z}{\std{Z}}
+\newcommand{\Q}{\std{Q}} \newcommand{\R}{\std{R}} \newcommand{\C}{\std{C}}
+\newcommand{\I}[1][]{\std{I}_{#1}} \newcommand{\ind}[1]{\std{1}_{#1}}
+\renewcommand{\ge}{\geqslant} \renewcommand{\le}{\leqslant}
+\newcommand{\eps}{\varepsilon} \newcommand{\truc}{\,\cdot\,}
+
+\title{{\large \textsc{Université Pierre et Marie Curie} 2006--2007}}
+\author{LM220 Maths-Info groupe 5}
+\date{Interrogation écrite \no1}
+
+\theoremstyle{definition} \newtheorem{exo}{Exercice}
+\newtheorem{qc}{Question de cours}
+\renewcommand{\theqc}{\hspace{-.3em}}
+
+\begin{document}
+\maketitle \thispagestyle{empty}
+
+\begin{exo}
+On considère l'équation
+\begin{equation}\label{eq:1}
+26a+21b=2,\quad\textrm{avec }(a,b)\in\Z^2.\tag{$\star$}
+\end{equation}
+\begin{enumerate}
+\item Donner un couple $(u,v)\in\Z^2$ vérifiant
+\begin{equation*}
+26u+21v=1.
+\end{equation*}
+\item Résoudre l'équation (\ref{eq:1}).
+\item En utilisant la première question, montrer que $\overline{21}$ est
+inversible dans l'anneau $\Z/26\Z$ et déterminer son inverse.
+\end{enumerate}
+\end{exo}
+
+\bigskip
+
+\begin{exo}
+On considère deux entiers $a$ et $b$ $\ge 1$.
+\begin{enumerate}
+\item Montrer que si $a$ et $b$ sont premiers entre eux, alors $a$ et $a+b$ le
+sont aussi.
+\item Montrer que le pgcd de $2^a-1$ et $2^b-1$ est $2^d-1$ où $d$ est le pgcd
+de $a$ et $b$.
+\end{enumerate}
+\end{exo}
+
+\bigskip
+
+\begin{qc}
+\'Enoncer le théorème de Lagrange.
+\end{qc}
+
+\end{document}

@@ -1,0 +1,43 @@
+/m33/
+
+<!-- BEGIN meta -->
+title:	M33 2009-2010
+descr:	Page du module M33 : compléments d'algèbre
+keyw:	M33, algèbre, arithmétique, licence, université d'Évry
+h1:	M33 : compléments d'algèbre
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Cette page est consacrée au module M33 de la licence math et informatique de
+l'[université d'Évry Val d'Essone][evry], dont le cours magistral est donné par
+[Abdelmajid Bayad][bayad], au premier semestre 2009-2010, et dont j'assure les
+TD pour les deux groupes (math et info).
+
+[evry]: http://www.univ-evry.fr/fr/
+[bayad]: http://www.maths.univ-evry.fr/pages_perso/bayad/
+
+## Matériel utilisé en TD
+
+Voici quelques feuilles de TD (parfois rectifiées par rapport à la version
+distributée), avec des indications (pouvant aller jusqu'à un corrigé détaillé)
+pour les exercices qui n'ont pas pu être traités en TD faute de temps.
+
+[f3]: f3.pdf
+[f3i]: f3i.pdf
+[f4]: f4.pdf
+[f4i]: f4i.pdf
+[f5]: f5.pdf
+[f5i]: f5i.pdf
+
+- [Feuille 3][f3] : groupes engendrés, ordres.
+[Indications][f3i] pour certains exercices.
+- [Feuille 4][f4] : arithmétique dans Z.
+[Indications][f4i] pour certains exercices.
+- [Feuille 5][f5] : arithmétique dans Z/nZ.
+[Indications][f5i] pour certains exercices.
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

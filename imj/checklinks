@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# can add -t2 and/or --no-warnings
+exec linkchecker -q -F text "$@" \
+     --ignore-url='http://validator.w3.org/check' \
+     --ignore-url='http://jigsaw.w3.org/css-validator/' \
+     --ignore-url='http://www.edu.upmc.fr/maths/math1/lm110/prive/' \
+     --ignore-url='https://ludiweb.elzevir.fr/' \
+     --ignore-url='https://github.com/mpg/' \
+     --ignore-url='C=N;O=.$' \
+     https://elzevir.fr/imj/

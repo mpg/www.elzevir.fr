@@ -1,0 +1,169 @@
+/lm204/prog
+
+<!-- BEGIN meta -->
+title:	Progression LM204
+descr:	Progression des séances du LM204
+keyw:	LM204, progression, cours, références
+h1:	Progression
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Cette page précise la progression suivie en cours séance par séance, et indique
+la correspondance avec les [documents de référence][refs]. Liens directs :
+[Séance 1][], 
+[Séance 2][], 
+[Séance 3][], 
+[Séance 4][], 
+[Séance 5][], 
+[Séance 6][], 
+[Séance 7][],
+[Séance 8][], 
+[Séance 9][], 
+[Séance 10][], 
+[Séance 11][], 
+[Séance 12][].
+
+[refs]: refs.html
+[TCQ]: refs.html
+[LPI]: refs.html
+[B&C]: refs.html
+
+## Séance 1
+
+Présentations de l'enseignant, des étudiants, du module et de LaTeX.
+Installation (distribution et éditeur). Premier document, commandes et
+caractères réservés.
+
+- [TCQ][] Section 1 sauf 1.5. Fragments de 2.9 et 2.10. Survol de 7.1 et 7.2.
+- [LPI][] Une bonne partie des chapitres 1 à 3, paragraphes 4.1.A à 4.1.c.
+- [B&C][] Chapitre 1 sauf la section 3.
+
+Exercice : installer sur son ordinateur une distribution et un éditeur TeX.
+[Document d'aide][inst] pour windows.
+
+[inst]: files/doc-install-miktex+txc.pdf
+
+## Séance 2
+
+Caractères réservés, commandes d'accents et symboles. Commandes de `frenchb`.
+Changements de fonte : famille, forme, graisse, taille. Listes et alignement du
+texte. Commandes d'espacement.
+
+- [TCQ][] Sections 1.5, 2.1, 2.2 et une partie de 4.3, plus 7.3.
+- [LPI][] 5.1, 5.2.a, 5.3, 5.4.b et 5.4.c, 5.6, une partie de 4.1.b.
+- [B&C][] Chapitre 1, section 3. Fragments des sections 1 et 5 du chapitre 2.
+
+## Séance 3
+
+Notes de bas de pages et marginales. Titres avec `\maketitle`. Options de classe
+reliées. Résumé avec `{abstract}`. Commandes de sectionnement. Dimensions de la
+page, en-tête et pied. Références croisées ; module `hyperref`.
+
+- [TCQ][] 2.3 à 2.6. Maintenant, les chapitres 1, 2 et 7 sont vus, sauf 2.7 et
+  de 7.4.
+- [LPI][] Le reste des chapitres 1 à 5, sauf 4.1.e, 4.2.e/f, 5.2.b, 5.10.b.
+- [B&C][] Le reste des chapitres 1 et 2 sauf 2.8 et 2.9 et quelques points omis.
+
+## Séance 4
+
+Modes mathématiques, modules `amsmath`, `amssymb`et `mathtools`. Indices,
+exposants, fractions, racines, opérateurs, alphabets et symboles, fontes
+mathématiques (et un raton laveur). Espaces en mode math. Alignements.
+Environnement numérotés avec `amsthm`.
+
+- [TCQ][] Chapitre 3, sauf 3.6. Remplacé `{array}` par les environnements AMS.
+- [LPI][] Chapitre 9, en remplaçant `$$..$$` par `\[...\]`.
+- [B&C][] Chapitre 3, sauf certains détails omis.
+
+## Séance 5
+
+Révision générale. Bien utiliser son éditeur de texte. Messages d'erreurs
+courants. Nouveautés : définitions de commandes, d'environnements, de couleurs.
+Notion de séparation fond-forme. Documentation locale et en ligne ; CTAN et FAQ
+diverses.
+
+- [TCQ][] 4.5
+- [LPI][] 11.2, 11.3, 11.4.a, 11.4.b
+- [B&C][] 2.9 et 8.1
+
+## Séance 6
+
+Inclusion de graphiques : formats, mise à l'échelle et rotation. Placement :
+simple, habillé, flottant.
+
+- [TCQ][] 2.7 et une partie de 5.
+- [LPI][] Chapitre 7 sauf 7.4 et 7.5 ; chapitre 8 sections 1, 2.a, 2.c, 5 et 6.
+- [B&C][] 6.1 et le chapitre 5 sauf sections 3 et 4.
+
+## Séance 7
+
+Tableaux : simples, avec filets, matériel inter-colonnes. Placement : simple,
+flottant. Style de colonnes avec `array`. Fusion de cellules. Contrôle de la
+largeur totale.
+
+- [TCQ][] pas abordé :-(
+- [LPI][] Chapitre 6 sauf 6.5 à 6.7.
+- [B&C][] Chapitre 4 sauf 4.5 et 4.6.
+
+## Séance 8
+
+_Compléments divers._ Tableaux : en mode mathématique avec `array` ; couleurs
+avec l'option `table` de `xcolor`. Placement des images : utilisation de
+`\afterpage` ; positionnement arbitraire de matériel avec `\put`. Modes
+verbatim : simple avec LaTeX, plus complexes avec `fancyvrb` et `listings` ;
+astuces pour le verbatim dans les arguments de commandes. Quelques règles
+orthtypographiques de base. Bibliographie simple avec `{thebibliography}`.
+Démonstration rapide de bibliographie avec `bibtex` et `biblatex` (pas au
+programme).
+
+- [TCQ][] Peu de points réellement abordés. Voir quand même 2.2.4 et 10.5, et
+  6.2 (en bonne partie hors programme).
+- [LPI][] 6.6 pour les tableux. 7.4 et 8.2.b pour les figures. 5.10 pour une
+  partie du verbatim. 4.2.e pour la biblio et 10.10 (hors programme).
+- [B&C][] 4.6 pour les tableaux. 6.4 pour `listings`. Chapitre 7 pour la partie
+  hors programme de la bibliographie.
+
+## Séance 9
+
+_Programmation basique._ Rudiments sur les compteurs et personnalisation de
+`\thecompteur`. Rudiments sur les longueurs. Utilisation de `calc`.  Quelques
+usages des boîtes et réglures.
+
+
+_Personnalisation._ Fontes autres que CM/LM.  Personnalisation des listes avec
+`enumitem`.  Personnalisation des titres avec `titlesec`. En-têtes et pied de
+page avec `fancyhdr`. Texte sur plusieurs colonnes.  Réglage de l'interligne. 
+
+Problèmes de boites mal remplies.
+
+- [TCQ][] Chapitre 4, une partie de 9.4, 10.4. Quelques points manquants.
+- [LPI][] 11.5, 11.6, 10.3, 10.4, 10.6, 10.12, 5.1.c, 10.2.a.
+- [B&C][] Ce qui restait du chapitre 2 (en particulier dans 2.3 et 2.5, 2.7.1).
+  L'essentiel du chapitre 8 sauf 8.4.
+
+## Séance 10
+
+Il n'y aura finalement pas de séance 10. L'essentiel du contenu initialement
+prévu pour cette séance a été intégré à la séance 9 : même en raccourcissant le
+contenu des deux, on aboutit à une séance 9 anormalement dense.
+
+## Séance 11
+
+Présentations vidéo-projetées avec la classe `beamer`.
+
+Contenu non exigible à l'examen (séance trop proche dans le temps).
+
+- [B&C][] Chapitre 6, section 5.
+- Documentation de la classe beamer.
+
+## Séance 12
+
+Consacrée à l'examen final. Voir la [page d'accueil][index] pour les détails.
+
+[index]: ./
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

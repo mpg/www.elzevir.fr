@@ -1,0 +1,37 @@
+/lm204/
+
+<!-- BEGIN meta -->
+title:	LM204 2008-2009
+descr:	Accueil du LM204 : apprentissage et pratique de LaTeX -- 2008-2009
+keyw:	LM204, LaTeX, cours, exercices, introduction, licence
+h1:	LM204 : découverte de LaTeX
+<!-- END meta -->
+
+<!-- BEGIN content -->
+## Actualités
+
+Pour l'année 2009-2010, le cours a été repris par [Philippe Goutet][phg] qui a
+produit de nombreux [documents pédagogiques][phglatex] très intéressants que je
+recommande en complément des documents que vous trouverez sur ces pages.
+
+[phg]: http://pgoutet.free.fr/
+[phglatex]: http://pgoutet.free.fr/latex/
+
+## Sur ces pages
+
+- [Tous les fichiers][files] utilisés en cours et exercices, et le [polycopié de
+  cours][poly].
+- La [progression du cours][prog] séance par séance avec des références.
+- Les [documents de référence][refs] conseillés pour suivre ou approfondir le
+  cours.
+
+[files]: files/
+[poly]: files/cours.pdf
+[prog]: prog.html
+[refs]: refs.html
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

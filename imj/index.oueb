@@ -1,0 +1,63 @@
+/
+
+<!-- BEGIN meta -->
+title:	Manuel Pégourié-Gonnard
+descr:	Page mathématique de Manuel Pégourié-Gonnard
+keyw:	manuel, pégourié, gonnard, mathématiques, math, thèse, enseignement
+h1:	Manuel Pégourié-Gonnard
+<!-- END meta -->
+
+<!-- BEGIN content -->
+
+## Statut
+
+**Docteur** de l'[université Pierre et Marie Curie][upmc] ([institut de
+mathématiques de Jussieu][imj]). Thèse effectuée sous la direction de [Patrice
+Philippon][pph], sur le thème _Approximation diophantienne dans les variétés
+abéliennes_, soutenue le 22 octobre 2012. Voici le [résumé][abstract],
+le [**manuscrit**][th] et les [transparents][sout] utilisés pour la soutenance.
+
+[th]: files/these-mpg.pdf
+[abstract]: files/abstract-mpg.pdf
+[sout]: files/sout-these-mpg.pdf
+
+[pph]: http://www.math.jussieu.fr/~pph/
+[imj]: http://www.institut.math.jussieu.fr/
+[upmc]:  http://www.upmc.fr/
+
+## Sur ces pages
+
+- Des précisions sur mon sujet de thèse et mes activités de [recherche][rech].
+- Des documents relatifs à mes [enseignements][ens] de cette année et des
+  précédentes.
+- Des informations sur [LaTeX][latex], un système de programmation de documents.
+- Quelques [responsabilités][resp] que j'exerce au sein de l'institut ou
+  ailleurs.
+- Des informations ou liens [en vrac][vrac] sur certaines choses que j'aime.
+
+[rech]: recherche.html
+[ens]: enseignement.html
+[latex]: latex/
+[resp]: resp.html
+[vrac]: vrac.html
+
+## Contact
+
+<p class="noindent">
+<a class="adresse" href="mailto:mpg@elzevir.fr">mpg@elzevir.fr</a>
+</p>
+
+## Après la thèse
+
+Ce site a été archivé. Si vous cherchez des choses plus récentes à mon sujet,
+vous en trouverez peut-être [ici][].
+
+[ici]: /
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+files/these-mpg.pdf	la thèse
+files/abstract-mpg.pdf	son résumé
+<!-- END files -->
+

@@ -1,0 +1,23 @@
+body {
+    color: black; background: white;
+    font-family: sans-serif;
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 800px;
+}
+
+h1, h2, h3 {
+    color: #006;
+    margin-left: 0;
+    border-style: solid;
+    border-color: #006;
+    border-width: 0 0 1px 0;
+}
+h1 { font-size: 150%; }
+h2 { font-size: 120%; }
+h3 { font-size: 100%; }
+
+a:link      { color: #006; }
+a:visited   { color: #909; }
+a:active    { color: #060; }
+

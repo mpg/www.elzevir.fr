@@ -1,0 +1,70 @@
+/m63/
+
+<!-- BEGIN meta -->
+title:	M63 2011-2012
+descr:	Page du module M63 : algèbre et géométrie (2011-2012)
+keyw:	M63, algèbre, géométrie, bilinéaire, licence, université d'Évry
+h1:	M63 : algèbre et géométrie
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Module M63 du **L3 math** (filière math et filère éco) de l'[UÉVE][evry], dont
+j'assure le cours magistral et les TD au **second semestre 2011-2012**.
+
+[evry]: http://www.univ-evry.fr/fr/
+
+## Documents
+
+À télécharger en zip :
+
+- **[Tous les documents][all]** en PDF.
+- Les **[sources LaTeX][src]** librement réutilisables.
+
+[all]: m63.zip
+[src]: m63-src.zip
+
+À consulter individuellement :
+
+- [Feuille 1][f1] : révisions d'algèbre linéaire.
+- [Feuille 2][f2] : formes linéaires et dualité.
+- [Feuille 3][f3] : dualité et orthogonalité.
+- [Feuille 4][f4] : produits scalaires.
+- [Feuille 5][f5] : produits scalaires et orthogonalité.
+- [Feuille 6][f6] : bases orthogonales et projections.
+- [Feuille 7][f7] : isométries du plan et de l'espace usuels.
+- [Feuille 8][f8] : diagonalisation en BON, coniques, quadriques.
+- [Feuille 9][f9] : formes quadratiques.
+- [DS][ds] couvrant le programme des 4 premières feuilles.
+- [DM][dm] donné avant les vacances, à rendre à la rentrée.
+- [Partiel][p1] première session.
+
+[f1]: f1.pdf
+[f2]: f2.pdf
+[f3]: f3.pdf
+[f4]: f4.pdf
+[f5]: f5.pdf
+[f6]: f6.pdf
+[f7]: f7.pdf
+[f8]: f8.pdf
+[f9]: f9.pdf
+[ds]: ds.pdf
+[dm]: dm.pdf
+[p1]: exam.pdf
+
+## Références
+
+- Livre de J.-P. Escofier _Toute l'algèbre de la Licence_ : chapitres 10, 16
+  et 22 (2<sup>e</sup> éd.) ou 23 (3<sup>e</sup> éd.). Le programme traité en
+cours est très proche pour les deux premiers chapitres, moins étendu pour le
+troisième.
+- Pour certaines parties : [polycopié][neko] de Jan Nekovář en L2 à l'UPMC ; [feuilles
+  de TD][lm223] correspondantes.
+
+[neko]: http://www.math.jussieu.fr/~nekovar/co/q/
+[lm223]: ../lm223/
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

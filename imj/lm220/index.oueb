@@ -1,0 +1,217 @@
+/lm220/
+
+<!-- BEGIN meta -->
+title:	LM220 06-07
+descr:	page du TD arithmétique LM220, 2006-2007
+keyw:	LM220, arithmétique, cryptographie, corps finis, licence, mathématiques
+h1:	Arithmétique
+<!-- END meta -->
+
+<!-- BEGIN content -->
+
+<p class="rem">Note aux collègues&nbsp;: les documents disponibles sur cette
+page et dont je suis l'auteur (ou co-auteur) sont placés sous <a
+href="http://www.gnu.org/licenses/fdl.txt">GNU FDL</a> et vous êtes libres
+de les utiliser. Vous trouverez <a href="source/">ici</a> le source LaTeX des
+devoirs, et <a href="C-files/">là</a> le code C d'illustration.</p>
+
+<p>Bienvenue sur cette page consacrée au module LM220 (arithmétique) de la <a
+href="http://www-licence-mathinfo.ufr-info-p6.jussieu.fr/">licence
+math-info</a> de l'UPMC, pour lequel j'assure en cette fin d'année 2006 les
+TD du groupe 2, du groupe 1, partagé avec <a
+href="http://math.univ-bpclermont.fr/~billerey/">Nicolas Billerey</a>, et parfois
+des groupes 8 et 9, prêtés par un collègue et néanmoins ami. Vous trouverez
+ci-dessous les <a href="#indisp">ressources indispensables</a> en pdf, ainsi
+que des <a href="#illust">illustrations</a> en C de certains aspects du
+cours.</p>
+
+<p>Le cours est assuré par <a
+href="http://www.math.jussieu.fr/~risler/">Jean-Jacques Risler</a> pour les
+étudiants orientés math, et par <a
+href="http://www.math.jussieu.fr/~kraus/">Alain Kraus</a> pour le public à
+tendance un peu plus informatique. Un polycopié de cours très complet,
+débordant parfois de ce qui est traité en amphi et sera exigible à l'examen,
+a été rédigé par Alain Kraus et distribué en TD. Vous pouvez aussi le <a
+href="Cours-lm220-Kraus.pdf">télécharger</a> en pdf.</p>
+
+<p> Vous trouverez d'autres informations intéressantes pour le TD sur la page
+d'Esther Aflalo, qui a
+généreusement conçu et tapé les feuilles d'exercices disponibles sur sa page
+ou ci-dessous. Par ailleurs, <a
+href="http://math.univ-bpclermont.fr/~billerey/">Nicolas Billerey</a> tient à jour
+une autre <a href="#">page LM220</a> <small>(plus disponible)</small>
+avec notament la progression séance par séance des groupes dont il s'occupe.
+Enfin, il convient de mentionner la <a
+href="http://www.edu.upmc.fr/maths/L2/lm220/lm220.htm">page officielle</a>
+du module, avec notamment les annales de l'an dernier.</p>
+
+<h3 id="indisp">Les indispensables</h3>
+
+<p>À tout seigneur, tout honneur : le <a
+href="Cours-lm220-Kraus.pdf">polycopié de cours</a>. Je ne saurais trop vous
+rappeler à quel point sa fréquentation est enrichissante.</p>
+
+<p>Fidèles compagnons du cours, les feuilles d'exercices. Elles reprennent
+certains des exercices du cours (mais pas tous), et en proposent bien
+d'autres. Ci-dessous disponibles en pdf, avec une brève description et les
+références aux parties du cours correspondantes.</p>
+
+<ol>
+
+<li><a href="feuille1.pdf">Euclide, Bézout, et le PGCD ; groupes</a>.
+(Chap. 1 et 2.)</li>
+
+<li><a href="feuille2.pdf">Arithmétique dans Z et Z/nZ</a>. (Chap. 4,
+sections 1 à 4.)</li>
+
+<li><a href="feuille3.pdf">Rivest, Shamir et Adleman</a>. (Chap. 4,
+section 5.)</li>
+
+<li><a href="feuille4.pdf">Polynômes sur un corps, en une variable</a>.
+(Chap. 5.)</li>
+
+<li><a href="feuille5.pdf">Corps finis</a>. (Chap. 6)</li>
+
+<li><a href="feuille6.pdf">Codes correcteurs</a>. (Chap. 7)</li>
+
+</ol>
+
+<p>Enfin, après avoir bien travaillé, il n'est pas inutile de faire le point
+et de tester un peu la solidité de ses (vastes) connaissances. Pour ce faire,
+rien de mieux que quelques devoirs, surveillés ou non.</p>
+
+<ul>
+
+<li>Un premier DS sur le programme de la feuille 1. Disponible en trois
+saveurs : <a href="ds1-g1.pdf">1</a>, <a href="ds1-g2.pdf">2</a>, et... <a
+href="ds1-g5.pdf">5</a> !</li>
+
+<li>Un DS sur le contenu de la feuille 2. Moins de variantes cette fois :
+juste <a href="ds2-g1.pdf">1</a> et <a href="ds2-g2g5.pdf">2-et-5</a>.
+</li>
+
+<li>Un <a href="dm1.pdf">DM</a> pour changer : révision générale !
+Quelques questions difficiles, mais c'est pour la bonne cause : démontrer
+un résultat intéressant. Un <a href="dm1-cor.pdf">corrigé</a> de ce DM.
+</li>
+
+<li>Un troisième DS, sur RSA, et l'arithmétique des polynômes. Avec même
+des démonstrations en question de cours ! Versions <a
+href="ds3-g1.pdf">1</a> et <a href="ds3-g2g5.pdf">2.5</a>.</li>
+
+<li>Un <a href="dm2.pdf">deuxième DM</a>, autour des polynômes à
+coefficients entiers, et de leur éventuelle irréductibilité. Au menu&nbsp;:
+lemme de Gauss, critères d'Eisenstein et de réduction modulo p. Un <a
+href="dm2-cor.pdf">corrigé</a> possible.</li>
+
+<li>Le quatrième et dernier devoir surveillé. Il porte sur les corps finis
+et les calculs élémentaires qu'on peut y faire. Toujours en
+versions&nbsp;<a href="ds4-g1.pdf">1</a> et&nbsp;<a
+href="ds4-g2g5.pdf">2.5</a></li>
+
+</ul>
+
+<p>Histoire de valider définitivement les connaissances acquises durant le
+semestre, et pour respecter la tradition, l'examen pointe le bout de son nez.
+</p>
+
+<ul>
+
+<li>Examen principal, le 15 janvier 2007, <a
+href="2007-01-15-sujet.pdf">sujet</a> et son <a
+href="2007-01-15-corrige.pdf">corrigé</a> par les enseignants.</li>
+
+<li>La deuxième session a eu lieu le 5 février&nbsp;: le <a
+href="2007-02-05-sujet.pdf">sujet</a> et son <a
+href="2007-02-05-corrige.pdf">corrigé</a> par les enseignants.</li>
+
+</ul>
+
+<h3 id="illust">Des illustrations</h3>
+
+<p>J'encourage tous les étudiants ayant un goût pour l'informatique, surtout
+ceux l'ayant choisie comme orientation, à essayer d'implémenter dans le
+langage de leur choix les méthodes vues en cours qui sont suffisament
+algorithmiques pour s'y prêter. Pour <a
+href="http://en.wikiquote.org/wiki/Donald_Knuth">citer Knuth</a>, « <span
+lang="en-US" xml:lang="en">Science is what we understand well enough to
+explain to a computer.</span> »</p>
+
+<p>Joignant le geste à la parole, j'ai commis en C quelques fragments de
+code illustrant certains aspects du cours. Ceux-ci n'ont pas la prétention
+d'être un exemple de bonne programmation en C, en particulier la gestion des
+erreurs est souvent sommaire voire inexistante. De plus, je n'ai jamais
+tenté d'optimiser la vitesse d'exécution, ce qui n'est ni le but ici, ni
+dans le cadre de mes compétences.</p>
+
+<p>Par contre, les algorithmes sont en principe tous mathématiquement
+corrects, pour peu que l'utilisateur entre des valeurs dans le domaine
+attendu (en particulier, non nulles quand il le faut). Merci de me signaler
+les éventuelles erreurs, voire de me proposer des implémentations plus
+élégantes si vous le souhaitez.</p>
+
+<p>Les sources C des exemples sont disponibles en vrac <a
+href="C-files/">ici</a>. Ces fichiers font également l'objet de pages
+explicatives, et parfois digressives. Les thèmes illustrés sont :</p>
+
+<ul>
+
+<li>L'algorithme d'<a href="euclide.html">Euclide étendu</a> et certaines choses
+élémentaires que l'on peut faire avec.</li>
+
+<li>La méthode d'<a href="expo.html">exponentiation rapide</a> en base 2.</li>
+
+<li>Un peu de <a href="congruences.html">calcul modulaire</a> : résolution de
+systèmes de congruences linéaires dans un cas simple et dans le cas
+général.</li>
+
+<li>Les principes mathématiques du cryptosystème <a
+href="rsa.html">RSA</a>.</li>
+
+<li>D'autres choses intéressantes quand elles auront été vues en cours.</li>
+
+<li>Ah bah finalement non, c'est fini pour cette année ! :-( </li>
+
+</ul>
+<!-- END content -->
+
+<!-- BEGIN files -->
+Cours-lm220-Kraus.pdf		Cours
+
+feuille1.pdf		feuille 1
+feuille2.pdf		feuille 2
+feuille3.pdf		feuille 3
+feuille4.pdf		feuille 4
+feuille5.pdf		feuille 5
+feuille6.pdf		feuille 6
+
+ds1-g1.pdf		DS1, gr. 1
+ds1-g2.pdf		DS1, gr. 2
+ds1-g5.pdf		DS1, gr. 5
+ds2-g1.pdf		DS2, gr. 1
+ds2-g2g5.pdf		DS2, gr. 2&amp;5
+ds3-g1.pdf		DS3, gr. 1
+ds3-g2g5.pdf		DS3, gr. 2&amp;5
+ds4-g1.pdf		DS4, gr. 1
+ds4-g2g5.pdf		DS4, gr. 2&amp;5
+
+dm1.pdf			DM1, sujet
+dm1-cor.pdf		DM1, corrigé
+dm2.pdf			DM2, sujet
+dm2-cor.pdf		DM2, corrigé
+
+2007-01-15-sujet.pdf		Examen 1ère session, sujet
+2007-01-15-corrige.pdf		Examen 1ère session, corrigé
+2007-02-05-sujet.pdf		Examen 2ème session, sujet
+2007-02-05-corrige.pdf		Examen 2ème session, corrigé
+
+C-files/euclide.c		euclide.c
+C-files/expo.c			expo.c
+C-files/congruences.c		congruences.c
+C-files/congruences-g.c		congruences-g.c
+C-files/rsa.c			rsa.c
+
+source/			sources LaTeX
+C-files/		exemples en C
+<!-- END files -->
+

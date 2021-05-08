@@ -1,0 +1,48 @@
+/lm220/congruences
+
+<!-- BEGIN meta -->
+title:	LM220 - Systèmes de congruences
+descr:	Sur les systèmes de congruences
+keyw:	LM220, arithmétique, congruences, restes chinois, Bézout, langage C
+h1:	Systèmes de congruences
+<!-- END meta -->
+
+<!-- BEGIN content -->
+<p>
+Cette fois, c'est deux fichiers pour le prix d'un : <a href="C-files/congruences.c" class="file">congruences.c</a> et <a href="C-files/congruences-g.c" class="file">congruences-g.c</a> traitent respectivement un cas particulier et le cas général des systèmes de congruences linéaires du type <var>ax = b mod n</var> et <var>cx = d mod m</var>.
+</p><p>
+Pour commencer, <a href="C-files/congruences.c" class="file">congruences.c</a> traite le cas où « tout de passe bien », c'est-à-dire quand on est assuré d'avoir une solution et une seule. Il résout par exemple le système de l'exercice 1 de la deuxième interro. Les techniques mises en jeu sont l'inversion modulo <var>n</var> et la version simple (théorème 4.3 p. 64/65 du cours) du théorème chinois. Vous remarquerez qu'il avoue son impuissance dans certains cas.
+</p>
+
+<h3>Le cas général</h3>
+
+<p>
+Le premier problème potentiel est une équation <var>ax = b</var> où <var>a</var> n'est pas inversible. Celui-ci est traité par <code>lineaire_g()</code>. C'est une mise en oeuvre de la proposition 2.10 p. 48 du cours, dans le cas particulier <var>G = Z/nZ</var> (penser à traduire la notation multiplicative en additif). Voir plus spécifiquement l'exemple 2.10 juste en dessous.
+</p><p>
+Le deuxième danger est de tomber hors du champ d'application du théorème chinois simple, c'est-à-dire quand <var>m</var> et <var>n</var> ne sont pas premiers entre eux. On utilise alors la version plus précise, implémentée par <code>chinois_g()</code>, que constitue le théorème 4.4 p. 66. Bien comprendre dans cet énoncé que la description de l'image du morphisme permet de savoir si une solution existe, que de plus la démonstration indique comment la trouver par une relation de Bézout, et qu'enfin le calcul du noyau détermine le nombre de solutions et comment elles se déduisent d'une solution particulière.
+</p><p>
+La résolution du système se fait alors en deux étapes : on commence par résoudre chacune des équations avec <code>lineaire_g()</code>. Si une d'entre elles n'a pas de solution, c'est fini. Sinon, on résout avec par le théorème chinois étendu le nouveau système obtenu avec les <em>nouveaux modules</em>, et les solutions des équations précédentes comme nouveaux membres de droite.
+</p><p>
+Enfin, signalons qu'on peut parfaitement traiter des systèmes avec plus d'équations. Il suffit pour cela de réduire progressivement le nombre d'équations en résolvant les deux premières, puis en les remplaçant par la nouvelle équation <var>x = a' mod n'</var>, dont les coefficients sont donnés par la résolution, qui leur est équivalente.
+</p>
+
+<h3>Remarques</h3>
+
+<p>
+Ces deux programmes utilisent une nouvelle implémentation de l'algorithme
+d'Euclide étendu, qui, contrairement à la fonction
+<code>euclide_complet()</code> peu réaliste d'<a href="C-files/euclide.c"
+class="file">euclide.c</a>, ne renvoie que l'objet réellement intéressant : la
+relation de Bézout. C'est donc <code>bezout()</code> qui fait le vrai travail,
+le reste du code n'étant somme tout que le traduction de quelques théorème.
+Cet algorithme étant central en arithmétique modulaire, il est donc très
+intéressant de l'optimiser le plus possible, comme on l'a <a
+href="euclide.html">déjà</a> évoqué.
+</p><p>
+Une remarque plus mathématique pour finir : la définition du type <code>sol_t</code> n'est pas si anodine. Elle traduit la structure possible des images réciproques dans <var>Z</var> d'éléments de <var>Z/nZ</var> par un morphisme d'anneau. C'est soir l'ensemble vide, soit une classe de <var>Z</var> modulo un de ses idéaux. C'est un fait général sur les morphismes de différentes structures, et il importe de bien comprendre à quel point les notions d'image et de noyau sont en fait concrêtes.
+</p>
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

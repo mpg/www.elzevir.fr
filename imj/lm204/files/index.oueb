@@ -1,0 +1,78 @@
+/lm204/files/
+
+<!-- BEGIN meta -->
+title:	LM204 -- fichiers
+descr:	Tous les fichiers pour le LM204
+keyw:	lm204, latex, cours, exercices, fichiers
+h1:	Tous les fichiers — LM204
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Les types de fichiers sont les suivants (où `NN` est le numéro de la séance) :
+
+[cours.pdf]: cours.pdf
+
+- [cours.pdf][] : le polycopié de cours ;
+- `NN-<nom>.pdf` : support de cours, `NN-<nom>-3up.pdf` : pour imprimer ;
+- `exos-NN.zip` : énoncés, solutions, corrigés, fichiers annexes  pour la séance
+  `NN`, voir les détails en fin de chapitre 1 du cours ;
+- `doc-<description>` : document annexe.
+- `tout-XXX.zip` : regroupement d'autres fichiers ;
+- `sources.zip` : les sources du cours, des exercices et des documents.
+
+<table summary="liste des fichiers">
+ <tr><th>Nom du fichier</th><th>Date</th><th>Taille</th></tr>
+ <tr><th colspan="3"><hr /></th></tr>
+ <tr><td><a href="01-intro.pdf">01-intro.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">279K</td></tr>
+ <tr><td><a href="02-texte.pdf">02-texte.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">168K</td></tr>
+ <tr><td><a href="03-struct.pdf">03-struct.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right"> 96K</td></tr>
+ <tr><td><a href="04-math.pdf">04-math.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">289K</td></tr>
+ <tr><td><a href="05-rev-and-newc.pdf">05-rev-and-newc.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">141K</td></tr>
+ <tr><td><a href="06-graph.pdf">06-graph.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">181K</td></tr>
+ <tr><td><a href="07-tab.pdf">07-tab.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">121K</td></tr>
+ <tr><td><a href="08-comp-divers.pdf">08-comp-divers.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">153K</td></tr>
+ <tr><td><a href="09-perso-comp.pdf">09-perso-comp.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">248K</td></tr>
+ <tr><td><a href="10-beamer.pdf">10-beamer.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">156K</td></tr>
+ <tr><td><a href="cours.pdf">cours.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">1.2M</td></tr>
+ <tr><td><a href="doc-aide-memoire.pdf">doc-aide-memoire.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">167K</td></tr>
+ <tr><td><a href="doc-biblio.pdf">doc-biblio.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right"> 42K</td></tr>
+ <tr><td><a href="doc-eval-rapport.pdf">doc-eval-rapport.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right"> 31K</td></tr>
+ <tr><td><a href="doc-install-miktex+txc.pdf">doc-install-miktex+txc.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">158K</td></tr>
+ <tr><td><a href="doc-source-base.tex">doc-source-base.tex</a></td><td align="right">2011-02-22 09:45  </td><td align="right">854 </td></tr>
+ <tr><td><a href="doc-symboles-math.pdf">doc-symboles-math.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">367K</td></tr>
+ <tr><td><a href="doc-tout-ce-que.pdf">doc-tout-ce-que.pdf</a></td><td align="right">2009-12-31 17:25  </td><td align="right">4.1M</td></tr>
+ <tr><td><a href="exos+cor-02.zip">exos+cor-02.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">106K</td></tr>
+ <tr><td><a href="exos+cor-03.zip">exos+cor-03.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">283K</td></tr>
+ <tr><td><a href="exos+cor-04.zip">exos+cor-04.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">410K</td></tr>
+ <tr><td><a href="exos+cor-05.zip">exos+cor-05.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">413K</td></tr>
+ <tr><td><a href="exos+cor-06.zip">exos+cor-06.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">631K</td></tr>
+ <tr><td><a href="exos+cor-07.zip">exos+cor-07.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">247K</td></tr>
+ <tr><td><a href="exos+cor-08.zip">exos+cor-08.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">256K</td></tr>
+ <tr><td><a href="exos+cor-09.zip">exos+cor-09.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">188K</td></tr>
+ <tr><td><a href="exos+cor-dm.zip">exos+cor-dm.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">417K</td></tr>
+ <tr><td><a href="exos+cor-exam.zip">exos+cor-exam.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">819K</td></tr>
+ <tr><td><a href="sources.zip">sources.zip</a></td><td align="right">2009-12-31 17:25  </td><td align="right">4.1M</td></tr>
+ <tr><td><a href="tous-les-docs.zip">tous-les-docs.zip</a></td><td align="right">2009-12-31 17:25  </td><td align="right">3.8M</td></tr>
+ <tr><td><a href="tous-les-exos+cor.zip">tous-les-exos+cor.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">3.7M</td></tr>
+ <tr><td><a href="tout-le-lm204.zip">tout-le-lm204.zip</a></td><td align="right">2011-12-09 21:15  </td><td align="right">9.7M</td></tr>
+ <tr><td><a href="toutes-les-diapos-3up.zip">toutes-les-diapos-3up.zip</a></td><td align="right">2009-12-31 17:25  </td><td align="right">953K</td></tr>
+ <tr><td><a href="toutes-les-diapos.zip">toutes-les-diapos.zip</a></td><td align="right">2009-12-31 17:25  </td><td align="right">1.0M</td></tr>
+ <tr><th colspan="3"><hr /></th></tr>
+</table>
+
+Tous les documents présents ici et dont je suis l'auteur sont placés sous la
+[licence libre][ll] GNU [FDL][] : ceci signifie que n'importe qui est libre de
+les utiliser, reproduire, distribuer, modifier, à condition de conserver une
+licence compatible. Les [sources][] sont pour l'instant un peu difficiles à
+exploiter, peut-être qu'elles seront accompagnées d'un peu plus de commentaires,
+voire d'une version compilable sans polices commerciales, le jour où j'aurai eu
+le temps de m'en occuper...
+
+[ll]: http://fr.wikipedia.org/wiki/Licence_libre
+[FDL]: http://fr.wikipedia.org/wiki/Licence_de_documentation_libre_GNU
+[sources]: sources.zip
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

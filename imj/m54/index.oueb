@@ -1,0 +1,88 @@
+/m54/
+
+<!-- BEGIN meta -->
+title:	M54 2011-2012
+descr:	Page du module M54 : algèbre et arithmétique 2 (2011-2012)
+keyw:	M54, algèbre, arithmétique, licence, université d'Évry
+h1:	M54 : algèbre et arithmétique 2
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Module M54 du **L3 math** (filière math et applications) de l'[UÉVE][evry], dont
+j'assurais le cours magistral et les TD au **premier semestre 2011-2012**. Au
+programme : **anneaux, corps, et applications**.
+
+[evry]: http://www.univ-evry.fr/fr/
+
+## Documents
+
+À télécharger d'un coup en zip : **tous les [documents][docs] en pdf** ;
+les **[sources][src] LaTeX**, librement réutilisables. Ou à consulter
+individuellement :
+
+- [Squelette de cours][skel] : juste les définitions et résultats.
+- Un [plan du cours][plan] détaillant la progression.
+- [Feuille 1][f1] : anneaux, corps, morphismes.
+- [Feuille 2][f2] : sous-anneaux, sous-corps, anneaux engendrés.
+- [Feuille 3][f3] : idéaux, quotients.
+- [Feuille 4][f4] : relation de Bézout et applications.
+- [Feuille 5][f5] : groupe des unités modulaires ; cryptosystème RSA.
+- [Feuille 6][f6] : idéaux premiers, maximaux.
+- [Feuille 7][f7] : polynômes irréductibles et factorisations.
+- [Feuille 8][f8] : corps finis. Quelques [tables de multiplications][ff].
+- [Feuille 9][f9] : cryptographie et corps finis : Diffie-Hellman, El Gamal.
+- [DS][] : programme des feuilles 1 à 4 incluses.
+- [DM][] : théorème des deux carrés, en utilisant les entiers de Gauss.
+- L'[examen final][exam] et un [corrigé][cor].
+- Autres sujets : [janvier 2009][jan09], [janvier 2010][jan10], [septembre
+  2011][sep11].
+
+[docs]: m54.zip
+[src]: m54-sources.zip
+
+[plan]: plan.pdf
+[skel]: cours.pdf
+
+[f1]: f1.pdf
+[f2]: f2.pdf
+[f3]: f3.pdf
+[f4]: f4.pdf
+[f5]: f5.pdf
+[f6]: f6.pdf
+[f7]: f7.pdf
+[f8]: f8.pdf
+[f9]: f9.pdf
+
+[ff]: corps-finis.pdf
+
+[DS]: ds.pdf
+[DM]: dm.pdf
+[exam]: exam.pdf
+[cor]: cor-exam.pdf
+
+[jan09]: ex-janv-2009.pdf
+[jan10]: ex-janv-2010.pdf
+[sep11]: ex-sept-2011.pdf
+
+## Compléments
+
+- [Archives 2009-2010 du M54][arch] ; le plan adopté est un peu différent même
+  si le contenu reste assez comparable au final.
+- [Un module similaire en L2][lm220] à l'UPMC. (Plan similaire mais traité de
+  façon moins générale, exercices souvent moins « abstraits ».) En
+particulier, des implémentations en C de [RSA][] et de la résolution de
+[systèmes de congruences linéraires][cong]. Des DM avec corrigés détaillés,
+très intéressants à étudier si vous en avez le temps.
+
+[arch]: 09-10/
+[lm220]: ../lm220/
+[RSA]: ../lm220/rsa.html
+[cong]: ../lm220/euclide.html
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+m54.zip		Documents PDF
+m54-sources.zip	Sources LaTeX
+<!-- END files -->
+

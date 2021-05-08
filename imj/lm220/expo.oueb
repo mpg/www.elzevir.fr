@@ -1,0 +1,22 @@
+/lm220/expo
+
+<!-- BEGIN meta -->
+title:	LM220 - Exponentiation rapide
+descr:	Sur l'exponentiation rapide
+keyw:	LM220, arithmétique, exponentiation rapide, langage C
+h1:	Exponentiation rapide
+<!-- END meta -->
+
+<!-- BEGIN content -->
+<p>
+Un exemple simple d'exponentiation rapide, basé sur le développement en base deux : <a href="C-files/expo.c" class="file">expo.c</a>. Le principe mathématique en est exposé paragraphe I.8.1 du cours. Remarquer dans le code comment on travaille directement sur les bits de l'exposant, celui-ci étant naturellement représenté en base 2 en mémoire. N'hésitez pas à dérouler la fonction à la main pour vous convaincre qu'elle traduit bien, de façon itérative, la formule du cours.
+</p><p>
+Vous êtes invités à mesurer le temps de calcul pour des valeurs de plus en plus grandes de l'exposant (jusqu'à <var>2<sup>32</sup></var>...) pour constater qu'il est linéaire en la taille (nombre de bits) de l'exposant. À l'inverse, le temps de calcul de la méthode naïve est exponentiel, et vous serez rapidement obligés de l'abandonner pour pouvoir augmenter l'exposant.
+</p><p>
+Pas grand-chose à ajouter sur ce programme assez court. Comme d'habitude, la méthode présentée est une des plus simples et des algorithmes plus performants sont présentés dans le volume 2 de <span lang="en-US" xml:lang="en" class="en">The Art of Computer Programming</span> de Knuth.
+</p>
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

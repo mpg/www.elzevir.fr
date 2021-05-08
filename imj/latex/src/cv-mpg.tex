@@ -1,0 +1,169 @@
+% CV universitaire de Manuel Pégourié-Gonnard.
+%
+% Écrit en 2008, 2009 par Manuel Pégourié-Gonnard.
+% Ce fichier N'est PAS sous une licence libre, pour des raisons évidentes.
+%
+% Cependant, vous êtes parfaitement libres de ré-utiliser, diffuser et adapter
+% à votre goût le contenu du préambule.
+
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{xltxtra}
+\usepackage{geometry}
+\usepackage{xspace}
+\usepackage[frenchb]{babel}
+\usepackage[bookmarks=false, colorlinks=true, urlcolor=black]{hyperref}
+\frenchbsetup{og=«,fg=»}
+
+\defaultfontfeatures{Scale=MatchLowercase, Mapping=tex-text}
+\setmainfont[Numbers=OldStyle]{Minion Pro}
+\setsansfont[Numbers=OldStyle, BoldFont={%
+  Myriad Pro Semibold}, BoldItalicFont={%
+  Myriad Pro Semibold Italic}]{Myriad Pro}
+
+\renewcommand\thepage{\arabic{page}/2}
+
+\newcommand\upmc{université Pierre et Marie Curie\xspace}
+\newcommand\email[1]{%
+  \href{mailto:#1}{#1}}
+\newcommand\rmurl[1]{%
+  \href{#1}{\textrm{#1}}}
+
+\newlength\dlmargin \setlength\dlmargin{6em}
+\newenvironment{dateliste}{%
+  \setlength\leftmargini{\dlmargin}%
+  \setlength\labelsep{0pt}%
+  \renewcommand\descriptionlabel[1]{%
+    \makebox[\dlmargin][l]{\sffamily##1}}%
+  \begin{description}
+    }{%
+  \end{description}}
+\newcommand*\annee[1]{%
+  \item[#1]}
+\newcommand*\contexte[1]{%
+  \par\medskip\noindent
+  \textit{#1.}}
+
+\newcommand*\partie[1]{%
+  \begin{center}
+  \large\sffamily\bfseries
+	\hrule
+    \strut#1\\
+	\hrule
+  \end{center}
+  \nobreak}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.6\linewidth}\obeylines
+  Manuel \bsc{Pégourié-Gonnard}
+  24 rue Geoffroy Saint-Hilaire
+  75005 Paris
+  \rmurl{http\string://people.math.jussieu.fr/\string~mpg/}
+  \email{mpg@math.jussieu.fr}
+\end{minipage}%
+\begin{minipage}[t]{0.4\linewidth}\raggedleft\obeylines
+  Né le 2 mars 1981
+  Nationalité française
+\end{minipage}
+\par
+\vspace{1.2em}
+
+\partie{Formation scientifique}
+\begin{dateliste}
+  \annee{2005--}
+  Doctorant de l'université Pierre et Marie Curie, institut de
+  mathématiques de Jussieu. Directeur : Patrice Philippon. Sujet :
+  Problèmes quantitatifs en approximation diophantienne dans les variétés
+  abéliennes.
+  \annee{2005} Reçu 58\ieme à l'agrégation de mathématiques.
+  \annee{2003--2005} DEA/M2 « algèbre et géométrie» de l'\upmc,\\ mention très
+  bien.
+  \annee{2002--2003} Maîtrise de mathématiques de l'\upmc.
+  \annee{2000--2001} Licence de mathématiques de l'\upmc.
+  \annee{1998--2000} DEUG sciences mention MIAS, \upmc.
+  \annee{1998} Lauréat du concours général des lycées (sciences physiques).
+\end{dateliste}
+
+\partie{Activités d'enseignement}
+
+\contexte{ATER à l'\upmc}
+\begin{dateliste}
+  \annee{2008--2009} LM204 « apprentissage et pratique de \LaTeX », deuxième
+  année de licence.\\ Responsable de l'UE (nouvelle) : cours, TD, polycopié,
+  télé-enseignement.
+\end{dateliste}
+
+\contexte{Formateur au CIES Jussieu}
+\begin{dateliste}
+  \annee{2007--2009} Formations \LaTeX{} niveaux intermédiaire et avancé,
+  cours magistral.
+  \annee{2006--2007} Proposition, définition et mise en place de formations
+  \LaTeX.\\ Niveaux débutant et avancé, cours magistral.
+\end{dateliste}
+
+\contexte{Moniteur à l'\upmc}
+\begin{dateliste}
+  \annee{2007--2008} LM110 « fonctions », première année de licence, TD.
+  \annee{2006--2007} LM220 « arithmétique », deuxième année de licence, TD.
+  \annee{2005--2006} LM223 « formes quadratiques et géométrie », deuxième
+  année de licence, TD.
+\end{dateliste}
+
+\pagebreak
+
+\partie{Exposés}
+\begin{dateliste}
+  \annee{2008} Exposé « autour du théorème de Siegel » au séminaire
+  étudiant de théorie des nombres de l'IMJ.
+  \annee{2008} Exposé introductif « la géométrie gouverne l'arithmétique »
+  au séminaire des thésards de l'IMJ.
+  \annee{2007} Exposé « inégalités diophantiennes » au groupe
+  de travail étudiant de théorie des nombres de Bordeaux.
+  \annee{2006} Deux exposés « une preuve ``élémentaire'' de
+  l'ex-conjecture de Mordell » au séminaire étudiant de théorie des
+  nombres de l'IMJ.
+\end{dateliste}
+
+\partie{Rencontres scientifiques}
+
+\begin{dateliste}
+  \annee{2007} Colloque « progrès récents en approximation diophantienne »
+  à Luminy.
+  \annee{2006} Colloque « jeunes chercheurs en théorie des nombres » à
+  Rennes.
+\end{dateliste}
+
+\partie{Responsabilités}
+
+\contexte{Milieu universitaire}
+\begin{dateliste}
+  \annee{2007--2009}
+  Membre du bureau des doctorants de l'institut de mathématiques de Jussieu,
+  co-responsable des aspects informatiques.
+\end{dateliste}
+
+\contexte{Vie associative et logiciels libres}
+\begin{dateliste}
+  \annee{2008--} Membre de l'équipe \TeX\thinspace Live (la distribution \TeX{}
+  standard sous Unix).
+  \annee{2008--2009} Membre du CA (webmaster, relations universités) de la
+  LUDI-IDF, la ligue universitaire d'improvisation théâtrale basée à Jussieu.
+\end{dateliste}
+
+\partie{Autres compétences et loisirs}
+\begin{dateliste}
+  \annee{Langues} Anglais courant, allemand scolaire.
+  \annee{Info} Administration système sous Linux : serveur DNS, mail (SMTP,
+  IMAPS), web, base de données, XMPP (Jabber), Subversion, fichiers (SFTP).\\
+  Langages étudiés ou pratiqués : HTML+CSS, JS, PHP+MySQL, Pascal, C, Perl,
+  shell Unix, Lua, et\dots \TeX !
+  \annee{Musique} Pianiste amateur. Ancien étudiant de la section
+  professionnelle (cursus théorique) du conservatoire de Genève.
+  \annee{Impro} Membre d'une ligue d'improvisation théâtrale, la LUDI-IDF, et
+  d'une troupe dérivée, les Ours dans ta baignoire.
+  \annee{Sport} Roller : déplacement urbain et randonnée.
+\end{dateliste}
+
+\end{document}

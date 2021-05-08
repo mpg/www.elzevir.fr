@@ -1,0 +1,66 @@
+/recherche
+
+<!-- BEGIN meta -->
+title:	Recherche -- mpg
+descr:	Page recherche de Manuel Pégouri-Gonnard
+keyw:	approximation, diophantienne, variétés abéliennes, mathématiques
+h1:	Recherche
+<!-- END meta -->
+
+<!-- BEGIN content -->
+## Thèse
+
+Sujet : approximation diophantienne dans les variétés
+abéliennes. Objectif : expliciter un théorème de Faltings (théorème 2
+de son papier de 91).  Directeur : [Patrice Philippon][pph].
+
+[pph]: http://www.math.jussieu.fr/~pph/
+
+- [Manuscript][th] soutenu le 22 octobre 2012.
+- [Résumé][abstract] bilingue et [transparents][sout] utilisés pour la
+  soutenance.
+- [Exposé introductif][ineg] à la géométrie diophantienne des variétés
+  abéliennes, au séminaire étudiant de théorie des nombres de Bordeaux.
+- [Support de présentation][diopres] express de l'approximation diophantienne
+  pour une réunion de moniteurs de toutes disciplines scientifiques.
+
+[th]: files/these-mpg.pdf
+[abstract]: files/abstract-mpg.pdf
+[sout]: files/sout-these-mpg.pdf
+[ineg]: files/inegalites-dio.pdf
+[diopres]: files/dio-pres.pdf
+
+## Exposés
+
+- _La géométrie gouverne l'arithmétique._ Séminaire des thésards de l'IMJ, avril
+  2008.
+- _Autour du théorème de Siegel._ Séminaire étudiant de théorie des nombres de
+  l'IMJ, mars 2008.
+- _Inégalités diophantiennes._ Séminaire étudiant de théorie des nombres de
+  Bordeaux, mars 2007.
+- _Une preuve « élémentaire » du théorème de Faltings (conj. de Mordell)._
+  Séminaire étudiant de théorie des nombres de l'IMJ, deux exposés, avril-mai
+  2006.
+
+## Rencontres
+
+- Rencontre « Développements récents en approximation diophantienne », Luminy,
+  octobre 2008.
+- Colloque « jeunes chercheurs en théorie des nombres », Rennes, juin
+  2006.
+
+## Master
+
+M2 recherche « Algèbre et Géométrie » de l'Université Pierre et Marie Curie.
+Mémoire « [Sur quelques lemmes de Thue-Siegel][mem] », dir. [Patrice
+Philippon][pph].
+
+[mem]: files/thue-siegel.pdf
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+files/these-mpg.pdf	la thèse
+files/abstract-mpg.pdf	son résumé
+<!-- END files -->
+

@@ -1,0 +1,91 @@
+Date: 2011-12-27
+
+For a number of reasons including the ones outlined in [0] and the
+approaching planned expiration date of my current key, I've recently set
+up a new OpenPGP key, and will be transitioning away from my old one.
+
+The old key will continue to be valid for some time, but i prefer all
+future correspondence to come to the new one.  I would also like this
+new key to be re-integrated into the web of trust.  This message is
+signed by both keys to certify the transition.
+
+This document and both signatures are available online at:
+
+  https://elzevir.fr/gpg/transition.txt
+  https://elzevir.fr/gpg/trans.old.sig
+  https://elzevir.fr/gpg/trans.new.sig
+
+You can check the signatures with:
+
+  gpg --verify trans.old.sig transition.txt
+  gpg --verify trans.new.sig transition.txt
+
+(the second line will work only after importing the new key, see below).
+
+The old key was:
+
+pub   1024D/50A89B42 2008-01-04 [expires: 2012-01-20]
+      Key fingerprint = 10BD 5746 F624 A9BA 538F  7737 B201 8572 50A8 9B42
+
+The new key is:
+
+pub   4096R/98EED379 2011-12-27 [expires: 2016-12-25]
+      Key fingerprint = 2248 C3BB E003 F0E0 F7CA  DF75 4529 BC70 98EE D379
+
+To fetch the full key from a public key server, you can simply do:
+
+  gpg --keyserver pool.sks-keyservers.net --recv-key 98EED379
+
+Alternatively, you can get it using:
+
+  wget -O - https://elzevir.fr/gpg/mpg.asc | gpg --import
+
+If you already know my old key, you can now verify that the new key is
+signed by the old one:
+
+  gpg --check-sigs 98EED379
+
+If you don't already know my old key, or you just want to be double
+extra paranoid, you can check the fingerprint against the one above:
+
+  gpg --fingerprint 98EED379
+
+If you are satisfied that you've got the right key, and the UIDs match
+what you expect, I'd appreciate it if you would sign my key. You can
+do that by issuing the following command:
+
+  gpg --sign-key 98EED379
+
+I'd like to receive your signatures on my key. You can export the new
+signature this way:
+
+  gpg --export 98EED379 > mpg-signed.asc
+
+and send me the resulting file `mpg-signed.asc' by (encrypted) email.
+
+
+Additionally, I highly recommend that you implement a mechanism to keep your
+key material up-to-date so that you obtain the latest revocations, and other
+updates in a timely manner. The most obvious way is by running 'gpg
+--refresh-keys' in a daily or weekly cron job.
+
+If you are concerned about privacy issues related to the key refreshing
+process, you can use parcimonie[1] to refresh your keyring. Parcimonie is a
+daemon that slowly refreshes your keyring from a keyserver over Tor. It uses a
+randomized sleep, and fresh tor circuits for each key. The purpose is to make
+it hard for an attacker to correlate the key updates with your keyring.
+
+
+I also highly recommend checking out the excellent Riseup GPG best
+practices doc, from which I stole most of the text for this transition
+message ;-)
+
+https://we.riseup.net/riseuplabs+paow/openpgp-best-practices
+
+Please let me know if you have any questions, or problems, and sorry
+for the inconvenience.
+
+Manuel P'egouri'e-Gonnard.
+
+0. https://www.debian-administration.org/users/dkg/weblog/48
+1. https://gaffer.ptitcanardnoir.org/intrigeri/code/parcimonie/

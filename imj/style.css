@@ -1,0 +1,339 @@
+/* Mise de pages globale, dimensions */
+
+body {
+    font-size: 10px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#page {
+    width: 800px;
+    margin: 0px auto 20px auto;
+    padding: 0;
+    border-style: solid;
+    border-color: #bce;
+    border-width: 0px 3px 3px 3px;
+    text-align: left;
+}
+
+#content {
+    float: right;
+    padding: 0;
+    margin: 0px 20px 20px 10px;
+    width: 570px;
+}
+
+#sidebar
+{
+    padding: 0;
+    margin: 0px 10px 20px 20px;
+    width: 170px;
+}
+
+#navone {
+    margin: 0; padding: 0;
+    height: 20px;
+    list-style-type: none;
+    border-color: #147; border-style: solid; border-width: 1px 0 0 0;
+}
+
+#navone li {
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 160px;
+    height: 20px;
+}
+
+#navtwo {
+    margin: 10px 0 10px 20px;
+    padding: 0;
+}
+
+#footer {
+    border: none;
+    margin:0;
+    padding: 0;
+    clear: both;
+}
+
+/* Espacement et fontes des titres */
+
+/* dans le corps des pages, h2 à h4 sont utilisés indifférement */
+h1          { margin: 0     0 20px  0; padding: 0; }
+h2, h3, h4  { margin: 15px  0 7.5px 0; padding: 0; }
+#sidebar>h3:first-child { margin: 0 0 7.5px 0; }
+
+h1, h2, h3, h4 {
+    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    font-weight: bold;
+    color: #147;
+    text-decoration: none;
+}
+h1          { font-size: 1.6em; text-align: center; }
+h2, h3, h4  { font-size: 1.2em; }
+#sidebar h3 {
+    font-family: 'Lucida Grande', Verdana, Sans-Serif;
+    font-size: 1.2em;
+}
+
+#header { padding: 10px 0 0 0; margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+}
+
+#header, #header a {
+    background-color: #bce; color: #147; text-decoration: none; }
+
+#t-site {
+    text-align: right; float: left;
+    width:49%; margin: 0; padding: 0;
+    font-size: 2em; font-weight: bold; }
+
+#st-site {
+    text-align: left; float: right;
+    width:49%; margin:0; padding: 0;
+    font-size: 1em; }
+
+hr.clear { clear: both; visibility: hidden; margin: 5px; padding: 0; }
+
+/* Fontes, tailles et couleurs des éléments */
+
+body {
+    font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    background-color: #ccc;
+    color: #333;
+}
+
+#page {
+    background-color: white;
+    color: inherit;
+}
+
+#navone li {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#navone, #navone a  {
+    background-color: #bce;
+    color: #333;
+}
+
+#navone li:hover, #navone li:hover a, #navonecur, #navonecur a {
+    background-color: #147;
+    color: white;
+    text-decoration: none;
+}
+
+#navone { margin-top: 0; }
+
+#navonecur, #navonecur a {
+    font-weight: bold;
+}
+
+#content p {
+    margin: 5px 0;
+    padding: 0;
+    text-indent: 0;
+}
+
+#content p.rem {
+    font-size: 0.9em;
+    font-style: italic;
+    color: gray;
+}
+
+#content p.noindent {
+    text-indent: 0;
+}
+
+small {
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 0.9em;
+}
+
+#navtwo {
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+#navtwocur { color: #147; }
+
+#sidebar {
+    font: 1em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+}
+
+small, blockquote, strike, #navtwo, .rem {
+    color: gray;
+}
+
+code {
+    font: 1.1em 'Courier New', Courier, Fixed;
+}
+
+acronym, abbr, span.caps
+{
+    font-size: 0.9em;
+    letter-spacing: .07em;
+}
+
+a { color: #06c; text-decoration: none; }
+a:hover {  text-decoration: underline; }
+a:visited { color: #a4c;}
+
+h1>a, h2>a, h3>a, h4>a { color: #147; }
+h1>a:visited, h2>a:visited, h3>a:visited, h4>a { color: #147; }
+
+/* End Typography & Colors */
+
+/* Begin Structure */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#page {
+    background-color: white;
+}
+
+#content {
+    text-align: justify;
+    font-size: 1.2em
+}
+
+/* End Structure */
+
+/* Begin Images */
+p img {
+    padding: 0;
+    max-width: 100%;
+}
+
+img.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.alignright {
+    padding: 4px;
+    margin: 0 0 2px 7px;
+    display: inline;
+}
+
+img.alignleft {
+    padding: 4px;
+    margin: 0 7px 2px 0;
+    display: inline;
+}
+
+/* End Images */
+
+/* Begin Lists in content */
+
+html>body #content ul {
+    list-style: none;
+    margin: 1px 0;
+    padding: 0 0 0 0em;
+    text-indent: 0em;
+}
+
+#content ul li:before {
+    content: "\2013 \0020";
+}
+
+#content ol {
+    margin: 1px 0;
+    padding: 0 0 0 1.5em;
+    text-indent: 0;
+}
+
+#content ul li, #content ol li, #content dl li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+#content ul, #content ol, #content dl {
+    text-align: left;
+}
+
+/* End lists in content */
+
+/* Begin lists in sidebar */
+
+#sidebar ul ul li:before {
+    content: "\21B3 \0020";
+}
+
+#sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none
+}
+
+#sidebar ul li {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+}
+
+#sidebar ul ul {
+    margin: 0 0 1ex 1em;
+    padding: 0;
+}
+
+#sidebar ul ul li {
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar li.sep {
+    margin-top: 1ex;
+}
+
+/* End Lists in sidebar */
+
+/* Begin Various Tags & Classes */
+acronym, abbr, span.caps {
+    cursor: help;
+}
+
+acronym, abbr {
+    border-bottom: 1px dashed #999;
+}
+
+blockquote {
+    margin: 15px 30px 0 10px;
+    padding-left: 20px;
+    border-left: 5px solid #ddd;
+}
+
+blockquote cite {
+    margin: 5px 0 0;
+    display: block;
+}
+
+.center {
+    text-align: center;
+}
+
+a img {
+    border: none;
+}
+
+#addrblock {
+    margin-top: 20px;
+    clear: both;
+    text-align: center;
+}
+
+/* End various Tags & Classes */
+
+/* Begin table (for autoindex only) */
+
+table {
+    width: 100%;
+    color: gray;
+}

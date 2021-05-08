@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -eu
+exec >/dev/null
+
+# make the working copy identical to the last commit
+git add .
+git stash
+
+# update html pages
+make
+make clean
+
+# do the actual sync
+#make sync
+
+# get the working copy and index back
+git stash pop 2>/dev/null
+git reset --mixed HEAD

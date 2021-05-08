@@ -1,0 +1,51 @@
+/vrac
+
+<!-- BEGIN meta -->
+title:	En vrac -- mpg
+descr:	Page en vrac de Manuel Pégourié-Gonnard
+keyw:	vrac, weblog, roller, colophon
+h1:	En vrac
+<!-- END meta -->
+
+<!-- BEGIN content -->
+## Fun
+
+**Roller** : je fais partie du staff de la _[Friday Night Fever][fnf]_, et
+participe à quelques autres randonnées, comme la [321][321] ou la
+RCL. Je m'entraîne aussi au [slalom _freestyle_][kpkb] &mdash;
+mon _spot_ de base est la place Henri Fresnay.
+
+[fnf]: http://pari-roller.com/
+[321]: http://321bastille.blogspot.com/
+[kpkb]: http://kompakombo.fr/
+
+## Weblog
+
+Je [blogue][mpgblog] de façon assez irrégulière (de 3 billets par jour à 2 mois
+sans billet), sur LaTeX et autres variantes de TeX, et autres sujets de _geek_ à
+tendance unixienne.
+
+[mpgblog]: https://weblog.elzevir.fr/
+
+## Colophon
+
+Ces pages sont rédigées dans un format maison. Chaque source est constitué de
+différents blocs dont le principal est en [Markdown][], un langage de balisage
+léger. Vous pouvez le voir en remplaçant l'éventuel `.html` par `.oueb` dans la
+barre d'adresse. La conversion est assurée par le script Perl [oueb2html][]
+qui insère aussi les éléments de navigation.
+
+Les sources sont sous contrôle de version avec [git][], et à chaque mise à jour
+un _hook_ [reconstruit][make] les pages mises à jour et propage les
+modifications sur le serveur par sftp (avec la commande `mirror` de lftp).
+
+[Markdown]: http://daringfireball.net/projects/markdown/
+[git]: http://git-scm.com/
+[make]: Makefile
+[oueb2html]: oueb2html
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

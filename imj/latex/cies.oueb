@@ -1,0 +1,60 @@
+/latex/cies
+
+<!-- BEGIN meta -->
+title:	Formations LaTeX au CIES Jussieu
+descr:	Formations LaTeX au CIES Jussieu
+keyw:	LaTeX, TeX, CIES, Jussieu, formation
+h1:	Formations LaTeX au CIES Jussieu
+<!-- END meta -->
+
+<!-- BEGIN content -->
+## Organisation
+
+Le CIES Jussieu a proposé plusieurs sessions de formations à
+LaTeX, de début 2007 à 2009. Les formateurs étaient [Céline
+Chevalier][], [Benjamin Collas][] et moi-même. Ismaël Soudères (moniteur
+délégué) et Michel Landau (directeur du CIES) ont permis leur mise en place. Les
+formations se déclinaient en trois niveaux (non disjoints) :
+
+- débutant, trois séances de trois heures en salle machine (Céline Chevalier) ;
+- intermédiaire, quatre heures de formation (Benjamin Collas puis moi-même) ;
+- avancé, trois séances de trois heures (moi-même).
+
+Un niveau « débutant rapide », correspondant à 4 heures de formation, existait
+initialement ; les supports correspondants restent disponibles ci-dessus.
+
+[Céline Chevalier]: http://www.di.ens.fr/~ccheval/
+[Benjamin Collas]: http://collas.perso.math.cnrs.fr/
+
+## Documents
+
+- Niveau débutant rapide, supports de présentation : [diapos][lvl2-diap] ou
+  version prête [à imprimer][lvl2-print].
+- Niveau avancé, [notes de cours][lvl4] disponibles seulement pour la première
+  partie.
+
+Les [sources LaTeX][src] de ces documents sont parfois disponibles.
+
+Pour les supports des formations de [Céline Chevalier][] et [Benjamin Collas][],
+voir les pages respectives de leur auteurs.
+
+[François Legendre][fl] a produit une version étendue de mes notes du niveau
+« débutant rapide » pour une formation à l'école doctorale Égee, [disponible sur
+sa page][fl].
+
+[lvl1a]: http://www.di.ens.fr/~ccheval/premiere_partie.pdf
+[lvl1b]: http://www.di.ens.fr/~ccheval/seconde_partie.pdf
+[lvl2-diap]: docs/latex-cies-debutant-rapide-diapos.pdf
+[lvl2-print]: docs/latex-cies-debutant-rapide-imprimable.pdf
+[lvl4]: docs/latex-cies-avance-partie1.pdf
+[src]: src/
+
+[fl]: http://fj.legendre.free.fr/
+<!-- END content -->
+
+<!-- BEGIN files -->
+docs/latex-cies-debutant-rapide-diapos.pdf	Débutant rapide (diapos)
+docs/latex-cies-debutant-rapide-imprimable.pdf	Débutant rapide (à imprimer)
+docs/latex-cies-avance-partie1.pdf	Avancé, partie 1 (poly)
+<!-- END files -->
+

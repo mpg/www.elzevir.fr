@@ -1,0 +1,43 @@
+#
+p = nextprime(2^14 + random(2^12))
+q = nextprime(2^18 + random(2^16))
+n = p*q
+factor(n)
+p = nextprime(2^30 + random(2^28))
+q = nextprime(2^34 + random(2^32))
+n = p*q
+factor(n)
+p = nextprime(2^46 + random(2^44))
+q = nextprime(2^50 + random(2^48))
+n = p*q
+factor(n)
+p = nextprime(2^62 + random(2^60))
+q = nextprime(2^66 + random(2^64))
+n = p*q
+factor(n)
+p = nextprime(2^78 + random(2^76))
+q = nextprime(2^82 + random(2^80))
+n = p*q
+factor(n)
+p = nextprime(2^94 + random(2^92))
+q = nextprime(2^98 + random(2^96))
+n = p*q
+factor(n)
+p = nextprime(2^110 + random(2^108))
+q = nextprime(2^114 + random(2^112))
+n = p*q
+factor(n)
+p = nextprime(2^126 + random(2^124))
+q = nextprime(2^130 + random(2^128))
+n = p*q
+factor(n)
+p = nextprime(2^142 + random(2^140))
+q = nextprime(2^146 + random(2^144))
+n = p*q
+factor(n)
+p = nextprime(2^158 + random(2^156))
+q = nextprime(2^162 + random(2^160))
+n = p*q
+factor(n)
+quit
+

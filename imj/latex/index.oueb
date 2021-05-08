@@ -1,0 +1,37 @@
+/latex/
+
+<!-- BEGIN meta -->
+title:	mpg's LaTeX zone
+descr:	Page LaTeX de Manuel Pégourié-Gonnard
+keyw:	LaTeX, TeX, typographie
+h1:	LaTeX : programmation de documents
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Bienvenue dans cette section consacrée à LaTeX, un puissant système de
+programmation de documents, particulièrement prisé des matheux et des amoureux
+des belles choses imprimées. Vous y trouverez :
+
+- des références utiles pour [installer et commencer][debut] à utiliser LaTeX ;
+- des [trucs et astuces][tips] de niveau varié ;
+- des détails sur les formations [LaTeX au CIES][cies] Jussieu ;
+- quelques [contributions][] personnelles.
+
+[debut]: begin.html
+[tips]: tips.html
+[cies]: cies.html
+[contributions]: contrib.html
+
+## Weblog
+
+Je tiens un [weblog][mpgblog] dont beaucoup de billets sont consacrés à LaTeX
+ou une autre variante de TeX. Le rythme de publication est pour le moins
+irrégulier...
+
+[mpgblog]: https://weblog.elzevir.fr/
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

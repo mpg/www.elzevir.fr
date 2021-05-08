@@ -1,0 +1,30 @@
+/latex/docs/
+
+<!-- BEGIN meta -->
+title:	LaTeX -- documents
+descr:	Documents LaTeX en vrac
+keyw:	latex, cours, notes, documents
+h1:	Documents sur LaTeX en vrac
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Voici, en vrac, quelques documents pédagogiques que j'ai produits concernant
+LaTeX. Le plus souvent, ils sont disponibles sous une licence libres et vous
+pourrez trouver leurs [sources ici][src].
+
+[src]: ../src/
+
+<table summary="liste des fichiers">
+ <tr><th>Nom du fichier</th><th>Date</th><th>Taille</th></tr>
+ <tr><th colspan="3"><hr /></th></tr>
+ <tr><td><a href="latex-cies-avance-partie1.pdf">latex-cies-avance-partie1.pdf</a></td><td align="right">2009-12-31 17:25</td><td align="right">347K</td></tr>
+ <tr><td><a href="latex-cies-debutant-rapide-diapos.pdf">latex-cies-debutant-rapide-diapos.pdf</a></td><td align="right">2009-12-31 17:25</td><td align="right">1.1M</td></tr>
+ <tr><td><a href="latex-cies-debutant-rapide-imprimable.pdf">latex-cies-debutant-rapide-imprimable.pdf</a></td><td align="right">2009-12-31 17:25</td><td align="right">1.1M</td></tr>
+ <tr><th colspan="3"><hr /></th></tr>
+</table>
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

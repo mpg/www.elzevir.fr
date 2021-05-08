@@ -1,0 +1,65 @@
+\documentclass[11pt, twoside]{article}
+
+% Copyright 2006 Nicolas Billerey et Manuel Pégourié-Gonnard
+% ce source est sous licence GNU/FDL (http://www.gnu.org/licenses/fdl.txt)
+% la licence vous autorise à utiliser et/ou distribuer des version modifiées ou non
+% à condition de conserver la même licence pour les versions modifiées.
+
+\usepackage[latin1]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc} \usepackage{lmodern}
+
+\usepackage{amssymb, amsmath, amsthm} \usepackage[mathscr]{eucal}
+
+\usepackage[a4paper]{geometry}
+
+\newcommand*{\pmm}[1]{\ \text{#1}}
+\newcommand*{\std}[1]{\mathbf{#1}} \newcommand{\N}{\std{N}} \newcommand{\Z}{\std{Z}}
+\newcommand{\Q}{\std{Q}} \newcommand{\R}{\std{R}} \newcommand{\C}{\std{C}}
+\newcommand\F{\std{F}}
+\newcommand*{\I}[1][]{\std{I}_{#1}} \newcommand*{\ind}[1]{\std{1}_{#1}}
+\renewcommand{\ge}{\geqslant} \renewcommand{\le}{\leqslant}
+\newcommand{\eps}{\varepsilon} \newcommand{\truc}{\,\cdot\,}
+
+\theoremstyle{definition} \newtheorem{exo}{Exercice}
+\newtheorem{qc}{Question de cours}
+\renewcommand{\theqc}{\hspace{-.3em}}
+
+\title{{\large \textsc{Université Pierre et Marie Curie} 2006--2007}}
+\author{LM220 Maths-Info groupe 1}
+\date{Interrogation écrite \no4}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{exo}
+ Parmi les anneaux suivants, dire lesquels sont des corps. Justifier soigneusement les réponses.
+ \begin{enumerate}
+  \item $\F_2[X]/ (X^2 + X + 1)$,
+  \item $\F_3[X]/ (X^2 + X + 1)$,
+  \item $\Q[X]/ (X^4 + 1)$,
+  \item $\F_3[X]/ (X^4 + 1)$,
+ \end{enumerate}
+ Donner la caractéristique et le nombre d'éléments de chacun.
+\end{exo}
+
+\bigskip
+
+\begin{exo}
+ On considère l'anneau
+ \[
+  K = \F_3[X]/(X^3-X-1) \pmm.
+ \]
+ \begin{enumerate}
+  \item Montrer que $K$ est un corps et donner sa caractéristique, ainsi que son nombre d'éléments.
+  \item On note $\alpha$ la classe de $X$ dans $K$.
+  \begin{enumerate}
+   \item Quel est l'inverse de $1 + \alpha^2$ dans $K^\times$?
+   \item Montrer que $\alpha^{12} = (1 + \alpha)^4$ et exprimer cet élément dans la base $(1, \alpha, \alpha^2)$.
+   \item En déduire que $\alpha$ est d'ordre $13$ dans $K^\times$.
+  \end{enumerate}
+ \end{enumerate}
+\end{exo}
+
+\end{document}

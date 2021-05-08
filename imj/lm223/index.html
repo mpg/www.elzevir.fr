@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" lang="fr-FR" xml:lang="fr" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+ <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+ <link href="../style.css" title="style" rel="stylesheet" type="text/css" />
+ <meta name="author" content="Manuel Pégourié-Gonnard" />
+ <meta http-equiv="content-Language" content="fr" />
+ <title>LM223 05-06</title>
+ <meta name="description" content=
+ "page du TD formes quadratiques et géométrie, 2005-2006" />
+ <meta name="keywords" content=
+ "LM223, formes quadratique, géométrie, licence, mathématiques, TD" />
+</head>
+<body>
+ <div id="page">
+  <div id="header">
+   <div id="t-site">
+    <a href="../">Manuel Pégourié-Gonnard</a>
+   </div>
+   <div id="st-site">
+    <b>Doctorant</b> — <a href="http://www.institut.math.jussieu.fr/">Institut
+    de mathématiques de Jussieu</a><br />
+    <b>Site archivé</b> courant 2013...
+   </div>
+   <hr class="clear" />
+   <ul id="navone">
+    <li><a href="../recherche.html">Recherche</a></li>
+    <li id="navonecur"><a href="../enseignement.html">Enseignement</a></li>
+    <li><a href="../latex/">LaTeX</a></li>
+    <li><a href="../resp.html">Responsabilités</a></li>
+    <li><a href="../vrac.html">En vrac</a></li>
+   </ul>
+  </div>
+  <p id="navtwo">Vous êtes ici : <a href="../">Accueil</a> &gt; <a href=
+  "../enseignement.html">Enseignement</a> &gt; <span id="navtwocur">Formes
+  quadratiques L2</span></p>
+  <div id="content">
+   <h1>Formes quadratiques et géométrie</h1>
+   <p class="rem">Note aux collègues&nbsp;: Les documents disponibles sur cette
+   page et dont je suis l'auteur (ou co-auteur) sont placés sous <a href=
+   "http://www.gnu.org/licenses/fdl.txt">GNU FDL</a> et vous êtes libres de les
+   utiliser. Vous en trouverez <a href="src/">ici</a> le source LaTeX.</p>
+   <p>Cette page concerne principalement les groupes 1, 2, 5 et 6
+   «&nbsp;math-info&nbsp;» et les groupes 1 et 2 «&nbsp;math&nbsp;» du L2 de
+   l'<a href="http://www.upmc.fr">UPMC</a>, dont les TD sont assurés par
+   Gwladys Toulemonde, <a href=
+   "http://math.univ-bpclermont.fr/~billerey/">Nicolas Billerey</a> et <a href=
+   "../">moi-même</a>. Les feuilles de TD suivantes sont communes à ces groupes
+   (à partir de la feuille 4 pour ceux de Gwladys Toulemonde). Elles peuvent
+   bien évidement être utilisées par les étudiants d'autres groupes pour
+   compléter leur propre liste d'exercices.</p>
+   <p>Vous trouverez ci-dessous une version pdf des feuilles de TD. Leur
+   progression suit globalement celle du cours de Mme&nbsp;Merlier et <a href=
+   "http://www.math.jussieu.fr/~nekovar/">M.&nbsp;Nekovář</a>. Le principe
+   initialement prévu «&nbsp;une feuille = une semaine du cours&nbsp;» a été
+   quelque peu modifié. Pour chaque feuille j'indique donc la correspondance
+   avec le <a href="LM223-cours-Nekovar.pdf">polycopié de cours</a> de
+   M.&nbsp;Nekovář.</p>
+   <ul>
+    <li><a href="LM223-f1.pdf">Feuille 1</a>&nbsp;: Chapitre 1, paragraphes 1 à
+    4.</li>
+    <li><a href="LM223-f2.pdf">Feuille 2</a>&nbsp;: Chapitre 1, paragraphes 5 à
+    7&nbsp;; la partie 3 de cette feuille (paragraphe 7 du cours) est
+    optionnelle. Un <a href="LM223-f2c.pdf">corrigé</a> de la feuille 2.</li>
+    <li><a href="LM223-f3.pdf">Feuille 3</a>&nbsp;: Chapitre 2&nbsp;; chapitre
+    3, paragraphes 1 et 2&nbsp;; définitions de l'orthogonal (3.5.1) et d'un
+    produit scalaire (4.1.1 et 4.1.3).</li>
+    <li><a href="LM223-f4.pdf">Feuille 4</a>&nbsp;: Chapitre 3, paragraphes 1 à
+    3.</li>
+    <li><a href="LM223-f5.pdf">Feuille 5</a>&nbsp;: Chapitre 3, paragraphes 4 à
+    7.</li>
+    <li><a href="LM223-f6.pdf">Feuille 6</a>&nbsp;: Chapitre 4, paragraphes 1 à
+    3.</li>
+    <li><a href="LM223-f7.pdf">Feuille 7</a>&nbsp;: Chapitre 3, compléments et
+    révision.</li>
+    <li><a href="LM223-f8.pdf">Feuille 8</a>&nbsp;: Chapitre 4, paragraphes 4 à
+    6.</li>
+    <li><a href="LM223-f9.pdf">Feuille 9</a>&nbsp;: Chapitre 5.</li>
+    <li><a href="LM223-f10.pdf">Feuille 10</a>&nbsp;: Chapitre 6.</li>
+    <li><a href="LM223-c1.pdf">Exercices</a> prévus pour le premier contrôle,
+    qui a été <a href="#controle1">annulé</a>.</li>
+   </ul>
+   <p>Je vous rappelle l'utilité de travailler (au moins un peu) son cours et
+   d'en connaître les définitions et résultats essentiels. Il est également
+   conseillé de ne pas se contenter de noter passivement la correction des
+   exercices, mais plutôt de les chercher activement avant, et de refaire
+   ensuite ceux qui n'auraient pas été bien assimilés.</p>
+   <h2 id="actu">Actualités</h2>
+   <p>Vous trouverez ci-dessous, par ordre chronologique inverse, les dernières
+   informations utiles concernant les TD (errata pour les feuilles), contrôles,
+   examens, modifications de calendrier, etc.</p>
+   <h4 class="date">13/06/06</h4>
+   <p>Le prochain (et dernier&nbsp;!) contrôle aura lieu la semaine du 19 et
+   portera sur les espaces euclidiens (chapitre 4 du cours), comme annoncé. Les
+   dates précises sont les suivantes&nbsp;:</p>
+   <ul>
+    <li>Lundi 19 juin, 10h45&nbsp;: MATH groupe 3.</li>
+    <li>Lundi 19 juin, 13h15&nbsp;: MATH groupes 5 et 6&nbsp; MATH-INFO groupes
+    5 et 6.</li>
+    <li>Mardi 20 juin, 8h45&nbsp;: MATH groupes 1&nbsp;; MATH-INFO groupe
+    1.</li>
+    <li>Mardi 20 juin, 10H45&nbsp;: MATH groupe 2&nbsp;; MATH-INFO groupe
+    2.</li>
+    <li>Mercredi 21 juin, 15h30&nbsp;: MATH-INFO groupe 4.</li>
+   </ul>
+   <p>Comme d'habitude, si pour une raison sérieuse, vous ne pouvez pas venir à
+   l'horaire prévu pour votre groupe, il vous est toujours possible de passer
+   le contrôle avec un autre groupe, en nous signalant le changement&nbsp;;
+   n'hésitez pas à nous contacter par mail en cas de problème. Par ailleurs,
+   chaque chargé de TD est libre de placer le contrôle au début ou à la fin de
+   la séance, il vous est donc recommandé d'arriver à l'heure.</p>
+   <h4 class="date">29/05/06</h4>
+   <p>L'examen final aura lieu le vendredi 30 juin, de 8h30 à 10h30. Vous serez
+   répartis sur trois salles en fonction de l'initiale de votre nom. La
+   répartition est la suivante&nbsp;:</p>
+   <ul>
+    <li>de A à D&nbsp;: amphi de biologie,</li>
+    <li>de E à M&nbsp;: amphi F1,</li>
+    <li>de N à Z&nbsp;: amphi F2.</li>
+   </ul>
+   <h4 class="date">26/05/06</h4>
+   <p>Modification d'horaire&nbsp;: pour le groupe MATH-INFO 4, le contrôle
+   aura lieu le jeudi 1er juin à 15h15 et non le mercredi 31 comme annoncé
+   précédemment. Merci d'en prendre note. Le calendrier ci-dessous est
+   corrigé.</p>
+   <h4 class="date">24/05/06</h4>
+   <p>Les dates précises du contrôle pour chaque groupe sont les
+   suivantes&nbsp;:</p>
+   <ul>
+    <li>Mardi 30 mai, 8h45&nbsp;: MATH gouapes 1 et 3&nbsp;; MATH-INFO groupe
+    1.</li>
+    <li>Mardi 30 mai, 10h45&nbsp;: MATH groupe 2&nbsp;; MATH-INFO groupe
+    2.</li>
+    <li>Jeudi 1er juin, 10h45&nbsp;: MATH groupes 5 et 6.</li>
+    <li>Jeudi 1er juin, 15h15&nbsp;: MATH-INFO groupes 4, 5 et 6.</li>
+   </ul>
+   <p>Si pour une raison sérieuse, vous ne pouvez pas venir à l'horaire prévu
+   pour votre groupe, il vous est toujours possible de passer le contrôle avec
+   un autre groupe, en nous signalant le changement&nbsp;; n'hésitez pas à nous
+   contacter par mail en cas de problème. Par ailleurs, chaque chargé de TD est
+   libre de placer le contrôle au début ou à la fin de la séance, il vous est
+   donc recommandé d'arriver à l'heure.</p>
+   <h4 class="date">21/05/06</h4>
+   <p>Errata pour la feuille 7&nbsp;: à la question 3 de l'exercice 3, sur
+   certaines versions imprimées, est écrit D(infini) = Vect(1;0) là où il
+   faudrait lire D(infini) = Vect(0;1) pour que la droite soit bien
+   verticale&nbsp;; par ailleurs à l'exercice 1 il faut lire q(x, y, z, t) = x²
+   + 2xz + 2xt + [...] au lieu de x² + 2xy + 2zt + etc. La version en ligne est
+   corrigée. Avec mes excuses.</p>
+   <h4 class="date">16/05/06</h4>
+   <p>Un contrôle est annoncé pour la semaine du 29 mai au 2 juin. Les dates
+   exactes pour chaque groupe seront précisées prochainement. Le contrôle
+   portera sur les formes quadratiques en général&nbsp;; les paragraphes 3.1,
+   3.2, 3.3 et 3.7 du cours seront particulièrement concernés. Il est
+   vraisemblable qu'un deuxième contrôle ait lieu courant juin portant sur les
+   espaces euclidiens.</p>
+   <p>Par ailleurs, le polycopié de cours, disponible sur la <a href=
+   "http://www.math.jussieu.fr/~nekovar/co/q/">page LM223</a> de
+   M.&nbsp;Nekovář ou encore <a href="LM223-cours-Nekovar.pdf">ici</a> a
+   atteint sa forme définitive et couvre désormais tout le programme du cours.
+   En fait, suite au cours manqué du 1er mai, il même est probable que le
+   chapitre sept ne sera pas traité faute de temps et ne figurera donc pas au
+   programme de l'examen. Vous pouvez bien sûr le lire pour votre culture.</p>
+   <h4 class="date">15/05/06</h4>
+   <p>Erratum pour la feuille 5&nbsp;: à l'exercice 6, question 2, il faut bien
+   sûr supposer que la forme Phi est définie (un produit scalaire, par
+   exemple). Comme d'habitude, trouvez un contre-exemple sans cette hypothèse.
+   La version en ligne est corrigée.</p>
+   <h4 class="date">02/05/06</h4>
+   <p>Concernant le rattrapage des jours fériés, les choses se précisent pour
+   le samedi 13 mai. M.&nbsp;Nekovář fera cours ce jour-là à l'heure et dans la
+   salle habituelle. Les TD seront aussi rattrapés ce samedi 13 pour les
+   groupes qui ont habituellement une séance le lundi, selon l'horaire normal
+   du lundi.</p>
+   <h4 class="date">28/04/06</h4>
+   <p>Le nouveau calendrier précis concernant les cours et TD est le
+   suivant&nbsp;: cours jusqu'au 17 juin et TD jusqu'au 24. Pour le LM223, il y
+   avait eu 4 séances de cours avant les vacances, et selon les groupes environ
+   3 semaines de TD. Les douze semaines prévues de cours et de TD seront donc
+   assurées.</p>
+   <p>Par ailleurs, il y aura 3 jours fériés d'ici la fin du semestre, dont
+   deux lundis. Pour éviter de trop grandes inégalités entre les groupes, il
+   est envisagé de rattraper un des lundis le samedi 13 mai selon l'horaire
+   habituel, sous réserve que les enseignants respectifs soient disponibles à
+   cette date. Nous vous tiendrons informés dès qu'une décision ferme aura été
+   prise à ce sujet.</p>
+   <h4 class="date">27/04/06</h4>
+   <p>Concernant la feuille 3, il restait une coquille à l'exercice 5, question
+   3&nbsp;: il faut supposer que e_1 et e_2 sont linéairement indépendants.
+   (Exercice&nbsp;: expliquer pourquoi le résultat est grossièrement faux s'ils
+   sont liés.) La version en ligne de la feuille est corrigée.</p>
+   <h4 class="date">24/04/06</h4>
+   <p>La rentrée semble bien se passer. Concernant le nouveau calendrier des
+   cours et des examens, il y a beaucoup de questions mais je n'ai pas
+   d'information plus précises que celles contenues dans la section <a href=
+   "http://www.upmc.fr/FR/info/Actualit%C3%A9s/36/03">actualités</a> de la page
+   d'accueil de l'<a href="http://www.upmc.fr">UPMC</a>, que je vous invite à
+   consulter régulièrement, ainsi que votre adresse électronique en
+   etu.upmc.fr.</p>
+   <p>Concernant les feuilles de TD, certaines versions imprimées de la feuille
+   3 comportent une coquille à la question 2 de l'exercice 1&nbsp;: il faut
+   (évidement&nbsp;?) supposer que f est alternée. La version en ligne est
+   rectifiée.</p>
+   <p>Par ailleurs, à titre exceptionnel, un corrigé de la feuille 2 a été
+   rédigé et est disponible en ligne. Cette feuille ayant été traitée au moment
+   où commençaient les perturbations, il est en effet possible que certains
+   groupes ou étudiants aient manqué les séances correspondantes. De manière
+   générale, nous n'envisageons pas de rédiger un corrigé pour chaque
+   feuille.</p>
+   <h4 class="date">20/04/06</h4>
+   <p>Comme mentionné dans le <a href=
+   "http://www.upmc.fr/FR/info/Actualit%C3%A9s/36/03">communiqué de la
+   présidence</a> du 18 avril, et suite au retrait définitif du CPE, les cours
+   devraient reprendre à la rentrée, c'est-à-dire la semaine du 24 avril. Les
+   horaires normaux seront préservés, au moins la première semaine&nbsp;; si
+   nécessaire des cours seront ajoutés ultérieurement le soir et/ou le samedi
+   pour rattraper notamment les jours fériés&nbsp;; le calendrier universitaire
+   sera décalé pour permettre de préserver le contenu des enseignements, la
+   semaine de la rentrée devenant donc la quatrième semaine du second
+   semestre.</p>
+   <p>Concernant le LM223 en particulier, pour chaque groupe nous reprendrons
+   les feuilles de TD au point où nous les avions laissées. Nous ferons le
+   nécessaire pour harmoniser l'avancement des différents groupes, le nombre de
+   séances annulées étant variable d'un groupe à l'autre. De votre côté, vous
+   êtes encouragés à relire votre cours et les premières feuilles d'exercices
+   pour vous rafraîchir la mémoire après cette longue interruption, et afin que
+   nous puissions reprendre sans perte de temps.</p>
+   <p>Bonne fin de vacances à vous tous&nbsp;!</p>
+   <h4 class="date">13/03/06<a name="controle1" id="controle1"></a></h4>
+   <p>Au vu du blocage persistant du campus, le premier devoir est finalement
+   <i>annulé</i>. En conséquence, M.&nbsp;Nekovář a mis en ligne sur sa
+   <a href="http://www.math.jussieu.fr/~nekovar/co/q/">page LM223</a> une
+   <a href="LM223-c1.pdf">collection d'exercices</a> représentatifs du niveau
+   prévu du contrôle. Vous pouvez ainsi les chercher pour évaluer votre niveau
+   et vous entraîner. Pour fixer les idées sur la longueur, chaque sujet (prévu
+   pour une heure) comportait typiquement deux exercices parmi ceux
+   proposés.</p>
+   <p>Par ailleurs, le nombre de séances de cours et de TD annulées devient
+   important. Dès que les enseignements auront repris normalement, un point
+   sera fait par la présidence de l'université et la direction du L2
+   maths/math-info, qui prendront alors les décisions utiles concernant leur
+   rattrapage éventuel.</p>
+   <h4 class="date">08/03/06</h4>
+   <p>Les dates précises du premier contrôle sont arrivées. Il aura donc
+   lieu&nbsp;:</p>
+   <ul>
+    <li>le mardi 14/3 de 8h45 à 9h45 (Math G1, G3)</li>
+    <li>le mardi 14/3 de 10h45 à 11h45 (Math G2)</li>
+    <li>le jeudi 16/3 de 8h45 à 9h45 (Math-Info G1)</li>
+    <li>le jeudi 16/3 de 10h45 à 11h45 (Math G5, G6&nbsp;; Math-Info G2)</li>
+    <li>le jeudi 16/3 de 15h30 à 16h30 (Math-Info G4, G5, G6)</li>
+   </ul>
+   <p>Comme vous le constatez, le contrôle est court (une heure). Il vous est
+   donc demandé, plus encore que d'habitude, d'arriver à l'heure.</p>
+   <h4 class="date">28/02/06</h4>
+   <p>Suite aux événements et à l'annulation de certaines séances de cours et
+   de TD, M.&nbsp;Nekovář et Mme Merlier ont décidé de repousser la date du
+   premier contrôle. Il aura donc lieu la semaine du 13 mars. Le programme
+   reste inchangé. Il s'agit des révisions d'algèbre linéaire, ce qui
+   correspond aux deux premières semaines de cours, ou encore au premier
+   chapitre du polycopié. Le paragraphe 7 (Dualité) est optionnel, le programme
+   précis est donc couvert par les pages 1 à 21 du polycopié. Une connaissance
+   minimale du cours et des techniques de base révisées aux feuilles 1 et 2
+   doivent suffire à traiter les exercices qui vous seront proposés.</p>
+   <h4 class="date">13/02/06 (début des TD)</h4>
+   <p>M.&nbsp;Nekovř met à disposition sur cette <a href=
+   "http://www.math.jussieu.fr/~nekovar/co/q/">page</a> quelques informations
+   relatives au LM223. Il y a notament le programme du cours, numéroté par
+   semaine, et surtout, bien qu'avec avec un peu de retard sur le cours réel,
+   le polycopié complet du cours. Au risque de me répéter, je vous encourage à
+   le lire attentivement.</p>
+   <h2>Bon travail à tous&nbsp;!</h2>
+  </div><!-- content -->
+  <div id="sidebar">
+   <h3>Plan : Enseignement</h3>
+   <ul>
+    <li>
+     <a href="../m63/">Algèbre (bi)linéaire L3</a>
+     <ul>
+      <li><a href="../m63/09-10/">2009-2010</a></li>
+     </ul>
+    </li>
+    <li>
+     <a href="../m54/">Algèbre L3</a>
+     <ul>
+      <li><a href="../m54/09-10/">2009-2010</a></li>
+     </ul>
+    </li>
+    <li><a href="../m44/">Algèbre linéaire L2</a></li>
+    <li><a href="../m33/">Algèbre L2</a></li>
+    <li>
+     <a href="../lm204/">LaTeX L2</a>
+     <ul>
+      <li><a href="../lm204/files/">Tous les fichiers</a></li>
+      <li><a href="../lm204/prog.html">Progression</a></li>
+      <li><a href="../lm204/refs.html">Références</a></li>
+     </ul>
+    </li>
+    <li>
+     <a href="../lm110/">Fonctions L1</a>
+     <ul>
+      <li><a href="../lm110/mime124.html">MIME124</a></li>
+      <li><a href="../lm110/mime163.html">MIME163</a></li>
+     </ul>
+    </li>
+    <li>
+     <a href="../lm220/">Arithmétique L2</a>
+     <ul>
+      <li><a href="../lm220/euclide.html">Euclide</a></li>
+      <li><a href="../lm220/expo.html">Exp. rapide</a></li>
+      <li><a href="../lm220/congruences.html">Congruences</a></li>
+      <li><a href="../lm220/rsa.html">RSA</a></li>
+     </ul>
+    </li>
+    <li><span id="navbarcur">Formes quadratiques L2</span></li>
+   </ul>
+   <h3>À télécharger</h3>
+   <ul>
+    <li><a href="LM223-cours-Nekovar.pdf">Cours</a></li>
+    <li><a href="LM223-prog.pdf">programme</a></li>
+    <li class="sep"><a href="LM223-f1.pdf">feuille&nbsp;1</a></li>
+    <li><a href="LM223-f2.pdf">feuille&nbsp;2</a></li>
+    <li><a href="LM223-f3.pdf">feuille&nbsp;3</a></li>
+    <li><a href="LM223-f4.pdf">feuille&nbsp;4</a></li>
+    <li><a href="LM223-f5.pdf">feuille&nbsp;5</a></li>
+    <li><a href="LM223-f6.pdf">feuille&nbsp;6</a></li>
+    <li><a href="LM223-f7.pdf">feuille&nbsp;7</a></li>
+    <li><a href="LM223-f8.pdf">feuille&nbsp;8</a></li>
+    <li><a href="LM223-f9.pdf">feuille&nbsp;9</a></li>
+    <li><a href="LM223-f10.pdf">feuille&nbsp;10</a></li>
+    <li class="sep"><a href="LM223-c1.pdf">contrôle&nbsp;1</a></li>
+    <li><a href="LM223-f2c.pdf">feuille&nbsp;2 (corrigé)</a></li>
+    <li class="sep"><a href="src/">sources LaTeX</a></li>
+   </ul>
+   <h3>À propos</h3>
+   <ul>
+    <li><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>
+    <a href="http://validator.w3.org/check?uri=referer">valide</a>&nbsp;;
+    <abbr title="Cascading Style Sheets">CSS</abbr> <a href=
+    "http://jigsaw.w3.org/css-validator/check/referer">valide</a>.</li>
+    <li class="sep">Dernière édition : 2013-10-03.</li>
+    <li class="sep">Site archivé en 2013.</li>
+    <li class="sep">Auteur : <a class="adresse" href=
+    "m&#x0061;ilto:mpg&#x0040;elzevir.fr">mpg&#x0040;elzevir.fr</a>.</li>
+   </ul>
+  </div><!--sidebar-->
+  <div id="footer"></div>
+ </div><!--page-->
+</body>
+</html>

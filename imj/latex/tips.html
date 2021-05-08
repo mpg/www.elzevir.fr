@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" lang="fr-FR" xml:lang="fr" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+ <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+ <link href="../style.css" title="style" rel="stylesheet" type="text/css" />
+ <meta name="author" content="Manuel Pégourié-Gonnard" />
+ <meta http-equiv="content-Language" content="fr" />
+ <title>Trucs et astuces LaTeX</title>
+ <meta name="description" content=
+ "Page d'astuces LaTeX de Manuel Pégourié-Gonnard" />
+ <meta name="keywords" content="LaTeX, TeX, trucs, astuces, conseils" />
+</head>
+<body>
+ <div id="page">
+  <div id="header">
+   <div id="t-site">
+    <a href="../">Manuel Pégourié-Gonnard</a>
+   </div>
+   <div id="st-site">
+    <b>Doctorant</b> — <a href="http://www.institut.math.jussieu.fr/">Institut
+    de mathématiques de Jussieu</a><br />
+    <b>Site archivé</b> courant 2013...
+   </div>
+   <hr class="clear" />
+   <ul id="navone">
+    <li><a href="../recherche.html">Recherche</a></li>
+    <li><a href="../enseignement.html">Enseignement</a></li>
+    <li id="navonecur"><a href="./">LaTeX</a></li>
+    <li><a href="../resp.html">Responsabilités</a></li>
+    <li><a href="../vrac.html">En vrac</a></li>
+   </ul>
+  </div>
+  <p id="navtwo">Vous êtes ici : <a href="../">Accueil</a> &gt; <a href=
+  "./">LaTeX</a> &gt; <span id="navtwocur">Trucs et astuces</span></p>
+  <div id="content">
+   <h1>Trucs et astuces sur LaTeX</h1>
+   <p>Vous trouverez ici des trucs et astuces, explications et conseils de
+   niveaux variés concernant LaTeX et son environnement. Certains sont
+   originaux, d'autres biens connus des spécialistes mais pas encore assez
+   diffusés.</p>
+   <p><strong>Avertissement</strong>&nbsp;: cette page n'a pas été mise à jour
+   depuis longtemps. Le conseils donnés ici ne sont peut-être plus tous
+   d'actualité. Vous trouverez d'autres informations, plus à jour, sur la
+   <a href="https://weblog.elzevir.fr/par-sujet/tex-et-cie/">rubrique TeX de
+   mon blog</a>.</p>
+   <p><em>Navigation</em>&nbsp;: cliquer sur un titre de section ramène au
+   sommaire.</p>
+   <h2 id="top">Sommaire</h2>
+   <ul>
+    <li><a href="#lmsub">Utiliser des petites capitales grasses avec
+    lmodern</a></li>
+    <li><a href="#pdfornot">Être ou ne pas être en mode pdf</a></li>
+    <li><a href="#pdfinfo">Remplir manuellement les champs pdf</a></li>
+    <li><a href="#phantom">Exploiter les fantômes</a></li>
+    <li><a href="#smash">Écraser verticalement des morceaux de formule</a></li>
+    <li><a href="#indices">Indices et exposants en folie</a></li>
+    <li><a href="#mathstyles">Les huit styles mathématiques</a></li>
+    <li><a href="#eqnarray">Trois arguments contre eqnarray</a></li>
+    <li><a href="#dollars">Trois arguments contre l'usage de $$...$$</a></li>
+    <li><a href="#texdoc">Trouver de la documentation</a></li>
+    <li><a href="#packages">Installer des packages à la main</a></li>
+    <li><a href="#boxmodel">Comprendre le modèle de boîtes de TeX</a></li>
+    <li><a href="#lrdelim">(Ne pas) équilibrer ses délimiteurs</a></li>
+    <li><a href="#moteur">Ne pas confondre TeX avec ses amis</a></li>
+    <li><a href="#defvsnc">Préférer <code>\newcommand</code> à
+    <code>\def</code></a></li>
+    <li><a href="#names">Bien nommer ses macros et environnements</a></li>
+    <li><a href="#stared">Définir des variantes étoilées</a></li>
+    <li><a href="#argh">Gérer astucieusement les arguments optionnels</a></li>
+    <li><a href="#makeatletter">Comprendre <code>\makeatletter</code> et
+    <code>\makeatother</code></a></li>
+    <li><a href="#ncstared">Étoiler ses <code>\newcommand</code></a></li>
+    <li><a href="#eol">Commenter ses fins de ligne</a></li>
+   </ul>
+   <h2 id="lmsub"><a href="#top">Quelques substitution de fontes
+   utiles</a></h2>
+   <p>La méta-famille de fontes latin modern remplace computer modern comme
+   fontes standard. Sous LaTeX, on la charge en appelant le package lmodern.
+   Elle souffre néanmoins pour l'instant deux défauts. Le premier est de n'être
+   pas encore installée automatiquement dans la version de base de la plupart
+   des distributions LaTeX. Elle est néanmoins facile à installer via le
+   gestionnaire de paquets de votre distribution.</p>
+   <p>Le deuxième est de n'être pas encore aussi complète que computer
+   modern&nbsp;: il manque par exemple les petites capitales grasses en famille
+   romaine. L'objet de cette astuce est d'y remédier en allant chercher les
+   fontes manquantes dans computer modern.</p>
+   <pre>
+\rmfamily
+\DeclareFontShape{T1}{lmr}{b}{sc}{&lt;-&gt;ssub*cmr/bx/sc}{}
+\DeclareFontShape{T1}{lmr}{bx}{sc}{&lt;-&gt;ssub*cmr/bx/sc}{}
+</pre>
+   <p>Le code précédent demande à LaTeX de substituer aux petites capitales
+   (sc) grasses (b) ou grasses étendues (bx) de latin modern roman (lmr) les
+   petites capitales grasses étendues de computer modern roman. Si vous
+   utilisez la variante sub au lieu de ssub, LaTeX émettra un avertissement
+   avant d'opérer la substitution. Enfin, le <code>\rmfamily</code> sert à
+   s'assurer que les macros qui vont être modifiées par les deux lignes
+   suivantes sont préalablement crées.</p>
+   <p><em>Remarque&nbsp;:</em> cette méthode est contestable dans le sens où
+   elle mélange allègrement deux familles de fontes. Cependant, vu la proximité
+   entre cmr et lmr, ce mélange me paraît légitime ici, et constitue la moins
+   mauvaise solution. Il convient de surveiller l'évolution de latin modern
+   pour ne plus utiliser cette substitution dès qu'elle ne sera plus utile.</p>
+   <h2 id="pdfornot"><a href="#top">Connaître dynamiquement le mode de
+   compilation</a></h2>
+   <p>Comme vous le savez sans doute, la plupart des installations modernes
+   utilisent le moteur pdfTeX pour toutes les compilations, y compris en mode
+   dvi. Ce dernier fournit un moyen simple de déterminer au moment de la
+   compilation si celle-ci a lieu en mode pdf ou dvi, afin par exemple de
+   n'inclure que dans la version pdf certaines commandes spécifiques (voir
+   «&nbsp;<a href="#pdfinfo">remplir les champs pdf</a>&nbsp;» par
+   exemple).</p>
+   <pre>
+\ifnum\pdfoutput&gt;0
+(texte pour pdf)
+\else
+(texte pour dvi)
+\fi
+</pre>
+   <p>Vous pouvez bien sûr ommettre le <code>\else</code> et passer
+   immédiatement au <code>\fi</code>. On rencontre parfois ce test sous la
+   forme <code>\ifnum\pdfoutput=1</code>, ce qui marche souvent en pratique,
+   mais le manuel de pdfTeX dit seulement que les valeurs négatives indiquent
+   le mode dvi sans préciser de valeur précise pour le mode pdf.</p>
+   <p>Un peu hors sujet mais pas tout à fait, sachez que certains commandes
+   détectent d'elle-mêmes le mode de compilation et en tirent les conclusion
+   appropriées. C'est le cas par exemple de la commande
+   <code>\includegraphics{fichier}</code> du package graphicx. Si vous prenez
+   la précaution d'écrire le nom de fichier sans extension, et que deux
+   versions (eps et pdf) sont trouvées, graphicx déterminera automatiquement
+   quel type de fichier il convient d'insérer.</p>
+   <h2 id="pdfinfo"><a href="#top">Remplir les champs pdf à la main</a></h2>
+   <p>Les champs pdf (auteur, date, etc.) peuvent être remplis facilement avec
+   les commandes fournies par le package hyperref (options de chargement du
+   package ou commande <code>\hypersetup</code>). Il peut arriver que vous
+   souhaitiez les remplir à la main, par exemple parce que vous ne souhaitez
+   par charger hyperref pour si peu. Cela se fait facilement avec la primitive
+   <code>\pdfinfo</code> de pdfTeX.</p>
+   <pre>
+\ifnum\pdfoutput&gt;0 \pdfinfo
+{
+/Title (Mon beau document) 
+/Author (Moi) 
+/Subject (Passionnant) 
+/Keywords (mots, clefs)
+}
+\fi
+</pre>
+   <p>L'exemple parle de lui-même. Remarquez que par prudence on n'insère ce
+   code qu'en mode pdf (voir «&nbsp;<a href="#pdfornot">pdf ou
+   pas&nbsp;?</a>&nbsp;»), <code>\pdfinfo</code> causant un warning sinon.
+   Remarquez aussi l'espace entre <code>0</code> et
+   <code>\pdfinfo</code>&nbsp;: c'est une règle générale en TeX qu'il est
+   prudent de laisser un espace entre un nombre et un nom de commande (autre
+   que <code>\relax</code>) car sinon TeX va chercher à voir si la commande ne
+   contient pas la suite du nombre, ce qui peut avoir des effets
+   surprenants.</p>
+   <h2 id="phantom"><a href="#top">Les fantômes sont vos amis</a></h2>
+   <p>La notion de fantômes en LaTeX est très simple&nbsp;: il s'agit de
+   réserver de la place pour un objet, sans pour autant faire apparaître
+   l'objet en question. Les fantômes sont souvent utilisés pour ajuster
+   l'alignement. Ils y a trois types de fantômes obtenus respectivement par les
+   commandes <code>\phantom</code>, <code>\hphantom</code>, et
+   <code>\vphantom</code>.</p>
+   <p>L'exemple classique est celui de l'alignement des radicaux, illustré
+   ci-dessous avec <code>\[ \sqrt{x} + \sqrt{X} + \sqrt{\vphantom{X}x}
+   \]</code>.</p>
+   <div class="centered" style="width: 170px;"><img src="img/vphantom.png" alt=
+   "un exemple" /></div>
+   <p>La différence est fine et sera peut-être plus facile à observer sur un
+   pdf (ou mieux, une version imprimée), mais on constate que la composition
+   des deux radicaux de droite est plus homogène (ils sont alignés en haut) et
+   donc visuellement plus satisfaisante.</p>
+   <p>Pour un autre cas d'utilisation des fantômes, voir le cas des <a href=
+   "#lrdelim">délimiteurs non équilibrés</a>.</p>
+   <p>Les fantômes sont un cas particulier d'une notion classique en
+   typographie, celle de montants. En LaTeX, les montants sont obtenus en tant
+   que réglures dont une dimension est nulle. Par exemple,
+   <code>\vphantom{X}</code> a une action similaire à
+   <code>\rule{0pt}{\heightof{X}}</code> (<code>\heightof</code> est fournie
+   par le package calc). Il peut parfois être utile d'insérer directement une
+   réglure de largeur nulle et de hauteur et profondeur déterminées à la main
+   pour résoudre des problèmes délicats d'alignement.</p>
+   <h2 id="smash"><a href="#top">Écraser verticalement des morceaux de
+   formule</a></h2>
+   <p>À l'inverse de l'astuce précédente qui vise à réserver de la place pour
+   des éléments invisibles, on peut souhaiter que des éléments visibles
+   n'occupent pas (ou moins) de place du point de vue de TeX, leur
+   représentation graphique restant inchangée.</p>
+   <p>On réalise cela grâce à la commande smash, qui insère son argument comme
+   un objet de hauteur et profondeur (voir <a href="#boxmodel">le modèle de
+   boîtes</a>) nulles. Les variantes <code>\smash[b]</code> et
+   <code>\smash[t]</code> (fournies par amsmath) n'annulent respectivement que
+   la profondeur ou la hauteur.</p>
+   <p>Illustrons à nouveau ceci sur des racines avec le code suivant (utilisant
+   amsmath)&nbsp;: <code>\[ \sqrt{y} + \sqrt{x} + \sqrt{\smash[b]{y}}
+   \]</code>. Cette fois encore le phénomène est plus visible sur pdf ou
+   résultat imprimé.</p>
+   <div class="centered" style="width: 160px;"><img src="img/smash.png" alt=
+   "un exemple" /></div>
+   <p>Il convient d'utiliser ce genre de commande avec prudence car en mentant
+   à TeX sur la taille des objets qu'il manipule, des risques de chevauchement
+   visuels apparaissent.</p>
+   <h2 id="indices"><a href="#top">Indices et exposants en folie</a></h2>
+   <p>On a souvent envie de placer des indices ou exposants devant un symbole,
+   par exemple pour la transposée d'une matrice. La solution de base consiste à
+   placer ceux-ci sur un groupe vide, afin d'éviter qu'il n'aillent se coller
+   au symbole précédent. Par ailleurs, on aura parfois intérêt à ajuster
+   l'espace manuellement, par exemple en saisissant <code>{}^t\!M</code>.</p>
+   <p>Autour des opérateurs, on peut placer des indices et exposants avec la
+   commande <code>\sideset</code> d'amsmath&nbsp;:
+   <code>\sideset{_a^b}{_c^d}\prod</code> par exemple. Pour les autres
+   symboles, on peut utiliser la commande <code>\prescript</code> de mathtools,
+   qui fournit un alignement sur la droite, plus satisfaisant que celui de la
+   solution du groupe vide&nbsp;: comparer <code>{}^{12}_3 C</code> et
+   <code>\prescript{12}{3}{C}</code>.</p>
+   <p>Un peu en vrac dans cette section, je mentionne aussi la construction
+   <code>\substack</code> qui permet de placer plusieurs lignes d'indices sous
+   un opérateur, comme <code>\sum_{\substack{(i, j) \in I^2 \\ i \neq
+   j}}</code>. Il y a aussi (à ne pas confondre) <code>\stackrel</code> pour
+   placer des choses sur une flèche ou relation ( <code>x \stackrel{f}{\mapsto}
+   f(x)</code>), et pour les cas plus compliqués
+   <code>\xrightarrow[bas]{haut}</code> et ses variantes évidentes.</p>
+   <p>Enfin, on peut placer des «&nbsp;indices ou exposants centrés&nbsp;» avec
+   <code>\underset{bas}{symbole}</code> et son frère <code>\overset</code>.
+   Quelques exemples en vrac ci-dessous.</p>
+   <div class="centered" style="width: 307px;"><img src="img/indices.png" alt=
+   "un exemple" /></div>
+   <h2 id="mathstyles"><a href="#top">Les huit styles mathématiques</a></h2>
+   <p>TeX, et donc LateX, possède fondamentalement quatre styles mathématiques
+   nommés <code>\displaystyle</code>, <code>\textstyle</code>,
+   <code>\scriptstyle</code> et <code>\scriptscriptstyle</code>, chacun décliné
+   en deux versions&nbsp;: normale et tassée. Il ne faut pas confondre les
+   styles avec les modes (en-ligne ou hors-texte) même si ceux-ci sont
+   reliés&nbsp;: le style par défaut du mode hors-texte est
+   <code>\displaystyle</code>, celui du mode en-ligne étant
+   <code>\textstyle</code>.</p>
+   <p>Ces styles déterminent de nombreux éléments de composition mathématiques,
+   comme la taille des symboles, leur espacement, et la place des indices et
+   exposants. On peut à tout moment changer de style par les commandes
+   ci-dessus, qui agissent jusqu'à la fin du groupe ou jusqu'au prochain
+   changement de style.</p>
+   <p>On contrôle indépendamment le placement des «&nbsp;limites &nbsp;» avec
+   <code>\limits</code> et <code>\nolimits</code>. Comparons ainsi
+   <code>$\sum_a^b$</code>, <code>\[\sum_a^b\]</code>, <code>$\displaystyle
+   \sum_a^b$</code>, <code>$\displaystyle \sum\nolimits_a^b$</code> et
+   <code>$\sum\limits_a^b$</code>.</p>
+   <div class="centered" style="width: 179px;"><img src="img/styles.png" alt=
+   "un exemple" /></div>
+   <p>Pour accéder manuellement à la variante tassée, on utilise la commande
+   <code>\cramped</code> de mathtools, qui compose son argument en style
+   tassé&nbsp;: cela change principalement la hauteur des indices et exposants.
+   Il peut être utile de les compresser, par exemple pour préserver
+   l'interlignage dans un paragraphe. L'effet est assez subtil, mais clair en
+   comparant <code>$2^{2^2}$</code> à <code>$\cramped{2^{2^2}}$</code>.</p>
+   <div class="centered" style="width: 59px;"><img src="img/cramped.png" alt=
+   "un exemple" /></div>
+   <p>Par ailleurs, lors de la définition d'une commande mathématique, vous
+   pouvez prévoir des variantes selon de style mathématique courant avec la
+   commande <code>\mathchoice</code>, qui prend&nbsp;4 arguments,
+   correspondants aux&nbsp;4 styles mathématiques. Exemple&nbsp;:</p>
+   <pre>
+\newcommand\undemi{\mathchoice
+{\frac{1}{2}}
+{1/2}{1/2}{1/2}
+}
+</pre>
+   <p>En style <code>\displaystyle</code> (par exemple une équation hors-texte)
+   <code>\undemi</code> composera <code>\frac{1}{2}</code> et <code>1/2</code>
+   dans tous les autres cas (par exemple une équation en-ligne ou un exposant
+   en mode hors-texte).</p>
+   <h2 id="eqnarray"><a href="#top">Trois arguments contre eqnarray</a></h2>
+   <ol class="par">
+    <li>Typographiquement, <code>eqnarray</code> fait n'importe quoi. Plus
+    précisément, il rajoute beaucoup d'espacement autour du symbole de
+    relation, de façon injustifiée et incohérente avec les autres
+    environnements mathématiques (ci-dessous <code>equation</code>,
+    <code>eqnarray</code> puis <code>align</code>).
+     <div class="centered" style="width: 64px;"><img src="img/eqnarray1.png"
+     alt="un exemple" /></div>
+    </li>
+    <li>Quand l'équation occupe toute la largeur de la page,
+    <code>eqnarray</code> ne s'en rend pas compte et place le numéro d'équation
+    en surimpression sur le texte. Les autres environnements standard, comme
+    <code>equation</code>, ne présentent pas ce problème et placent le tag
+    en-dessous. (À droite, align, à gauche, eqnarray avec
+    <code>\setlength\arraycolsep{2pt}</code>.)
+     <div class="centered" style="width: 326px;"><img src="img/eqnarray2.png"
+     alt="un exemple" /></div>
+    </li>
+    <li>Par ailleurs, eqnarray ne fonctionne pas correctement avec les
+    commandes du package amsmath, incontournable pour composer les
+    mathématiques. Par exemple, les commandes <code>\tag</code> et
+    <code>\intertext</code> fonctionnent avec tous les environnements sauf
+    <code>eqnarray</code>.</li>
+   </ol>
+   <p>Pour ces raisons, <code>eqnarray</code> doit être considéré comme
+   obsolète et je vous conseille de ne plus l'utiliser. Il est avantageusement
+   remplacé par les environnements d'amsmath, notamment <code>align</code>.</p>
+   <h2 id="dollars"><a href="#top">Trois arguments contre l'usage de
+   $$...$$</a></h2>
+   <p>L'usage de $$...$$ pour passer en mode mathématique hors-texte n'a jamais
+   été supporté par LaTeX&nbsp;: c'est un héritage de TeX. Les héritages de TeX
+   ne sont pas tous mauvais, mais celui-ci est à éviter pour (au moins) les
+   raisons suivantes.</p>
+   <ol class="par">
+    <li>Il ne respecte pas les mécanismes de LaTeX, comme par exemple l'option
+    <code>fleqn</code> de la classe standard <code>article</code>&nbsp;: cette
+    dernière doit avoir pour effet d'aligner à gauche (au lieu de centrer) les
+    équations hors-texte, mais les équations délimitées par <code>$$</code>
+    restent obstinément centrées.</li>
+    <li>L'espacement vertical autour de l'équation est inconsistant. La plupart
+    du temps, il sera correct, mais des comportements étranges peuvent survenir
+    quand l'équation est précédée ou suivie de changements de paragraphes ou
+    autres objets «&nbsp;complexes&nbsp;».</li>
+    <li>Enfin, tous les packages bien faits pour LaTeX supposent que vous
+    utilisez les constructions standard de LaTeX, et risquent donc de ne pas
+    fonctionner avec <code>$$</code>. C'est le cas d'amsmath, et par exemple,
+    de sa commande <code>\tag</code>.</li>
+   </ol>
+   <p>Les environnement standard prévus par LaTeX pour les mathématiques
+   hors-texte sont <code>displaymath</code>, <code>equation*</code> et
+   <code>\[...\]</code>&nbsp;: le dernier n'est guère plus long à taper que
+   <code>$$</code> et rend par ailleurs le source plus lisible.</p>
+   <h2 id="texdoc"><a href="#top">Trouver la documentation</a></h2>
+   <p>LaTeX, comme la plupart des systèmes ouverts et développés par ses
+   utilisateurs, est accompagné d'une quantité impressionnante de documentation
+   disponible en ligne. La quasi totalité des packages LaTeX est accompagnée
+   d'une documentation spécifique, qu'il faut savoir trouver.</p>
+   <p>Selon la distribution LaTeX, une plus ou moins grande partie de cette
+   documentation est installée avec les packages&nbsp;: TeXlive installe
+   toujours la documentation, sous MikTeX il faut parfois le demander
+   spécifiquement (via le gestionnaire de packages). Cette documentation est
+   <em>très</em> facile à trouver grâce à l'outil <strong>texdoc</strong>. Par
+   exemple, sous TeXlive/linux, taper <code>texdoc xcolor</code> dans un
+   terminal ouvre immédiatement la documentation en pdf d'xcolor.</p>
+   <p>Cette documentation est aussi disponible en ligne sur le <span title=
+   "Comprehensive TeX Archive Network">CTAN</span>. Parmi les modes de
+   recherche proposés, vous pouvez <a href=
+   "http://ctan.org/search.html#documentation">rechercher de la
+   documentation</a> par mots-clés ou nom de package. Vous pouvez aussi trouver
+   des tutoriels ou documentations non spécifiques à un packages dans la
+   <a href="http://mirror.ctan.org/help/Catalogue/bytopic.html#refmans">section
+   documentation</a> du <a href=
+   "http://mirror.ctan.org/help/Catalogue/catalogue.html">catalogue TeX</a> en
+   ligne.</p>
+   <p>Par ailleurs, les distributions sont aussi accompagnées de leur propre
+   documentation, décrivant l'organisation des fichiers, les outils de bases,
+   variables d'environnement, etc. Cette documentation se trouve sous plusieurs
+   formes et/ou langues, par exemple aux endroits suivants (resp. TeXlive et
+   MiKTeX).</p>
+   <pre>
+Program Files/MiKTeX 2.5/doc/miktex/manual/index.html
+Program Files/MiKTeX 2.5/doc/miktex/miktex.pdf
+/usr/share/doc/texlive-doc/french/texlive-fr/live.html
+/usr/share/doc/texlive-doc/english/texlive-en/live.pdf
+</pre>
+   <h2 id="packages"><a href="#top">Installer des packages à la main (cas
+   facile)</a></h2>
+   <p>La plupart du temps, utilisez les mécanismes de gestion de packages de
+   votre distribution LaTeX (et pensez à mettre à jour). Il peut cependant que
+   vous ayez à installer à la main un package, soit pour avoir la version la
+   plus récente, soit parce que vous n'avez pas accès au gestionnaire de
+   packages (sur une machine où vous n'êtes pas admin).</p>
+   <p>Il faut alors savoir qu'existent sur votre machine plusieurs
+   arborescences texmf (les répertoires où sont rangés, entre autres, les
+   packages)&nbsp;: la plupart du temps, une arborescence de base, une
+   «&nbsp;locale&nbsp;», et une «&nbsp;utilisateur&nbsp;». Ne touchez qu'aux
+   deux dernières. Sur une installation TeXlive/linux typique, ces
+   arborescences sont&nbsp;:</p>
+   <pre>
+/usr/share/texmf-texlive/
+/usr/local/share/texmf
+$HOME/texmf
+</pre>
+   <p>Ces chemins peuvent varier, et être modifiés. Leur valeur est déterminée
+   par des variables d'environnement que vous pouvez afficher via
+   <code>texconfig conf</code> sous TeXlive/linux. Pour en savoir plus, lisez
+   la documentation spécifique à votre distribution (cf. fin de «&nbsp;<a href=
+   "#texdoc">trouver la doc</a>&nbsp;»).</p>
+   <p>La version simple de l'installation de package est celle où il suffit de
+   copier les fichiers (dont le .sty) depuis le CTAN vers l'endroit approprié
+   de votre disque dur. Vous pouvez placer les fichiers au choix dans le même
+   répertoire que votre document en cours (peu recommandé), ou dans un
+   sous-répertoire adéquat (typiquement tex/latex/package) de votre texmf
+   personnel ou local.</p>
+   <p>Dans ce dernier cas, il vous faudra reconstruire la base de données des
+   packages avec la commande <code>mktexlsr</code> (alias
+   <code>texhash</code>). Vous pouvez vérifiez que votre nouveau fichier est
+   bien trouvé par LaTeX avec la commande <code>kpsewhich fichier.sty</code>
+   qui retourne la version qui sera effectivement utilisée dans le cas où il en
+   existerait plusieurs.</p>
+   <p>La version «&nbsp;difficile&nbsp;» est celle où il faut, en plus de ce
+   qui est expliqué ci-dessus, compiler soi-même le package et sa documentation
+   à partir du source .dtx. C'est assez rare, et je renvoie pour ceci à la
+   section&nbsp;4.6 de la «&nbsp;Not so short&nbsp;» (<a href=
+   "http://mirror.ctan.org/help/Catalogue/entries/lshort-english.html">lien
+   ctan</a>, ou bien <code>texdoc lshort</code>).</p>
+   <h2 id="boxmodel"><a href="#top">Le modèle de boîtes de TeX (donc de
+   LaTeX)</a></h2>
+   <p>Pour TeX, produire un document revient à produire des listes de boîtes
+   (contenant éventuellement d'autres boîtes) et à les placer sur la page.
+   C'est au moment de la visualisation que les caractères sont placés dans les
+   boîtes et que le document ressemble à ce qui était souhaité. (Remarquons
+   d'ailleurs qu'un caractère n'est pas toujours «&nbsp;vraiment&nbsp;» contenu
+   dans sa boîte.)</p>
+   <div class="centered" style="width: 221px;"><img src="img/textisboxes.png"
+   alt="un exemple" /></div>
+   <p>Contrairement à ce que suggère l'intuition, une TeX-boîte ne possède pas
+   deux, mais bien trois dimensions&nbsp;: une hauteur, une largeur, et une
+   profondeur. La troisième dimension est liée à l'existence d'une ligne de
+   base sans laquelle il serait difficile d'aligner les caractères. On pourrait
+   spécifier les trois dimensions de façon équivalente sous la forme&nbsp;:
+   largeur, hauteur totale, et décalage. C'est ce qui est fait pour certaines
+   commandes comme <code>\rule</code> et la syntaxe LaTeX manque un peu
+   d'homogénéité sur ce point.</p>
+   <div class="centered" style="width: 177px;"><img src="img/boxdimen.png" alt=
+   "un exemple" /></div>
+   <p>Dans certaines circonstances (rotations de graphiques, minipage), on doit
+   repérer un point verticalement et/ou horizontalement dans une boîte. Une
+   convention courante est d'utiliser deux lettres, dont la première est t
+   (haut), b (bas), c (centre) ou B (ligne de base) pour le positionnement
+   vertical, et la deuxième est l (gauche), r (droite) ou c (centre) pour le
+   positionnement horizontal.</p>
+   <div class="centered" style="width: 109px;"><img src="img/boxplaces.png"
+   alt="un exemple" /></div>
+   <h2 id="lrdelim"><a href="#top">Délimiteurs équilibrés ou non</a></h2>
+   <p>LaTeX propose les commandes bien pratiques <code>\left</code> et
+   <code>\right</code> pour ajuster automatiquement la taille des délimiteurs
+   (parenthèses p.&nbsp;ex.) en fonction du contenu. La seule contrainte est
+   que les délimiteurs doivent être équilibrés par paire. Voyons donc trois
+   astuces autour de cette contrainte.</p>
+   <ol class="par">
+    <li>On veut parfois utiliser une grande accolade ouvrante sans délimiteur
+    fermant, pour taper un système d'équations par exemple. LaTeX propose à cet
+    effet le délimiteur invisible «&nbsp;<code>.</code>&nbsp;». Par
+    exemple&nbsp;:
+     <pre>
+\[ (S) \left\{ % ici on ouvre... 
+\begin{aligned} ax + by + cz &amp;= 0 \\ey + fz &amp;= 0 \\ gz &amp;= 0 \end{aligned} 
+\right. % ...et là on ferme !
+\]
+</pre>
+     <div class="centered" style="width: 136px;"><img src="img/rightdot.png"
+     alt="un exemple" /></div>Pour ce genre de construction, on pourra aussi
+     utiliser l'environnement <code>cases</code> d'amsmath et ses variantes
+     <code>dcases</code> et <code>dcases*</code> du package mathtools.
+    </li>
+    <li>Par ailleurs, on voudrait parfois que les délimiteurs aillent par trois
+    (ou plus). C'est possible avec pdftex (en mode dvi aussi bien sûr, voir
+    «&nbsp;<a href="#moteur">ne pas confondre</a>&nbsp;») qui fournit la
+    nouvelle primitive \middle. Cette commande s'utilise exactement comme on
+    l'imagine&nbsp;: <code>\left\{ \frac{a}{b} \ \middle|\ a \in \mathbf{Z}, b
+    \in \mathbf{Z} \setminus \{0\} \right\}</code> par exemple.</li>
+    <li>Enfin, on ne peut parfois pas équilibrer les délimiteurs, par exemple
+    parce que leur contenu est trop long pour être écrit sur une ligne. Il faut
+    alors ruser en employant conjointement des délimiteurs invisibles, et si
+    besoin des <a href="#phantom">fantômes</a> pour ajuster la taille. Par
+    exemple&nbsp;:
+     <pre>
+\begin{align*}
+a &amp;= \left( \frac{1}{2} + b + c + \ldots \right. \\
+&amp; \qquad \left. \vphantom{\frac{1}{2}} + \ldots + x + y + z \right)^2
+\end{align*}
+</pre>
+     <div class="centered" style="width: 160px;"><img src="img/trickydelim.png"
+     alt="un exemple" /></div>
+    </li>
+   </ol>
+   <h2 id="moteur"><a href="#top">Ne pas confondre TeX, LaTeX, pdfTeX et
+   pdfLaTeX</a></h2>
+   <p>Il m'arrive parfois de parler des possibilités offertes par pdfTeX, et je
+   crains que cela n'effraie les habitués de la chaîne dvi/ps. Une remarque
+   rapide donc sur les rapports entre TeX, pdfTeX et LaTeX pour dissiper un
+   éventuel malentendu.</p>
+   <p>La première chose à comprendre est que LaTeX n'est pas un programme
+   indépendant. Ce n'est qu'un (énorme) jeu de macros pour TeX. Pour utiliser
+   LaTeX, on pourrait en fait utiliser TeX, et commencer par lui faire lire
+   avant notre document (avant le <code>\documentclass</code>) les définitions
+   de centaines de macros. Pour des raisons d'efficacité, on utilise en fait un
+   «&nbsp;format&nbsp;», c'est-à-dire que quand on tape <code>latex</code>,
+   c'est le programme TeX qui est appelé, mais avec toutes les définitions de
+   LaTeX préchargées.</p>
+   <p>Sur les installations modernes, ce que je viens de dire est en fait
+   faux&nbsp;: ce n'est pas le programme TeX, mais pdfTeX qui est appelé. Ce
+   dernier est une version moderne de TeX, qui possède de nombreuses
+   fonctionnalités supplémentaires, comme la possibilité d'écrire de droite à
+   gauche, des fonctionnalités micro-typographiques, la capacité de créer des
+   liens hypertextes, quelques nouvelles primitives utiles (dont
+   <code>\middle</code> (cf <a href="#lrdelim">délimiteurs</a>)) et enfin la
+   possibilité de produire un dvi ou un pdf.</p>
+   <p>Ce dernier point justifie le nom, mais le nom prête à confusion&nbsp;:
+   répétons-le, pdftex sait très bien produire des dvi. Ce qui va déterminer le
+   mode de compilation, c'est le fait que vous l'appeliez avec
+   <code>latex</code> ou <code>pdflatex</code>. Ces deux commandes sont
+   respectivement équivalentes à <code>pdftex -fmt latex test.tex</code> et
+   <code>pdftex -fmt latex -output-format pdf test.tex</code>.</p>
+   <p>En fait, la seule commande qui lancera effectivement TeX (avec le format
+   plain) est la commande... <code>tex</code>&nbsp;! Vous pouvez vous amuser à
+   taper latex --version pour vous convaincre du fait que c'est bien pdftex qui
+   travaille, même en mode dvi. Chez moi, aujourd'hui (2007-06-11), la sortie
+   est la suivante.</p>
+   <pre>
+$ latex --version
+pdfTeX using libpoppler 3.141592-1.40.3-2.2 (Web2C 7.5.6)
+kpathsea version 3.5.6
+[...]
+</pre>
+   <p>Quelques explications&nbsp;: 3.141592 est le numéro de version actuel de
+   TeX, sur lequel est basé pdfTeX. Le source de TeX étant écrit en Web, un
+   langage de programmation et documentation (notion de «&nbsp;literate
+   programming&nbsp;») formé d'un mélange de Pascal et de TeX, il est commode
+   pour le compiler partout de le traduire d'abord en C&nbsp;: c'est le travail
+   de Web2C. Par ailleurs, pdftex intègre désormais les fonctionnalités d'une
+   autre extension de TeX, eTeX (version 2.2), et son numéro de version actuel
+   est le 1.40.3 restant. Enfin, kpathsea est une bibliothèque de recherche qui
+   aide TeX à trouver rapidement ses fichiers dans vos arborescences texmf
+   compliquées (cf «&nbsp;<a href="#packages">installer ses
+   packages</a>&nbsp;»).</p>
+   <h2 id="defvsnc"><a href="#top"><code>\def</code> vs
+   <code>\newcommand</code></a></h2>
+   <p>Une activité essentielle dans l'usage de (La)TeX est la définition de
+   macros. Pour cela, LaTeX propose des méthodes qui lui sont propres
+   (<code>\newcommand</code>, <code>\renewcommand</code>, etc.) en plus des
+   méthodes de TeX qui restent disponibles. Comme souvent, on a intérêt sauf
+   raison particulière à préférer les méthodes de LaTeX pour définir les
+   commandes.</p>
+   <p>La première raison est que LaTeX opère beaucoup d'opérations de contrôle
+   pour vous empêcher de tout casser par maladresse. En l'occurrence, le danger
+   est de redéfinir sans le savoir une commande qui existe déjà (vous ne
+   connaissez sans doute pas par coeur la liste des 300 primitives de TeX et
+   encore moins celle des commandes LaTeX). S'il s'agit d'une commande ayant un
+   rôle essentiel (comme <code>\par</code> ou <code>\output</code>), les
+   conséquences peuvent être catastrophique et difficiles à comprendre.</p>
+   <p>Pour cela, LaTeX distingue la définition d'une nouvelle commande qui se
+   fait avec <code>\newcommand</code> de la redéfinition qui se fait avec
+   <code>\renewcommand</code>. Par ailleurs, il faut savoir qu'en LaTeX il est
+   dangereux de définir des commandes dont le nom commence par
+   <code>\end</code> car elles sont utilisée en interne par les environnements.
+   Là aussi, <code>\newcommand</code> se charge de la vérification et vous
+   évite des problèmes.</p>
+   <p>Par ailleurs, une raison un peu plus personnelle de préférer
+   <code>\newcommand</code> est sa syntaxe plus simple pour la spécification du
+   nombre d'arguments, et en un sens plus puissante avec la possibilité de
+   rendre optionnel le premier argument. Concernant les arguments,
+   <code>\def</code> offre d'autres possibilités, comme les arguments
+   délimités, dont on a rarement besoin sauf pour des techniques un peu
+   avancées.</p>
+   <p>Dans les rares cas où on a vraiment besoin de <code>\def</code> (ou
+   d'autres commandes TeX comme <code>\let</code> ou <code>\edef</code>), un
+   usage prudent est de faire précéder la définition de la macro (par exemple
+   <code>\def\macro</code>) par un <code>\newcommand\macro{}</code> pour
+   vérifier qu'on est bien autorisé à définir <code>\macro</code>.</p>
+   <h2 id="names"><a href="#top">Bien nommer ses macros et
+   environnements</a></h2>
+   <p>La première chose chose à savoir pour nommer ses macros où environnements
+   est quels sont les noms autorisés. Pour les macros, ils sont de deux
+   types&nbsp;: les caractères de contrôle et les mots de contrôle. Dans un
+   caractère de contrôle (p.&nbsp;ex. <code>\!</code>), la contre-oblique est
+   suivie d'un unique caractère qui n'est pas une lettre. Dans un mot de
+   contrôle, la contre-oblique est suivie d'une suite de lettres et le nom de
+   la commande se termine au premier caractère non-lettre (typiquement un
+   espace ou une accolade).</p>
+   <p>TeX reconnaît les 52 caractères auxquels vous pensez comme des lettres.
+   En particulier, A et a sont différents, et é, &#x0040; ou 1 ne sont pas des
+   lettres. On peut parfois demander à TeX de changer sa notion de
+   lettre&nbsp;: voir par exemple le cas de <a href=
+   "#makeatletter"><code>\makeatletter</code></a>.</p>
+   <p>Pour les noms d'environnements, c'est plus simple&nbsp;: les caractères
+   autorisés sont les lettres et le caractère * et ce, quelle que soit la
+   longueur. Vous pouvez essayer d'utiliser d'autres caractères comme des
+   espaces, cela marchera sans doute. Cependant, il n'est écrit nulle part dans
+   le manuel que ça doit marcher, donc il n'est pas certain que cela marchera
+   encore à l'avenir et je vous conseille de ne pas le faire.</p>
+   <p>Le deuxième élément à prendre en compte est le sens du nom. Même si je
+   suis le premier à ne pas (toujours) suivre ce conseil, je vous encourage à
+   ne pas le choisir trop court&nbsp;: votre source gagnera en lisibilité, et
+   c'est sans doute plus important que d'économiser quelques frappes de
+   touches. Par ailleurs, choisissez toujours un nom qui se rapporte au sens de
+   la commande et pas à sa mise en forme (par exemple, <code>\lebesgue</code>
+   pour la mesure de Lebesgue, indépendamment du fait que vous la notiez lambda
+   ou autre chose).</p>
+   <h2 id="stared"><a href="#top">Définir des variantes étoilées</a></h2>
+   <p>Vous l'avez sans doute remarqué, beaucoup d'environnements ou commandes
+   standard de LaTeX existent sous une variante étoilée. Vous pouvez avoir
+   envie de reprendre cette idée quand vous définissez vos commandes et
+   arguments, et j'approuve cette envie. Voyons comment la mettre en
+   oeuvre.</p>
+   <p>Si vous avez lu l'astuce sur le <a href="#names">nommage</a>, vous aurez
+   compris que c'est immédiat pour les environnements car l'étoile est un
+   caractère autorisé dans les noms d'environnements. Il vous suffit donc de
+   faire <code>\newenvironment{myenv}</code> et
+   <code>\newenvironment{myenv*}</code> avec les définitions souhaitées.</p>
+   <p>Pour les commandes, c'est plus compliqué car l'étoile ne peut pas faire
+   partie du nom de la commande. Il y aura donc une commande, qui devra être
+   capable de regarder si elle est ou non suivie d'une étoile et d'adapter son
+   comportement en conséquence. Pour des raisons techniques, cette commande ne
+   pourra pas accepter d'argument, mais pourra faire appel à des commandes qui
+   en acceptent (voir le début de «&nbsp;<a href="#argh">gérer ses
+   arguments</a>&nbsp;»). Par ailleurs, on utilise une commande interne du
+   noyau LaTeX et vous pouvez vous reportez à «&nbsp;<a href=
+   "#makeatletter"><code>\makeatletter</code></a>&nbsp;» pour comprendre
+   pourquoi cela implique son usage.</p>
+   <pre>
+\newcommand*\mycommandstared[1]{ciel #1 étoilé}
+\newcommand*\mycommandunstared[1]{ciel #1 non étoilé}
+\makeatletter
+\newcommand\mycommand{\&#x0040;ifstar{\mycommandstared}{\mycommandunstared}}
+\makeatother
+</pre>
+   <p>Dans cet exemple (stupide), vous pouvez alors utiliser
+   <code>\mycommand</code> comme une commande avec un argument obligatoire et
+   admettant une variante étoilée. Ainsi, <code>\mycommand{bleu}</code>
+   composera «&nbsp;ciel bleu non étoilé&nbsp;» tandis que
+   <code>\mycommand*{nocturne}</code> composera «&nbsp;ciel nocturne
+   étoilé&nbsp;».</p>
+   <h2 id="argh"><a href="#top">Gérer astucieusement ses arguments</a></h2>
+   <p>Dans cette astuce, je suppose que vous connaissez déjà la syntaxe de
+   <code>\newcommand</code>. En particulier, vous savez sans doute qu'on ne
+   peut définir (au plus) qu'un argument optionnel et que celui-ci est
+   nécessairement le premier. L'objet de la présente astuce est de contourner,
+   dans certains cas, cette limitation.</p>
+   <p>Commençons par une remarque assez fondamentale sur la façon dont TeX gère
+   les macros. D'abord, il faut bien comprendre qu'une macro n'est pas une
+   fonction&nbsp;: il ne s'agit pas d'exécuter à part le code de la macro et de
+   renvoyer un résultat, mais juste de remplacer le nom de la macro par son
+   texte de définition. En particulier, TeX n'opère aucun contrôle sur le texte
+   de définition d'un macro, qui peut contenir des macros non définies ou
+   n'ayant pas le bon nombre d'arguments.</p>
+   <p>On peut alors méditer sur le cas d'une commande définie comme
+   <code>\newcommand\latin{\textit}</code>. Techniquement, elle semble être une
+   macro sans argument. En pratique, l'utilisateur écrira <code>\latin{id
+   est}</code> comme si la commande admettait un argument&nbsp;: celui-ci sera
+   en fait passé à <code>\textit</code>. Vous êtes maintenant prêts à
+   comprendre l'exemple suivant.</p>
+   <pre>
+\newcommand*\xvec[1][0]{x_{#1},\ldots,\xvecint}
+\newcommand*\xvecint[1][n]{x_{#1}}
+
+\xvec       % donne x_0,\ldots,x_n
+\xvec[1]    % donne x_1,\ldots,x_n
+\xvec[1][m] % donne x_1,\ldots,x_m
+\xvec[m]    % donne x_m,\ldots,x_n (attention)
+</pre>
+   <p>Deux remarques. Si le dernier argument est optionnel et que vous ne
+   l'utilisez pas, votre commande va manger les espaces qui la suivent, soyez
+   prudent hors du mode mathématique. Pour des traitement plus compliqués, vous
+   devrez utiliser des définitions emboîtées pour faire circuler les arguments
+   entre vos différentes macros internes.</p>
+   <h2 id="makeatletter"><a href="#top">Être ou ne pas être une lettre&nbsp;:
+   le cas de &#x0040;</a></h2>
+   <p>Pour apprécier cette section, vous devez avoir lu le paragraphe sur les
+   <a href="#names">noms de commandes</a>. Vous savez alors qu'en temps normal,
+   si l'on écrit, par exemple <code>\today&#x0040;midnight</code>, il ne s'agit pas
+   d'un nom de commande seul, mais de la commande <code>\today</code> suivie
+   des caractères &#x0040;, m, i, etc.</p>
+   <p>Si pourtant vous lisez les sources d'un package, d'un fichier de classe,
+   voire du noyau LaTeX, vous constaterez que beaucoup de noms de commandes y
+   contiennent au moins un &#x0040;. Il s'agit d'un convention standard de LateX (déjà
+   utilisée par le format plain d'ailleurs) qui sert à «&nbsp;protéger&nbsp;»
+   certaines commandes en les rendant inaccessible à l'utilisateur en temps
+   normal.</p>
+   <p>Ceci repose que le fait qu'on peut demander à TeX de considérer &#x0040; (ou
+   tout autre caractère) comme une lettre si on le désire. Par défaut avec
+   LaTeX, &#x0040; est une lettre à l'intérieur des fichiers de style (packages) ou de
+   classe, et n'est pas une lettre dans les documents. Pour certains cas, vous
+   pouvez vouloir utiliser des commandes internes. Il faut alors auparavant
+   dire à TeX de considérer&nbsp;&#x0040; comme une lettre avec la commande explicite
+   <code>\makeatletter</code>, et ne pas oublier ensuite de rétablir l'ordre
+   naturel des choses par la commande <code>\makeatother</code>.</p>
+   <p>Pour un exemple d'utilisation, voir «&nbsp;<a href="#stared">version
+   étoilée</a>&nbsp;».</p>
+   <h2 id="ncstared"><a href="#top">Étoiler ses
+   <code>\newcommand</code></a></h2>
+   <p>Une astuce qui ne changera rien à vos documents, mais rendra votre code
+   plus robuste en vous permettant de mieux localiser les erreurs. Une des
+   erreurs les plus courantes en tapant un document LaTeX est de mal équilibrer
+   les accolades&nbsp;: en particulier d'oublier l'accolade fermante à la fin
+   de l'argument d'une macro.</p>
+   <p>Dans un cas pareil, si rien n'est prévu, TeX lira votre fichier jusqu'à
+   la fin avant de comprendre qu'il y a une erreur et ne pourra rien faire.
+   Pour éviter cela, Knuth (le créateur de TeX), a prévu de distinguer deux
+   types de macros, courtes ou longues, selon que leurs arguments peuvent ou
+   non contenir un changement de paragraphe. Pour une raison qui m'échappe, par
+   défaut, <code>\newcommand</code> définit des macros longues.</p>
+   <p>En utilisant <code>\newcommand*</code> pour définir votre commande, vous
+   en faites une macro courte, ce qui est largement préférable dans la plupart
+   des cas&nbsp;: ainsi, les erreurs dues à un éventuel oubli d'accolade
+   fermante seront circonscrites à un paragraphe. En cas de problème, TeX s'en
+   rendra compte à la fin du paragraphe (et non du document), il pourra vous
+   signaler facilement l'emplacement de l'erreur et composer le reste du
+   document comme si de rien n'était.</p>
+   <p>Prenez donc l'habitude d'utiliser la plupart du temps les versions
+   étoilés de <code>\newcommand</code> et <code>\renewcommand</code> (sauf bien
+   sûr dans des cas particuliers), cela vous épargnera quelques désagréments.
+   (Vous pouvez vous amuser à vérifier que je suis ce conseil sur tous les
+   exemples présentés sur cette page.)</p>
+   <h2 id="eol"><a href="#top">Commenter ses fins de ligne</a></h2>
+   <p>Une autre astuce un peu technique qui peut vous épargner bien des
+   désagréments. Comme vous le savez peut-être, quand TeX lit votre document,
+   il traduit chaque fin de ligne en espace. La plupart du temps (quand vous
+   saisissez le texte d'un paragraphe sur plusieurs lignes par exemple), c'est
+   exactement le comportement qu'il faut pour vous simplifier la vie.</p>
+   <p>Il y a d'autres circonstances où ce comportement peut être gênant.
+   Notamment, quand vous définissez une macro un peu longue, ou que vous faites
+   quelque chose de compliqué, vous pouvez avoir envie de présenter votre code
+   de façon aérée sur plusieurs lignes (et indenté) pour le rendre plus
+   lisible, comme dans l'exemple suivant.</p>
+   <pre>
+\def\&#x0040;protected&#x0040;testopt#1{%
+\ifx\protect\&#x0040;typeset&#x0040;protect
+\expandafter\&#x0040;testopt
+\else
+\&#x0040;x&#x0040;protect#1%
+\fi}
+</pre>
+   <p>Dans ces circonstances, vous ne voulez pas que les retours à la ligne
+   purement liés à l'esthétique de votre code introduisent des espaces dans
+   votre document quand votre macro sera utilisée au milieu du texte. Pour
+   cela, prenez l'habitude d'insérer un caractère de commentaire
+   «&nbsp;<code>%</code>&nbsp;» à la fin de la ligne (ce qu'on appelle souvent
+   «&nbsp;commenter ses fins de ligne&nbsp;»).</p>
+   <p>Vous n'êtes pas obligé de commenter les fins de ligne qui suivent un mot
+   de contrôle car, vous le savez (cf <a href="#names">noms des macros</a> ),
+   les espaces sont ignorés après un mot de contrôle. Vous n'avez pas non plus
+   besoin de commenter la fin de ligne après un chiffre qui n'est pas une
+   spécification d'argument, car, je l'ai déjà évoqué, il est prudent de faire
+   suivre les nombres (sauf spécification d'argument) d'un espace qui sert à
+   les terminer, et est donc avalé par TeX comme l'espace qui termine un mot de
+   contrôle.</p>
+   <p>Pour vous convaincre que je ne raconte pas de bêtises, que les fins de
+   lignes introduisent bien des espaces que vous de désirez peut-être pas, et
+   qu'on les évite facilement en commentant ses fins de lignes, je vous propose
+   de regarder l'exemple suivant.</p>
+   <pre>
+\fbox{
+Du texte.
+}
+\quad
+\fbox{%
+Du texte.%
+}
+</pre>
+   <div class="centered" style="width: 244px;"><img src="img/eol.png" alt=
+   "un exemple" /></div>
+   <p>Prenez donc l'habitude de systématiquement commenter les fins de lignes
+   qui le nécessitent quand vous écrivez des macros ou que vous présentez du
+   code sur plusieurs lignes. Ceci vous épargnera des désagréments qui peuvent
+   aller bien au-delà d'un espace en trop dans votre document.</p>
+  </div><!-- content -->
+  <div id="sidebar">
+   <h3>Plan : Accueil</h3>
+   <ul>
+    <li><a href="../recherche.html">Recherche</a></li>
+    <li>
+     <a href="../enseignement.html">Enseignement</a>
+     <ul>
+      <li><a href="../m63/">Algèbre (bi)linéaire L3</a></li>
+      <li><a href="../m54/">Algèbre L3</a></li>
+      <li><a href="../m44/">Algèbre linéaire L2</a></li>
+      <li><a href="../m33/">Algèbre L2</a></li>
+      <li><a href="../lm204/">LaTeX L2</a></li>
+      <li><a href="../lm110/">Fonctions L1</a></li>
+      <li><a href="../lm220/">Arithmétique L2</a></li>
+      <li><a href="../lm223/">Formes quadratiques L2</a></li>
+     </ul>
+    </li>
+    <li>
+     <a href="./">LaTeX</a>
+     <ul>
+      <li><a href="begin.html">Bien démarrer</a></li>
+      <li id="navbarcur">Trucs et astuces</li>
+      <li><a href="cies.html">Formations au CIES</a></li>
+      <li><a href="contrib.html">Contributions</a></li>
+      <li><a href="docs/">Documents</a></li>
+      <li><a href="src/">Sources</a></li>
+     </ul>
+    </li>
+    <li><a href="../resp.html">Responsabilités</a></li>
+    <li><a href="../vrac.html">En vrac</a></li>
+   </ul>
+   <h3>À propos</h3>
+   <ul>
+    <li><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>
+    <a href="http://validator.w3.org/check?uri=referer">valide</a>&nbsp;;
+    <abbr title="Cascading Style Sheets">CSS</abbr> <a href=
+    "http://jigsaw.w3.org/css-validator/check/referer">valide</a>.</li>
+    <li class="sep">Dernière édition : 2013-10-03.</li>
+    <li class="sep">Site archivé en 2013.</li>
+    <li class="sep">Auteur : <a class="adresse" href=
+    "m&#x0061;ilto:mpg&#x0040;elzevir.fr">mpg&#x0040;elzevir.fr</a>.</li>
+   </ul>
+  </div><!--sidebar-->
+  <div id="footer"></div>
+ </div><!--page-->
+</body>
+</html>

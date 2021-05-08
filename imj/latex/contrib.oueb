@@ -1,0 +1,43 @@
+/latex/contrib
+
+<!-- BEGIN meta -->
+title:	Contributions LaTeX -- mpg
+descr:	Contributions à LaTeX de Manuel Pégourié-Gonnard
+keyw:	latex, mpg, texdoc, texlive, ctan
+h1:	Contributions
+<!-- END meta -->
+
+<!-- BEGIN content -->
+
+Je contribue au développement de LaTeX, que ce soit au niveau de
+l'environnement logiciel, des paquets, de la documentation ou de la
+formation :
+
+- [TeX Live][tl], la distribution de référence multi-plateformes ; j'ai
+  rejoint l'équipe en 2008 ;
+- [texdoc][], outil d'accès rapide à la documentation ;
+- [paquets sur le CTAN][ctan] dont je suis l'auteur ou auxquels je contribue à
+  des degrés divers ;
+- [versions de développement][gh] de certains paquets sur GitHub ;
+- [nouvelles de LaTeX3][l3] traduites en français ;
+- [formations][cies] au CIES Jussieu et [cours][lm204] à l'UPMC (2007 à
+  2010) ;
+- contribution au livre [LaTeX, l'essentiel][lp] (Pearson, 2010) : écriture du
+  chapitre sur XeLaTeX ;
+- auteur d'[articles aux _Cahiers Gutenberg_][cg].
+
+[tl]: http://tug.org/texlive/
+[ctan]: http://ctan.org/author/gonnard
+[gh]: https://github.com/mpg/
+[l3]: http://www.latex-project.org/l3news/
+[cies]: ./cies.html
+[lm204]: ../lm204/
+[texdoc]: http://tug.org/texdoc/
+[lp]: http://www.pearson.fr/livre/?GCOI=27440100259650
+[cg]: http://cahiers.gutenberg.eu.org/cg-bin/recherche?h=aur&aur=P%C3%A9gouri%C3%A9-Gonnard,+Manuel&format=short
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

@@ -1,0 +1,249 @@
+\documentclass[11pt, twoside]{article}
+
+% Copyright 2006 Nicolas Billerey et Manuel Pégourié-Gonnard
+% ce source est sous licence GNU/FDL (http://www.gnu.org/licenses/fdl.txt)
+% la licence vous autorise à utiliser et/ou distribuer des version modifiées ou non
+% à condition de conserver la même licence pour les versions modifiées.
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{amssymb, amsmath, amsthm} \usepackage[mathscr]{eucal}
+
+\usepackage[a4paper]{geometry}
+
+\newcommand{\pmm}[1]{\ \text{#1}}
+\newcommand{\std}[1]{\mathbf{#1}} \newcommand{\N}{\std{N}} \newcommand{\Z}{\std{Z}}
+\newcommand{\Q}{\std{Q}} \newcommand{\R}{\std{R}} \newcommand{\C}{\std{C}}
+\newcommand{\I}[1][]{\std{I}_{#1}} \newcommand{\ind}[1]{\std{1}_{#1}}
+\renewcommand{\ge}{\geqslant} \renewcommand{\le}{\leqslant}
+\newcommand{\eps}{\varepsilon} \newcommand{\truc}{\,\cdot\,}
+\newcommand*{\modulo}[1]{\text{ mod }#1}
+\newcommand{\gm}{^\times}
+
+\newcommand{\indic}[1]{(\emph{Indication} : #1.)}
+
+\newcounter{question}[section]
+\renewcommand{\thequestion}{\thesection.\arabic{question}}
+\newcommand{\question}{%
+ \refstepcounter{question}%
+ \medskip\noindent\textbf{\thequestion}\quad}
+\newenvironment{blabla}
+ {\smallskip\medskip\begingroup\sffamily\slshape}
+ {\endgroup\medskip}
+
+\title{{\large \textsc{Université Pierre et Marie Curie} 2006--2007}}
+\author{LM220 Maths-Info groupes 1, 2 et 5}
+\date{Corrigé du devoir maison \no 1}
+
+\begin{document}
+\maketitle
+
+\section{Préliminaires}
+
+\question Soit $r$ un entier $>0$. On considère la proposition de récurrence suivante~:
+
+\og Pour tout entier $n\ge 0$ s'écrivant sous la forme $n=p_1^{\alpha_1}\cdots p_r^{\alpha_r}$ où les $p_i$ sont des nombres premiers distincts et les $\alpha_i$ des entiers $\ge 1$, on a un isomorphisme de groupes
+\[
+ (\Z/n\Z)\gm \approx \prod_{i=1}^{r} (\Z/p_i^{\alpha_i}\Z)\gm \pmm.\textrm{\fg}
+\]
+Pour $r=2$, c'est une conséquence du théorème chinois (cf. remarque 24 p.67 de votre cours). Supposons la proposition de récurrence vérifiée pour un entier $r\ge2$. On considère $n=p_1^{\alpha_1}\cdots p_{r+1}^{\alpha_{r+1}}$ un entier naturel décomposé en un produit de $r+1$ puissances de nombres premiers distincts. On écrit $n=mp_{r+1}^{\alpha_{r+1}}$ où $m=p_1^{\alpha_1}\cdots p_r^{\alpha_r}$. On a alors
+\[
+ (\Z/n\Z)\gm \approx (\Z/m\Z)\gm\times(\Z/p_{r+1}^{\alpha_{r+1}}\Z)\gm
+\]
+d'après le théorème chinois ($m$ et $p_{r+1}^{\alpha_{r+1}}$ sont premiers entre eux). Or d'après l'hypothèse de récurrence, on a
+\[
+ (\Z/m\Z)\gm \approx \prod_{i=1}^{r} (\Z/p_i^{\alpha_i}\Z)\gm \pmm.
+\]
+On en déduit immédiatement l'isomorphisme
+\[
+ (\Z/n\Z)\gm \approx \prod_{i=1}^{r+1} (\Z/p_i^{\alpha_i}\Z)\gm \pmm.
+\]
+D'où la proposition par récurrence.
+
+\question\label{quest:preli} Le groupe $G$ étant abélien, on a $(xy)^{ab}=x^ay^b=1$. On en déduit que l'ordre de $xy$ divise $ab$. Réciproquement, si $d\ge 1$ est un entier tel que $(xy)^d=1$, alors, en élevant cette égalité à la puissance $a$, on obtient $y^{ad}=1$. On en déduit que $b$ divise $ad$. Comme par ailleurs les entiers $a$ et $b$ sont premiers entre eux, $b$ divise $d$ (lemme de Gauss). De même, $a$ divise $d$. En utilisant à nouveau le fait que $a$ et $b$ sont premiers entre eux, il vient que $ab$ divise $d$. D'où le fait que l'ordre de $xy$ est $ab$.
+
+\section{Le cas $p\not=2$}
+
+\question\label{ordregroupe} On a $\varphi(p^{\alpha})=p^{\alpha}-p^{\alpha-1}=p^{\alpha-1}(p-1)$. On en déduit que le groupe $(\Z/p^{\alpha}\Z)\gm$ est d'ordre $p^{\alpha-1}(p-1)$. L'entier $1+p$ est premier avec $p^{\alpha}$. Il est donc inversible dans $\Z/p^{\alpha}\Z$.
+
+\question Soit $i$ un entier compris entre $1$ et $p-1$. On a l'égalité
+\[
+ iC_i^p=pC_{p-1}^{i-1}.
+\]
+Les entiers $p$ et $i$ étant premiers entre eux, on en déduit que $p$ divise $C_p^i$.
+
+Si $i\ge 3$, il est clair que $p^3$ divise $C_p^ip^i$. Et, si $i=2$, comme $p$ divise $C_p^i$ on a encore $C_p^ip^i$ divisible par $p^3$.
+
+\question\label{p^3divise} On écrit
+\[
+ (1+p)^p=\sum_{i=0}^pC_p^ip^i=1+p^2+\sum_{i=2}^pC_p^ip^i.
+\]
+Dans la seconde somme ci-dessus, tous les termes sont divisibles par $p^3$ d'après la question précédente. On écrit
+\[
+ \sum_{i=2}^pC_p^ip^i=up^3,\quad\textrm{avec }u\in\N^*.
+\]
+On en déduit l'égalité demandée
+\[
+ (1+p)^p=1+p^2(1+up).
+\]
+
+\question On considère, pour $k$ entier $\ge 1$, la proposition de récurrence suivante.
+
+\og Il existe $\lambda_k$, premier à $p$, tel que
+\begin{equation}\label{eq:1+p}
+ (1+p)^{p^k}=1+\lambda_k p^{k+1}\textrm{\fg}.
+\end{equation}
+Pour $k=1$, c'est le résultat de la question précédente. Supposons donc la proposition vérifiée pour $k\ge 1$. On a alors
+\begin{align*}
+ (1+p)^{p^{k+1}}&=\left((1+p)^{p^k}\right)^p \\
+ &= (1+\lambda_k p^{k+1})^p\quad\textrm{d'après l'hypothèse de récurrence} \\
+ &= 1+\lambda_k p^{k+2}+\sum_{i=2}^pC_p^i\lambda_k^i(p^{k+1})^i.
+\end{align*}
+Et, comme à la question \ref{p^3divise}, on montre que $p^{k+3}$ divise $C_p^i(p^{k+1})^i$ dès que $i\ge 2$. On pose alors $\sum_{i=2}^pC_p^i\lambda_k^i(p^{k+1})^i=p^{k+3}u$. On en déuit l'égalité
+\[
+ (1+p)^{p^{k+1}}=1+(\lambda_k+up)p^{k+2}.
+\]
+Les entiers $\lambda_k$ et $p$ étant premiers entre eux par hypothèse de récurrence, on a le résultat en posant $\lambda_{k+1}=\lambda_k+up$.
+
+\question\label{quest:ordre1+p} L'égalité (\ref{eq:1+p}) appliquée à
+$k=\alpha-1$ fournit la congruence $(1+p)^{p^{\alpha-1}}\equiv
+1\pmod{p^{\alpha}}$. On en déduit que l'ordre de $1+p$ dans le
+groupe multiplicatif $(\Z/p^{\alpha}\Z)\gm$ est un diviseur de
+$p^{\alpha-1}$. Or, toujours d'après (\ref{eq:1+p}),
+$(1+p)^{p^{\alpha-2}}=1+\lambda p^{\alpha-1}$ avec $\lambda$ et $p$
+premiers entre eux. D'où $(1+p)^{p^{\alpha-2}}\not\equiv
+1\pmod{p^{\alpha}}$ et le fait que $1+p$ est d'ordre $p^{\alpha-1}$
+dans $(\Z/p^{\alpha}\Z)\gm$.
+
+\question Le groupe $(\Z/p\Z)\gm$ est cyclique d'après le rappel fait au début de l'énoncé. Autrement dit, il contient un élément d'ordre $p-1$. L'application $\pi$ étant surjective (on l'a admis car c'est évident), cet élément s'écrit $\pi(x)$ pour un certain $x$ dans $(\Z/p^{\alpha}\Z)\gm$.
+
+\question Soit $d$ l'ordre de $x$. D'après les propriétés des morphismes de groupes, on a
+\begin{equation*}
+ 1=\pi(x^{d})=\pi(x)^{d}.
+\end{equation*}
+Or $\pi(x)$ est d'ordre $p-1$ donc $p-1$ divise $d$. On écrit $d=(p-1)k$. L'élément $x^k$ est alors d'ordre exactement $p-1$.
+
+\question\label{quest:groupeestcyclique} Les éléments $y=x^k$ et
+$(1+p)$ du groupe $(\Z/p^\alpha\Z)\gm$ sont d'ordres respectifs $p-1$ et
+$p^{\alpha -1}$, donc d'après la question \ref{quest:preli},
+l'élément $y(1+p)$ est d'ordre $p^{\alpha -1}(p-1)$. Or le groupe
+$(\Z/p^{\alpha}\Z)\gm$ est d'ordre $p^{\alpha-1}(p-1)$ d'après la
+question \ref{ordregroupe}. On en déduit qu'il est cyclique
+(engendré par $y(1+p)$).
+
+\section{Le cas $p=2$}
+
+\question\label{quest:groupeestcyclique2} On a
+$(\Z/2\Z)\gm=\left\{1\right\}$ et
+$(\Z/4\Z)\gm=\left\{1,3\right\}=\langle 3\rangle$. Ces deux groupes
+sont donc cycliques.
+
+\question\label{quest:ordregroupeen2} L'ordre de
+$(\Z/2^{\alpha}\Z)\gm$ est $\varphi(2^{\alpha})=2^{\alpha-1}$.
+
+\question On considère, pour $k$ entier $\ge 1$, la proposition de récurrence suivante.
+
+\og Il existe $\lambda_k$ impair tel que $5^{2^k}=1+\lambda_k 2^{k+2}$\fg.
+
+Pour $k=1$, c'est simplement l'égalité $25=1+3\cdot8$. Supposons la proposition de récurrence vérifiée pour $k$ entier $\ge 1$. On a
+\begin{align*}
+ 5^{2^{k+1}}=(5^{2^k})^2&=(1+\lambda_k 2^{k+2})^2\quad\textrm{par hypothèse de récurrence} \\
+&=1+2^{k+3}(\lambda_k+\lambda_k^2 2^{k+1}).
+\end{align*}
+ D'où le résultat en posant $\lambda_{k+1}=\lambda_k+\lambda_k^2 2^{k+1}$.
+
+\question\label{quest:ordre5} On a $5^{2^{\alpha-2}}\equiv
+1\pmod{2^{\alpha}}$ d'après la question précédente. On en déduit que
+$5$ est d'ordre divisant $2^{\alpha-2}$. Par ailleurs,
+$5^{2^{\alpha-3}}=1+\lambda_{\alpha-3}2^{\alpha-1}\not\equiv
+1\pmod{2^{\alpha}}$ ($\lambda_{\alpha-3}$ est impair). On en déduit
+comme à la question \ref{quest:ordre1+p} que $5$ est d'ordre
+$2^{\alpha-2}$.
+
+\question Soient $(\varepsilon,a)$ et $(\varepsilon',a')$ dans
+$\mu_2\times \Z/2^{\alpha-2}\Z$. Alors
+\begin{equation*}
+f(\varepsilon,a)f(\varepsilon',a')=(\varepsilon\cdot
+5^a)(\varepsilon'\cdot
+5^{a'})=\varepsilon\varepsilon'\cdot5^{a+a'}=f((\varepsilon,a)\cdot(\varepsilon',a')).
+\end{equation*}
+L'application $f$ est donc un morphisme de groupes.
+
+\question Soit $a\in\Z/2^{\alpha-2}\Z$. On suppose que $5^a=1$ dans
+$(\Z/2^{\alpha}\Z)\gm$. Or $5$ est d'ordre $2^{\alpha-2}$ dans
+$(\Z/2^{\alpha}\Z)\gm$ d'après la question \ref{quest:ordre5}. On en
+déduit que $a=0$ dans $\Z/2^{\alpha-2}\Z$. La réciproque est
+évidente.
+
+Soit $a\in\Z$ tel que $5^a\equiv -1\pmod{2^{\alpha}}$. Alors, il
+existe $k$ dans $\Z$ tel que
+\begin{equation*}
+5^a=2^{\alpha}k-1.
+\end{equation*}
+Or $\alpha\ge 3$ par hypothèse. En réduisant modulo $4$ l'égalité
+ci-dessus, on obtient alors $1\equiv -1\pmod{4}$ ce qui est bien sûr
+absurde. On en déduit que la congruence $5^a\equiv
+-1\pmod{2^{\alpha}}$ n'a jamais lieu.
+
+\question Montrons  que $f$ est injective. On choisit un élément
+$(\varepsilon,a)$ de $\ker(f)$. On a alors
+$f(\varepsilon,a)=\varepsilon\cdot5^a=1$. Or $\varepsilon=1$ ou
+$-1$. Donc $5^a=1$ ou $5^a=-1$ dans $(\Z/2^{\alpha}\Z)\gm$. La
+seconde égalité n'ayant jamais lieu d'après la question précédente,
+on a donc $5^a=1$ et $a=0$ dans $\Z/2^{\alpha-2}\Z$. Autrement dit,
+$\ker(f)=\{(1,0)\}$.
+
+\question L'application $f$ étant injective entre deux ensembles de
+même cardinal fini, elle est bijective. En particulier, tout élément
+de $(\Z/2^{\alpha}\Z)\gm$ s'écrit de manière unique sous la forme
+$\varepsilon\cdot5^a$ avec $\varepsilon\in\mu_2$ et
+$a\in\Z/2^{\alpha-2}\Z$. Un tel élément étant d'ordre divisant
+l'ordre de $5$ c'est le résultat voulu.
+
+On en déduit, avec la question \ref{quest:ordregroupeen2}, que le
+groupe multiplicatif $(\Z/2^{\alpha}\Z)\gm$ n'est pas cyclique.
+
+\section{Conclusion}
+
+\question\label{quest:groupenoncyclique} Supposons que les entiers $a$ et $b$ ne
+sont pas premiers entre eux. Si $m$ désigne leur ppcm, alors pour
+tout couple $(x,y)\in\Z/a\Z\times\Z/b\Z$, on a
+$m\cdot(x,y)=(mx,my)=(0,0)$. En particulier, l'ordre de  élément
+$(x,y)$ divise $m$. Or $m<ab$ car $a$ et $b$ ne sont pas premiers
+entre eux. On en déduit qu'il n'existe pas d'élément d'ordre $ab$
+dans $\Z/a\Z\times\Z/b\Z$. Ce groupe n'est donc pas cyclique.
+
+\question D'après les questions \ref{quest:groupeestcyclique} et
+\ref{quest:groupeestcyclique2}, si $n=2$, $4$, $p^{\alpha}$ ou
+$2p^{\alpha}$, ($p$ premier, $\alpha\ge 2$), alors le groupe
+$(\Z/n\Z)\gm$ est cyclique.
+
+Réciproquement, si $(\Z/n\Z)\gm$ est cyclique, alors $n$ ne peut
+avoir deux facteurs premiers impairs distincts. En effet, si
+$p\not=q$ sont deux nombres premiers impairs distincts divisant $n$,
+alors (pour $\alpha$ et $\beta$ deux entiers $\ge1$), le groupe
+produit
+\begin{equation*}
+(\Z/p^{\alpha}\Z)\gm\times(\Z/q^{\beta}\Z)\gm
+\end{equation*}
+n'est pas cyclique d'après la question précédente ($2$ divise
+$\varphi(p^{\alpha})$ et $\varphi(q^{\beta})$).
+
+Si $n$ est impair, on en déduit que $n=p^{\alpha}$ (pour un $p$
+premier et $\alpha\ge 1$).
+
+Si $n$ est pair. Alors, soit $n=2$ ou $4$, soit $n$ s'écrit sous la
+forme $2^{\gamma}p^{\alpha}$ (pour un $p$ premier et
+$\alpha$,$\gamma\ge 1$). Or si $\gamma>2$, le groupe
+$(\Z/2^{\gamma}\Z)\gm$ n'est pas cyclique (question
+\ref{quest:groupenoncyclique}). On a donc $\gamma\le2$. Or le groupe
+produit
+\begin{equation*}
+(\Z/4\Z)\gm\times(\Z/p^{\alpha}\Z)\gm
+\end{equation*}
+n'est pas cyclique d'après la question précédente. On en déduit que
+$\gamma=1$. D'où le résultat.
+
+\end{document}

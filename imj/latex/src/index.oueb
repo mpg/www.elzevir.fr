@@ -1,0 +1,34 @@
+/latex/src/
+
+<!-- BEGIN meta -->
+title:	LaTeX -- sources
+descr:	Sources LaTeX en vrac
+keyw:	latex, cours, notes, documents
+h1:	Sources LaTeX en vrac
+<!-- END meta -->
+
+<!-- BEGIN content -->
+
+Voici, en vrac, les sources de quelques documents pédagogiques que j'ai produits
+concernant LaTeX. Le plus souvent, ils sont placés sous une licence libre,
+précisée dans chaque archive ou fichier.
+
+Ces sources sont fournis tels-que et ne constituent pas nécessairement le
+meilleur exemple de comment coder en LaTeX. (Globalement, plus ils sont vieux,
+moins ce sont de bons exemples, j'espère en tout cas qu'ils ne sont pas
+entièrement mauvais.)
+
+<table summary="liste des fichiers">
+ <tr><th>Nom du fichier</th><th>Date</th><th>Taille</th></tr>
+ <tr><th colspan="3"><hr /></th></tr>
+ <tr><td><a href="cv-mpg.tex">cv-mpg.tex</a></td><td align="right">2009-12-31 17:25  </td><td align="right">5.5K</td></tr>
+ <tr><td><a href="latex-cies-avance-poly-partiel-sources.zip">latex-cies-avance-poly-partiel-sources.zip</a></td><td align="right">2009-12-31 17:25  </td><td align="right"> 58K</td></tr>
+ <tr><td><a href="latex-cies-debutant-rapide-sources.zip">latex-cies-debutant-rapide-sources.zip</a></td><td align="right">2009-12-31 17:25  </td><td align="right">178K</td></tr>
+ <tr><th colspan="3"><hr /></th></tr>
+</table>
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+<!-- END files -->
+

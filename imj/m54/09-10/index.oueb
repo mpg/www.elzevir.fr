@@ -1,0 +1,56 @@
+/m54/09-10/
+
+<!-- BEGIN meta -->
+title:	M54 2009-2010
+descr:	Page du module M54 : algèbre et arithmétique 2 (2009-2010)
+keyw:	M54, algèbre, arithmétique, licence, université d'Évry
+h1:	M54 : algèbre et arithmétique 2
+<!-- END meta -->
+
+<!-- BEGIN content -->
+Cette page est consacrée au module M54 de la licence math et informatique de
+l'[université d'Évry Val d'Essone][evry], dont le cours magistral est donné par
+[Abdelmajid Bayad][bayad] et dont j'assurais les TD au premier semestre
+2009-2010.
+
+[evry]: http://www.univ-evry.fr/fr/
+[bayad]: http://www.maths.univ-evry.fr/pages_perso/bayad/
+
+## Matériel utilisé en TD
+
+[f1]: f1.pdf
+[f2]: f2.pdf
+[f3]: f3.pdf
+[f3i]: f3i.pdf
+[f4]: f4.pdf
+[f4i]: f4i.pdf
+[f5]: f5.pdf
+[f5i]: f5i.pdf
+[dm]: dm.pdf
+[dmc]: dm-c.pdf
+[part]: partiel2009.pdf
+[parti]: c-partiel2009.pdf
+[zip]: td-m54.zip
+[src]: sources-td-m54.zip
+
+- [Feuille 1][f1] : arithmétique dans Z et Z/nZ.
+- [Feuille 3][f2] : anneaux, sous-anneaux.
+- [Feuille 3][f3] : éléments inversibles, nilpotents ; corps.
+- [Feuille 4][f4] : idéaux.
+- [Feuille 5][f5] : anneaux particuliers, quotients, corps finis. [Indications
+  détaillées][f5i] pour certains exercices.
+- [Devoir à la maison][dm] et son [corrigé détaillé][dmc].
+- [Partiel de l'an passé][part] et des [indications succintes][parti].
+
+### Archives ZIP
+
+[Tous les PDF][zip] d'un coup ; toutes les [sources LaTeX][src], librement
+ré-utilisables.
+
+<!-- END content -->
+
+<!-- BEGIN files -->
+td-m54.zip	Tout en PDF
+sources-td-m54.zip	Toutes les sources
+<!-- END files -->
+

@@ -1,0 +1,146 @@
+/lm110/mime163
+
+<!-- BEGIN meta -->
+title:	LM110 07-08
+descr:	page du TD LM110 fonctions, 2006-2007
+keyw:	lm110, MIME16, analyse, fonctions, licence, math
+h1:	LM110 : groupe MIME163
+<!-- END meta -->
+
+<!-- BEGIN content -->
+<p class="colle">Cette page regroupe les informations spécifiques au module
+LM110 pour le groupe MIME 16.3, dont je m'occupe ce premier semestre 2007 en
+alternance avec <a href="http://math.univ-bpclermont.fr/~billerey/">Nicolas Billerey</a>.  Les TD ont lieu
+le lundi de 10h45 à 12h30 (salle 259, atrium) et le jeudi de 10h45 à 12h30
+(salle 427, atrium). Le cours a lieu le vendredi de 10h45 à 12h30 en amphi B1
+et est assuré par Sami Mustapha. Vous trouverez sur cette page les feuilles
+d'exercices en pdf (colonne de gauches), un calendrier du contrôle continu et
+un suivi de la progression en TD (ci-dessous).</p>
+
+<h4>Organisation du contrôle continu</h4>
+
+<p>Voici le programme prévisionnel des devoirs et interrogations. Au fil du
+temps, les dates prévisionnelles, exprimées en semaines, seront remplacées
+par des dates effectives, en jours.</p>
+
+<ul>
+<li>Interrogation 1 : lundi 15 octobre.</li>
+<li>Interrogation 2 : lundi 12 novembre.</li>
+<li>Interrogation 2 : lundi 1 décembre.</li>
+</ul>
+
+<h4>Suivi de la progression en TD</h4>
+
+<h5>jeudi 13 septembre</h5>
+<ul>
+<li>Accueil et présentation du module.</li>
+<li>Exercices 2 et 3 de la feuille 1.</li>
+<li>Exercice 3 à finir pour lundi.</li>
+</ul>
+
+<h5>lundi 17 septembre</h5>
+<ul>
+<li>Correction de l'exercice 3, feuille 1.</li>
+<li>Exercices 4 et 5.</li>
+<li>Exercice 4 de la feuille 2 à préparer pour jeudi.</li>
+</ul>
+
+<h5>jeudi 20 septembre</h5>
+<ul>
+<li>Fin de la feuille 1 (exercice 1).</li>
+<li>Exercices 2 et 4 de la feuille 2.</li>
+<li>Exercice 1 de le feuille 2 à finir pour lundi.</li>
+</ul>
+
+<h5>lundi 24 septembre</h5>
+<ul>
+<li>Corrigé l'exercice 1 de la feuille 2.</li>
+<li>Fait les exercices 3 et 5 de la feuille 2.</li>
+<li>Exercice 6 de la feuille 2 à finir pour jeudi.</li>
+</ul>
+
+<h5>jeudi 27 septembre</h5>
+<ul>
+<li>Corrigé l'exercice 6 de la feuille 2.</li>
+<li>Fait l'exercice 3 et l'exercice 2 de la feuille 3.</li>
+<li>Pour lundi : revoir l'exercice 2 et préparer le 4.</li>
+</ul>
+
+<h5>lundi 1er octobre</h5>
+<ul>
+<li>Corrigé la fin de l'exercice 2.</li>
+<li>Fait les exercices 4, 5, 6 et les quatres premières questions du 7.</li>
+<li>Exercice 1 à préparer pour la prochaine fois.</li>
+</ul>
+
+<h5>jeudi 4 à jeudi 11 octobre</h5>
+<p>Absent, je renvoie à la page de Nicolas Billerey qui assurait les TD.</p>
+
+
+<h5>lundi 15 octobre</h5>
+<ul>
+<li>Première interro.</li>
+<li>Corrigé de l'interro.</li>
+<li>DL de base à apprendre par cœur pour jeudi.</li>
+</ul>
+
+<h5>jeudi 18 octobre</h5>
+<p>TD annulé pour cause d'absence des étudiants, suite à la grêve des
+transports.</p>
+
+<h5>lundi 22 octobre</h5>
+<ul>
+<li>Rappels de cours sur les développements limités.</li>
+<li>Exercices 1, 2 et 3 de la feuille 5.</li>
+<li>Exercices 3 et 4 à finir/faire pour jeudi.</li>
+<li>Réviser les DL des base (sin, cos, exp, ln, inverse, puissance) pour
+jeudi.</li>
+</ul>
+
+<h5>jeudi 25 octobre</h5>
+<ul>
+<li>Exercices 3, 4 et 6 de la feuille 5.</li>
+<li>Exercice 7 pour lundi.</li>
+</ul>
+
+<h5>lundi 29 octobre</h5>
+<ul>
+<li>Exercices 7 et 8.</li>
+<li>Exercice 9 à traiter par composition pour lundi prochain.</li>
+</ul>
+
+<h5>jeudi 1<sup>er</sup> novembre</h5>
+<p>Férié</p>
+
+<h5>lundi 5 novembre</h5>
+<ul>
+<li>Correction de l'exercice 9 par substitution.</li>
+<li>Rappels de cours, division suivant les puissances croissantes. Exercices
+9 par division, exercice 10.</li>
+<li>Exercice 5 à finir pour jeudi.</li>
+</ul>
+
+<p><em>À partir de ce moment, le suivi se relâche un peu, je ne mets plus la
+page à jour assez régulièrement. Je renvoie à la <a
+href="#">page LM110</a><small>(plus disponible)</small> de <a
+href="http://math.univ-bpclermont.fr/~billerey/">Nicolas Billerey</a> pour un suivi plus
+régulier...</em></p>
+<!-- END content -->
+
+<!-- BEGIN files -->
+lm110_163_f1.pdf		Feuille 1
+lm110_163_f2.pdf		Feuille 2
+lm110_163_f3.pdf		Feuille 3
+lm110_163_f4.pdf		Feuille 4
+lm110_163_f4p.pdf		Feuille 4+
+lm110_163_f5.pdf		Feuille 5
+lm110_163_f6.pdf		Feuille 6
+lm110_163_f6c.pdf		Feuille 6 (corrigé partiel)
+lm110_163_f7.pdf		Feuille 7
+lm110_163_f8.pdf		Feuille 8
+
+lm110_163_i1.pdf		Interro 1
+lm110_163_i2.pdf		Interro 2
+lm110_163_i3.pdf		Interro 3
+<!-- END files -->
+

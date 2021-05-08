@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="fr-FR" xml:lang="fr"
+ xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <link href="../style.css" title="style" rel="stylesheet" type="text/css" />
+  <meta name="author" content="Manuel Pégourié-Gonnard" />
+  <meta http-equiv="content-Language" content="fr" />
+  <title>GPG - MPG</title>
+ </head>
+
+ <body>
+
+  <p>Vous pouvez télécharger <a href="mpg.asc">ma clé gpg ici</a> et l'importer
+  avec <code>gpg --import mpg.asc</code> ou directement depuis un serveur de
+  clés avec (par exemple) <code>gpg --keyserver pool.sks-keyservers.net
+   --recv-key 98EED379</code>.</p>
+
+  <p>Mon dernier changement de clé date de fin 2011. Voici le
+  <a href="transition.txt">document de transition</a>, sa signature <a
+   href="trans.old.sig">par l'ancienne clé</a> et <a href="trans.new.sig">par
+   la nouvelle</a>. Vous pouvez vérifier ces signatures avec (par exemple)
+  <code>gpg --verify trans.old.sig transition.txt</code>.</p>
+
+  <p>Quelques <a href="http://pgp.cs.uu.nl/stats/98EED379.html">statistiques</a>
+  dont la distance moyenne aux autres clés. Vous pouvez aussi chercher des
+  chemins entre votre clé et la mienne.</p>
+
+  <form method="get" action="http://pgp.cs.uu.nl/mk_path.cgi">
+   <p>
+   Identifiant de votre clé :
+   <input type="text"    name="from"   size="10" />
+   <input type="hidden"  name="to"     value="98EED379" />
+   <input type="submit"  name="paths"  value="trouver des chemins" />
+   </p>
+  </form>
+
+ </body>
+</html>

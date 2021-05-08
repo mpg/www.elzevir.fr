@@ -1,0 +1,87 @@
+\documentclass[11pt, twoside]{article}
+
+% Copyright 2006 Nicolas Billerey et Manuel Pégourié-Gonnard
+% ce source est sous licence GNU/FDL (http://www.gnu.org/licenses/fdl.txt)
+% la licence vous autorise à utiliser et/ou distribuer des version modifiées ou non
+% à condition de conserver la même licence pour les versions ultérieures.
+
+\usepackage[latin1]{inputenc}
+
+\usepackage[a4paper]{geometry}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc} \usepackage{lmodern}
+\usepackage{amssymb, amsmath, amsthm} \usepackage[mathscr]{eucal}
+
+
+\newcounter{feuille}
+
+\usepackage{fancyhdr} \pagestyle{fancy}
+\fancyhead{} \fancyfoot{} \setlength{\headheight}{14pt}
+\fancyhead[RO, LE]{Feuille \thefeuille} \fancyhead[C]{UPMC
+2005--2006} \fancyhead[LO, RE]{LM223} \fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.1pt}
+\title{{\large \textsc{Université Pierre et Marie Curie} 2005--2006}}
+\author{LM223 maths-info groupes 1, 2, 5 et 6 \\ LM223 maths groupes 1 et 2}
+\date{Feuille \thefeuille}
+
+\theoremstyle{definition} \newtheorem{exo}{Exercice}
+
+
+\newcommand{\pmm}[1]{\ \text{#1}}
+\newcommand{\std}[1]{\mathbf{#1}} \newcommand{\N}{\std{N}} \newcommand{\Z}{\std{Z}}
+\newcommand{\Q}{\std{Q}} \newcommand{\R}{\std{R}} \newcommand{\C}{\std{C}}
+\newcommand{\I}[1][]{\std{I}_{#1}} \newcommand{\ind}[1]{\std{1}_{#1}}
+\renewcommand{\ge}{\geqslant} \renewcommand{\le}{\leqslant}
+\newcommand{\eps}{\varepsilon} \newcommand{\truc}{\,\cdot\,}
+
+\DeclareMathOperator{\im}{im} \DeclareMathOperator{\tr}{tr}
+
+
+\begin{document}
+\setcounter{feuille}{6} \maketitle
+
+\begin{exo}
+On considère la forme quadratique sur $\R^3$ définie par 
+ \[q(x_1, x_2, x_3) = x_1^2 + 2x_2^2 + 3x_3^2 + 2x_1x_2 + 2 x_1x_3 + 4 x_2x_3 \pmm{.}\] 
+On pose $X = \begin{pmatrix} 1\\0\\0 \end{pmatrix}$, $Y = \begin{pmatrix} -1\\1\\0 \end{pmatrix}$, $Z =  \begin{pmatrix} 0\\-1\\1 \end{pmatrix}$; montrer que $(X, Y, Z)$ est une base orthonormale pour $q$.
+\end{exo}
+
+\begin{exo}
+Soit $A = ((a_{ij})) \in \std{O}_n(\R)$ une matrice orthogonale. Montrer que 
+\[\Big|\sum_{1\le i, j\le n} a_{ij} \Big| \le n \pmm{.}\]
+[Indication : que vaut $^t\!XAX$ si $X=(1,\dots,1)$?]
+\end{exo}
+
+\begin{exo}
+Sur l'espace $E= \mathcal{C}([0,1], \R)$ des applications continues sur $[0,1]$ à valeurs réelles, on considère la forme bilinéaire définie par : $\langle f, g\rangle = \int_0^1 f(t)g(t) dt$.
+\begin{enumerate}
+ \item Montrer que c'est un produit scalaire. On note $\|\truc\|_2$ la norme associée.
+ \item On pose par ailleurs $\|f\|_1 = \int_0^1 |f(t)|dt$. Montrer que pour tout $f$ de $E$, on a $\|f\|_1 \le \|f\|_2$. 
+\end{enumerate} 
+\end{exo}
+
+\begin{exo}
+Appliquer la méthode d'orthonormalisation de Gram-Schmidt dans les cas suivants :
+\begin{enumerate}
+ \item $X = \begin{pmatrix} 1\\2\\-2 \end{pmatrix}$, $Y = \begin{pmatrix} 0\\-1\\2 \end{pmatrix}$, $Z = \begin{pmatrix} -1\\3\\1 \end{pmatrix}$ dans $\R^3$ muni du produit scalaire usuel,
+ \item $P = 1$, $Q = X$, $R= X^2$ dans $\R[X]$ muni du produit scalaire $\langle f, g\rangle = \int_0^1 f(t)g(t) dt$.  
+\end{enumerate}
+Remarque : les polynômes obtenus à la question 2 sont connus sous le nom de polynômes de Legendre.
+\end{exo}
+
+\begin{exo}
+Dans $\R[X]$, vérifier que la formule $\langle f, g\rangle = \int_0^1 xf(x)g(x)dx$ définit bien un produit scalaire. Appliquer alors la méthode de Gram-Schmidt aux éléments $1, X, X^2$ de $\R[X]$ muni de ce produit scalaire.
+\end{exo}
+
+\begin{exo}
+Sur $\R^3$, montrer que la forme 
+\[f : (x, y) \mapsto (x_1-2x_2)(y_1-2y_2) + x_2y_2 + (x_2+x_3)(y_2+y_3)\]
+ est un produit scalaire. 
+\begin{enumerate}
+ \item Calculer la matrice de $f$ dans la base canonique de $\R^3$.
+ \item À l'aide de la méthode de Gram-Schmidt, orthonormaliser la base canonique de $\R^3$ pour le produit scalaire $f$.
+ \item Donner sans calcul la matrice de $f$ dans la nouvelle base ainsi obtenue.
+\end{enumerate}
+\end{exo}
+
+\end{document}

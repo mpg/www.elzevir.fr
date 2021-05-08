@@ -1,0 +1,71 @@
+\documentclass[11pt, twoside]{article}
+
+% Copyright 2006 Nicolas Billerey et Manuel Pégourié-Gonnard
+% ce source est sous licence GNU/FDL (http://www.gnu.org/licenses/fdl.txt)
+% la licence vous autorise à utiliser et/ou distribuer des version modifiées ou non
+% à condition de conserver la même licence pour les versions modifiées.
+
+\usepackage[latin1]{inputenc}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc} \usepackage{lmodern}
+
+\usepackage{amssymb, amsmath, amsthm} \usepackage[mathscr]{eucal}
+
+\usepackage[a4paper]{geometry}
+
+\newcommand*{\pmm}[1]{\ \text{#1}}
+\newcommand*{\std}[1]{\mathbf{#1}} \newcommand{\N}{\std{N}} \newcommand{\Z}{\std{Z}}
+\newcommand{\Q}{\std{Q}} \newcommand{\R}{\std{R}} \newcommand{\C}{\std{C}}
+\newcommand{\I}[1][]{\std{I}_{#1}} \newcommand{\ind}[1]{\std{1}_{#1}}
+\renewcommand{\ge}{\geqslant} \renewcommand{\le}{\leqslant}
+\newcommand{\eps}{\varepsilon} \newcommand{\truc}{\,\cdot\,}
+\newcommand*{\modulo}{\ensuremath{\text{ mod }}}
+
+\theoremstyle{definition} \newtheorem{exo}{Exercice}
+\newtheorem{qc}{Question de cours}
+\renewcommand{\theqc}{\hspace{-.3em}}
+\newtheorem{thm}{Théorème}
+\renewcommand{\thethm}{\hspace{-.3em}}
+
+\title{{\large \textsc{Université Pierre et Marie Curie} 2006--2007}}
+\author{LM220 Maths-Info groupes 2 et 5}
+\date{Interrogation écrite \no3}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{exo} ~\par
+ \begin{enumerate}
+ \item Calculer $76^{29}$ modulo $7$ et $76^{29}$ modulo $13$.
+\item Dans un cryptosystème utilisant la méthode RSA avec la clé publique $(n,e)=(91,5)$, on souhaite envoyer le message $M_1=9$. Déterminer le message codé $C_1$ à envoyer.
+\item Déterminer la clé secrète de ce cryptosystème et décoder le message $C_2=76$.
+\end{enumerate}
+\end{exo}
+
+\bigskip
+
+\begin{exo}
+On considère les deux polynômes suivants de $\Q\left[X\right]$~:
+\begin{equation*}
+ P(X)=X^4+X^3+2X^2-X+3\quad\textrm{et}\quad Q(X)=X^3+1.
+\end{equation*}
+\begin{enumerate}
+\item Calculer le pgcd de $P$ et $Q$.
+\item En déduire la factorisation de $P$ en produit de facteurs irréductibles dans $\Q\left[X\right]$.
+\end{enumerate}
+
+
+\end{exo}
+
+\bigskip
+
+\begin{qc} ~\\
+ Démontrer le théorème suivant.
+\begin{thm}
+ Soient $K$ un corps et $I$ un idéal non nul de $K\left[X\right]$. Il existe un unique polynôme unitaire ${P\in K\left[X\right]}$ tel que l'on ait $I=(P)$.
+\end{thm}
+\end{qc}
+
+\end{document}
